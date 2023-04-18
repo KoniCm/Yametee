@@ -10,21 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/MainColor">
         <activity
+            android:name=".studentActivity"
+            android:exported="false"
+            android:label="Student Management System"/>
+        <activity
             android:name=".Details"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
-            android:label="Book Maintenance"
-            android:exported="false"/>
-        <activity
-            android:name=".UpdateActivity" />
+            android:exported="false"
+            android:label="Book Maintenance" />
+        <activity android:name=".UpdateActivity" />
         <activity
             android:name=".AddActivity"
             android:label="Adding Book"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Dashboard"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".Splash"
             android:exported="true"
