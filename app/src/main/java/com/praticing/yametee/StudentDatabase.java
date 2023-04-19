@@ -22,6 +22,7 @@ public class StudentDatabase extends SQLiteOpenHelper
     private static final String COLUMN_SECTION = "student_section";
     private static final String COLUMN_STRAND = "student_strand";
 
+
     public StudentDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -44,7 +45,7 @@ public class StudentDatabase extends SQLiteOpenHelper
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
-    void addStudent(String id, String name,int level,String section,String strand){
+    void addStudent(String id, String name, int level,String section,String strand){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -60,7 +61,7 @@ public class StudentDatabase extends SQLiteOpenHelper
             Toast.makeText(context, "Failed to add a book", Toast.LENGTH_SHORT).show();
         }else
         {
-            Toast.makeText(context, "Successfully! New Book added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Successfully! New Student added", Toast.LENGTH_SHORT).show();
         }
     }
 }

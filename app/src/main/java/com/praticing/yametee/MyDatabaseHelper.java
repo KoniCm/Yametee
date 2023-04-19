@@ -39,7 +39,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_PUBLISH + " INTEGER, " +
                 COLUMN_PAGES + " INTEGER);";
         db.execSQL(query);
-
     }
 
     @Override
