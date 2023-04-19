@@ -13,10 +13,10 @@ import android.widget.Toast;
 
 public class UpdateActivity extends AppCompatActivity {
 
-    EditText title_input, author_input,genre_input,publish_input,pages_input;
+    EditText title_input, author_input,genre_input,publish_input,pages_input,description_input;
     Button update_button,delete_button;
 
-    String id, title, author, genre, publish, pages;
+    String id, title, author, genre, publish, pages,description;
 
 
     @Override
@@ -29,6 +29,7 @@ public class UpdateActivity extends AppCompatActivity {
         genre_input = findViewById(R.id.genre_input2);
         publish_input = findViewById(R.id.publish_input2);
         pages_input = findViewById(R.id.pages_input2);
+        description_input = findViewById(R.id.description_input2);
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
 
@@ -53,7 +54,8 @@ public class UpdateActivity extends AppCompatActivity {
                 genre = genre_input.getText().toString().trim();
                 publish = publish_input.getText().toString().trim();
                 pages = pages_input.getText().toString().trim();
-                MyDB.updateData(id,title,author,genre,publish,pages);
+                description = description_input.getText().toString().trim();
+                MyDB.updateData(id,title,author,genre,publish,pages,description);
 
                 Intent intent = new Intent(UpdateActivity.this,MainActivity.class);
                 startActivity(intent);

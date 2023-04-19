@@ -22,6 +22,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_GENRE = "book_genre";
     private static final String COLUMN_PUBLISH = "book_publish";
     private static final String COLUMN_PAGES = "book_pages";
+    private static final String COLUMN_DESCRIPTION = "book_description";
 
     public MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -37,7 +38,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_AUTHOR + " TEXT, " +
                 COLUMN_GENRE + " TEXT, " +
                 COLUMN_PUBLISH + " INTEGER, " +
-                COLUMN_PAGES + " INTEGER);";
+                COLUMN_PAGES + " INTEGER, " +
+                COLUMN_DESCRIPTION + " TEXT);";
         db.execSQL(query);
     }
 
@@ -46,7 +48,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
-    void addBook(String title, String author,String genre ,int publish,int pages){
+    void addBook(String title, String author,String genre ,int publish,int pages, String description)
+    {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -55,6 +58,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_GENRE, genre);
         cv.put(COLUMN_PUBLISH, publish);
         cv.put(COLUMN_PAGES, pages);
+        cv.put(COLUMN_DESCRIPTION, description);
 
         long result = db.insert(TABLE_NAME,null, cv);
         if(result == -1)
@@ -76,7 +80,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
-    void updateData(String row_id, String title, String author,String genre, String publish, String pages)
+    void updateData(String row_id, String title, String author,String genre, String publish, String pages,String description)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -85,6 +89,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_GENRE, genre);
         cv.put(COLUMN_PUBLISH, publish);
         cv.put(COLUMN_PAGES, pages);
+        cv.put(COLUMN_DESCRIPTION, description);
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if(result == -1)

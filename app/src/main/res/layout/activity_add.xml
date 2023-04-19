@@ -108,6 +108,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/publish_input" />
 
+        <EditText
+            android:id="@+id/description_input"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:gravity="start|center_vertical"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/publish_input" />
+
         <Button
             android:id="@+id/add_button"
             android:layout_width="match_parent"
