@@ -34,7 +34,8 @@ public class Details extends AppCompatActivity
         getAndSetIntentData();
 
         ActionBar ab = getSupportActionBar();
-        if (ab != null) {
+        if (ab != null)
+        {
             ab.setTitle(title);
         }
 

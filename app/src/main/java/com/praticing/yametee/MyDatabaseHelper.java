@@ -23,7 +23,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PUBLISH = "book_publish";
     private static final String COLUMN_PAGES = "book_pages";
 
-
     public MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -48,7 +47,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
-    void addBook(String title, String author,String genre,int publish,int pages){
+    void addBook(String title, String author,String genre ,int publish,int pages){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 

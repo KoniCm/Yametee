@@ -18,6 +18,14 @@
             android:layout_height="wrap_content"
             android:padding="12dp">
 
+            <ImageView
+                android:id="@+id/imageView_txt"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_launcher_foreground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <TextView
                 android:id="@+id/book_title_txt"
@@ -79,6 +87,17 @@
                 android:textColor="#15616d"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/book_des_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
