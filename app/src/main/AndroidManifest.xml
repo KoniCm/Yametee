@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/MainColor">
         <activity
+            android:name=".addStudent"
+            android:exported="false" />
+        <activity
             android:name=".studentActivity"
             android:exported="false"
-            android:label="Student Management System"/>
+            android:label="Student Management System" />
         <activity
             android:name=".Details"
             android:parentActivityName=".MainActivity" />

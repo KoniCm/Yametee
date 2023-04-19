@@ -12,7 +12,7 @@ public class StudentDatabase extends SQLiteOpenHelper
 {
     private Context context;
 
-    private static final String DATABASE_NAME = "studentDate.db";
+    private static final String DATABASE_NAME = "studentData.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "my_Student";
 
