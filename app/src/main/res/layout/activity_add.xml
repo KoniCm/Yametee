@@ -130,7 +130,7 @@
                 android:id="@+id/bookCover_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add photo" />
+                android:text="add photo" />
 
             <Button
                 android:id="@+id/add_button"
