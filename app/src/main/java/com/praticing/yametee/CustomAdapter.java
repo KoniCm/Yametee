@@ -30,13 +30,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     String id;
     private Activity activity;
     private Context context;
-    private ArrayList book_id, book_title, book_author,book_genre,book_publish, book_pages;
+    private ArrayList book_id, book_title, book_author,book_genre,book_publish, book_pages,book_description;
 
     Animation animation;
 
     CustomAdapter(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
                   ArrayList book_genre,ArrayList book_publish,
-                  ArrayList book_pages)
+                  ArrayList book_pages, ArrayList book_description)
     {
         this.activity = activity;
         this.context = context;
@@ -46,6 +46,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.book_genre = book_genre;
         this.book_publish = book_publish;
         this.book_pages = book_pages;
+        this.book_description = book_description;
     }
 
     @NonNull
@@ -64,6 +65,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.book_genre_txt.setText(String.valueOf(book_genre.get(position)));
         holder.book_publish_txt.setText(String.valueOf(book_publish.get(position)));
         holder.book_pages_txt.setText(String.valueOf(book_pages.get(position)));
+        holder.book_description_txt.setText(String.valueOf(book_description.get(position)));
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +86,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                                 intent.putExtra("genre", String.valueOf(book_genre.get(position)));
                                 intent.putExtra("publish", String.valueOf(book_publish.get(position)));
                                 intent.putExtra("pages", String.valueOf(book_pages.get(position)));
+                                intent.putExtra("des" , String.valueOf(book_description.get(position)));
                                 activity.startActivityForResult(intent, 1);
                                 break;
                             case R.id.view_menu:
@@ -94,6 +97,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                                 viewIntent.putExtra("genre", String.valueOf(book_genre.get(position)));
                                 viewIntent.putExtra("publish", String.valueOf(book_publish.get(position)));
                                 viewIntent.putExtra("pages", String.valueOf(book_pages.get(position)));
+                                viewIntent.putExtra("des", String.valueOf(book_description.get(position)));
                                 activity.startActivityForResult(viewIntent, 1);
                                 break;
                             default:
@@ -113,7 +117,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView book_title_txt, book_author_txt,book_genre_txt,book_publish_txt,book_pages_txt;
+        TextView book_title_txt, book_author_txt,book_genre_txt,book_publish_txt,book_pages_txt, book_description_txt;
         LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -123,6 +127,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             book_genre_txt = itemView.findViewById(R.id.book_genre_txt);
             book_publish_txt = itemView.findViewById(R.id.book_publish_txt);
             book_pages_txt = itemView.findViewById(R.id.book_pages_txt);
+            book_description_txt = itemView.findViewById(R.id.book_description_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);
 
             //Simple Animation

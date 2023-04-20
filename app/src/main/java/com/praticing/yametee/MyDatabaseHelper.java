@@ -80,7 +80,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
-    void updateData(String row_id, String title, String author,String genre, String publish, String pages,String description)
+    void updateData(String row_id, String title, String author,String genre, String publish, String pages, String description)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();

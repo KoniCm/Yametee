@@ -72,7 +72,7 @@ public class UpdateActivity extends AppCompatActivity {
     void getAndSetIntentData()
     {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") && getIntent().hasExtra("genre") && getIntent().hasExtra("publish") &&
-                getIntent().hasExtra("author") && getIntent().hasExtra("pages"))
+                getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des"))
         {
             //Getting Data from Intent
             id = getIntent().getStringExtra("id");
@@ -81,6 +81,7 @@ public class UpdateActivity extends AppCompatActivity {
             genre = getIntent().getStringExtra("genre");
             publish = getIntent().getStringExtra("publish");
             pages = getIntent().getStringExtra("pages");
+            description = getIntent().getStringExtra("des");
 
             //Setting Intent Data
             title_input.setText(title);
@@ -88,6 +89,7 @@ public class UpdateActivity extends AppCompatActivity {
             genre_input.setText(genre);
             publish_input.setText(publish);
             pages_input.setText(pages);
+            description_input.setText(description);
         }
         else
         {
