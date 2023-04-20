@@ -2,7 +2,6 @@ package com.praticing.yametee;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class AddActivity extends AppCompatActivity {
-
     EditText title_input, author_input, genre_input, publish_input, pages_input, description_input;
-    Button add_button;
+    Button add_button,bookCover_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +24,15 @@ public class AddActivity extends AppCompatActivity {
         publish_input = findViewById(R.id.publish_input);
         pages_input = findViewById(R.id.pages_input);
         description_input = findViewById(R.id.description_input);
+        bookCover_button = findViewById(R.id.bookCover_button);
         add_button = findViewById(R.id.add_button);
+
+        bookCover_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(AddActivity.this, "you clicked add photo", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
