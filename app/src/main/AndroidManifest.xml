@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.praticing.yametee">
-    
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,26 +11,23 @@
         android:supportsRtl="true"
         android:theme="@style/MainColor">
         <activity
-            android:name=".addStudent"
+            android:name=".BookActivity"
             android:exported="false" />
+        <activity android:name=".addStudent" />
         <activity
             android:name=".studentActivity"
-            android:exported="false"
             android:label="Student Management System" />
         <activity
             android:name=".Details"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:label="Book Maintenance" />
+            android:parentActivityName=".BookActivity" />
         <activity android:name=".UpdateActivity" />
         <activity
             android:name=".AddActivity"
             android:label="Adding Book"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".BookActivity" />
         <activity
-            android:name=".Dashboard"
+            android:name=".MainActivity"
+            android:label="Book Maintenance"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".Splash"
@@ -44,4 +41,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
