@@ -19,7 +19,7 @@ public class StudentDatabase extends SQLiteOpenHelper
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "my_Student";
 
-    private static final String COLUMN_ID = "_id";
+    private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "student_name";
     private static final String COLUMN_LEVEl = "student_level";
     private static final String COLUMN_SECTION = "student_section";
@@ -101,18 +101,19 @@ public class StudentDatabase extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }
-    void updateData(String id, String name, String level, String section, String strand)
+    void updateData(String row_id, String name, String level, String section, String strand)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_ID, id);
+
+        cv.put(COLUMN_ID, row_id);
         cv.put(COLUMN_NAME, name);
         cv.put(COLUMN_LEVEl, level);
         cv.put(COLUMN_SECTION, section);
         cv.put(COLUMN_STRAND, strand);
 
         //update value if the id exists in the table
-        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{id});
+        long result = db.update(TABLE_NAME, cv, "id=?", new String[]{row_id});
         if(result == -1)
         {
             //Failed to update
@@ -122,6 +123,19 @@ public class StudentDatabase extends SQLiteOpenHelper
         {
             //Success to update val
             Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+        }
+    }
+    void deleteOneRow(String row_id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "id=?", new String[]{row_id});
+        if(result == -1)
+        {
+            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
         }
     }
 }

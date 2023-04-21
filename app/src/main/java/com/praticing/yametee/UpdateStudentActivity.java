@@ -66,18 +66,18 @@ public class UpdateStudentActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-
+                deleteOneRow();
             }
         });
     }
     //Viewing The Data!
     void getAndSetIntentData()
     {
-        if(getIntent().hasExtra("id") && getIntent().hasExtra("name") && getIntent().hasExtra("level") && getIntent().hasExtra("section") &&
+        if(getIntent().hasExtra("row_id") && getIntent().hasExtra("name") && getIntent().hasExtra("level") && getIntent().hasExtra("section") &&
                 getIntent().hasExtra("strand"))
         {
             //Getting Data from Intent
-            id = getIntent().getStringExtra("id");
+            id = getIntent().getStringExtra("row_id");
             name = getIntent().getStringExtra("name");
             level = getIntent().getStringExtra("level");
             section = getIntent().getStringExtra("section");
@@ -94,5 +94,27 @@ public class UpdateStudentActivity extends AppCompatActivity
         {
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
+    }
+    void deleteOneRow()
+    {
+        //Simple Dialog box
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete " + id);
+        builder.setMessage("Are you sure you want to delete?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                StudentDatabase myDB = new StudentDatabase(UpdateStudentActivity.this);
+                myDB.deleteOneRow(id);
+                finish();
+
+                Intent intent = new Intent(UpdateStudentActivity.this,studentActivity.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("No", null);
+        builder.create().show();
     }
 }

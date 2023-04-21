@@ -52,11 +52,13 @@ public class CustomAdapterStudent extends RecyclerView.Adapter<CustomAdapterStud
         holder.student_level_txt.setText(String.valueOf(student_level.get(position)));
         holder.student_section_txt.setText(String.valueOf(student_section.get(position)));
         holder.student_strand_txt.setText(String.valueOf(student_strand.get(position)));
-        holder.studentMainLayout.setOnClickListener(new View.OnClickListener() {
+        holder.studentMainLayout.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Intent intent = new Intent(context, UpdateStudentActivity.class);
-                intent.putExtra("id",String.valueOf(student_id.get(position)));
+                intent.putExtra("row_id",String.valueOf(student_id.get(position)));
                 intent.putExtra("name",String.valueOf(student_name.get(position)));
                 intent.putExtra("level",String.valueOf(student_level.get(position)));
                 intent.putExtra("section",String.valueOf(student_section.get(position)));
