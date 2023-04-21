@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton mainAC_btn,student_btn;
+    ImageView mainAC_btn,student_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

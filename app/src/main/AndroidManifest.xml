@@ -28,11 +28,11 @@
         <activity
             android:name=".MainActivity"
             android:label="Book Maintenance"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/DashboardPrime" />
         <activity
             android:name=".Splash"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -41,5 +41,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
