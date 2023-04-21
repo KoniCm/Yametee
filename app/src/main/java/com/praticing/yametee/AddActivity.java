@@ -53,7 +53,7 @@ public class AddActivity extends AppCompatActivity {
                             Integer.valueOf(pages_input.getText().toString().trim()),
                             description_input.getText().toString().trim());
 
-                    Intent intent = new Intent(AddActivity.this,MainActivity.class);
+                    Intent intent = new Intent(AddActivity.this,BookActivity.class);
                     startActivity(intent);
 
                     title_input.getText().clear();

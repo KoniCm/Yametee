@@ -68,7 +68,7 @@ public class Details extends AppCompatActivity
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Details.this,MainActivity.class);
+        Intent intent = new Intent(Details.this,BookActivity.class);
         startActivity(intent);
     }
 }

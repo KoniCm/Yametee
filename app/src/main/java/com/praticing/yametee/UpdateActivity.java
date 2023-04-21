@@ -57,7 +57,7 @@ public class UpdateActivity extends AppCompatActivity {
                 description = description_input.getText().toString().trim();
                 MyDB.updateData(id,title,author,genre,publish,pages,description);
 
-                Intent intent = new Intent(UpdateActivity.this,MainActivity.class);
+                Intent intent = new Intent(UpdateActivity.this,BookActivity.class);
                 startActivity(intent);
             }
         });
@@ -107,7 +107,7 @@ public class UpdateActivity extends AppCompatActivity {
                 myDB.deleteOneRow(id);
                 finish();
 
-                Intent intent = new Intent(UpdateActivity.this,MainActivity.class);
+                Intent intent = new Intent(UpdateActivity.this,BookActivity.class);
                 startActivity(intent);
             }
         });

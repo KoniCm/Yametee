@@ -1,10 +1,13 @@
 package com.praticing.yametee;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -26,6 +29,11 @@ public class studentActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Intent goBack = new Intent(studentActivity.this, MainActivity.class);
+        startActivity(goBack);
     }
 }

@@ -121,17 +121,8 @@ public class BookActivity extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are your sure you want to quit?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(BookActivity.this, "Thank you for using the program!", Toast.LENGTH_SHORT).show();
-                finishAffinity();
-            }
-        });
-        builder.setNegativeButton("No",null)
-                .show();
+        Intent goBack = new Intent(BookActivity.this, MainActivity.class);
+        startActivity(goBack);
     }
     void deleteAll(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
