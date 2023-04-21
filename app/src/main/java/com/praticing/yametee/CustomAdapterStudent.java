@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ public class CustomAdapterStudent extends RecyclerView.Adapter<CustomAdapterStud
     private Context context;
     private ArrayList student_id, student_name, student_level, student_section, student_strand;
 
+    Animation animation;
     CustomAdapterStudent(Activity activity,Context context, ArrayList student_id, ArrayList student_name,
                          ArrayList student_level, ArrayList student_section, ArrayList student_strand)
     {
@@ -89,6 +92,10 @@ public class CustomAdapterStudent extends RecyclerView.Adapter<CustomAdapterStud
             student_section_txt = itemView.findViewById(R.id.student_section_txt);
             student_strand_txt = itemView.findViewById(R.id.student_strand_txt);
             studentMainLayout = itemView.findViewById(R.id.studentMainLayout);
+
+            //Simple Animation
+            animation = AnimationUtils.loadAnimation(context, R.anim.anim_trans);
+            studentMainLayout.setAnimation(animation);
 
         }
     }
