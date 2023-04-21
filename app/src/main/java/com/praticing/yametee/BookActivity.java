@@ -136,7 +136,7 @@ public class BookActivity extends AppCompatActivity {
                 myDB.deleteAllData();
 
                 //Refresh Activity
-                Intent intent = new Intent(BookActivity.this, MainActivity.class);
+                Intent intent = new Intent(BookActivity.this, BookActivity.class);
                 startActivity(intent);
                 finish();
             }
