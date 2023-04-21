@@ -27,7 +27,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper
     private static final String COLUMN_PAGES = "book_pages";
     private static final String COLUMN_DESCRIPTION = "book_description";
 
-    public MyDatabaseHelper(@Nullable Context context)
+    MyDatabaseHelper(@Nullable Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;

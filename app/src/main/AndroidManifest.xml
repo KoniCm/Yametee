@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/MainColor">
         <activity
+            android:name=".UpdateStudentActivity"
+            android:exported="false"
+            android:parentActivityName=".studentActivity"/>
+        <activity
             android:name=".BookActivity"
             android:exported="false" />
         <activity android:name=".addStudent" />
@@ -41,4 +45,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

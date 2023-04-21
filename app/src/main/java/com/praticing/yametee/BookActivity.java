@@ -180,7 +180,7 @@ public class BookActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {
-
+                //nothing change you can null it
             }
         });
         builder.create().show();

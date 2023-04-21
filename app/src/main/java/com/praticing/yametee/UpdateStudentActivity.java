@@ -1,0 +1,98 @@
+package com.praticing.yametee;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class UpdateStudentActivity extends AppCompatActivity
+{
+
+    EditText id_input, name_input, level_input,section_input,strand_input;
+    Button updateStudent_btn, deleteStudent_btn;
+
+    String id, name, level, section, strand;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_update_student);
+
+        id_input = findViewById(R.id.id_input2);
+        name_input = findViewById(R.id.name_input2);
+        level_input = findViewById(R.id.level_input2);
+        section_input = findViewById(R.id.section_input2);
+        strand_input = findViewById(R.id.strand_input2);
+        updateStudent_btn = findViewById(R.id.updateStudent_btn);
+        deleteStudent_btn = findViewById(R.id.deleteStudent_btn);
+
+        //Calling this method
+        getAndSetIntentData();
+
+        //Action bar title of a book
+        ActionBar ab = getSupportActionBar();
+        if (ab != null)
+        {
+            ab.setTitle(id);
+        }
+        updateStudent_btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                StudentDatabase studentDatabase = new StudentDatabase(UpdateStudentActivity.this);
+                id = id_input.getText().toString().trim();
+                name = name_input.getText().toString().trim();
+                level = level_input.getText().toString().trim();
+                section = section_input.getText().toString().trim();
+                strand = strand_input.getText().toString().trim();
+                studentDatabase.updateData(id,name,level,section,strand);
+
+                Intent intent = new Intent(UpdateStudentActivity.this, studentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        deleteStudent_btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+
+            }
+        });
+    }
+    //Viewing The Data!
+    void getAndSetIntentData()
+    {
+        if(getIntent().hasExtra("id") && getIntent().hasExtra("name") && getIntent().hasExtra("level") && getIntent().hasExtra("section") &&
+                getIntent().hasExtra("strand"))
+        {
+            //Getting Data from Intent
+            id = getIntent().getStringExtra("id");
+            name = getIntent().getStringExtra("name");
+            level = getIntent().getStringExtra("level");
+            section = getIntent().getStringExtra("section");
+            strand = getIntent().getStringExtra("strand");
+
+            //Setting Intent Data
+            id_input.setText(id);
+            name_input.setText(name);
+            level_input.setText(level);
+            section_input.setText(section);
+            strand_input.setText(strand);
+        }
+        else
+        {
+            Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
+        }
+    }
+}

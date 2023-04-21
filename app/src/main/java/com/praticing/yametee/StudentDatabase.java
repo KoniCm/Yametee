@@ -2,6 +2,7 @@ package com.praticing.yametee;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -18,14 +19,14 @@ public class StudentDatabase extends SQLiteOpenHelper
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "my_Student";
 
-    private static final String COLUMN_ID = "student_id";
+    private static final String COLUMN_ID = "_id";
     private static final String COLUMN_NAME = "student_name";
     private static final String COLUMN_LEVEl = "student_level";
     private static final String COLUMN_SECTION = "student_section";
     private static final String COLUMN_STRAND = "student_strand";
 
 
-    public StudentDatabase(@Nullable Context context)
+    StudentDatabase(@Nullable Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -79,6 +80,48 @@ public class StudentDatabase extends SQLiteOpenHelper
         {
             //SUCCESS TO ADD THE USER INPUT IN THE DATABASE WHICH MEAN U SUCCEEDING TO INSERT A VALUE IN THE DATABASE!
             Toast.makeText(context, "Successfully! New Student added", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    // Read All user input int the data base
+    Cursor readAllData()
+    {
+        String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+    // Deleted all the user value in the database using this method
+    void deleteAllData()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME);
+    }
+    void updateData(String id, String name, String level, String section, String strand)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_ID, id);
+        cv.put(COLUMN_NAME, name);
+        cv.put(COLUMN_LEVEl, level);
+        cv.put(COLUMN_SECTION, section);
+        cv.put(COLUMN_STRAND, strand);
+
+        //update value if the id exists in the table
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{id});
+        if(result == -1)
+        {
+            //Failed to update
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            //Success to update val
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
         }
     }
 }
