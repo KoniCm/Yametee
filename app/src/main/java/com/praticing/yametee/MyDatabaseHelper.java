@@ -9,9 +9,12 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class MyDatabaseHelper extends SQLiteOpenHelper {
+public class MyDatabaseHelper extends SQLiteOpenHelper
+{
+    // I don't know what is the context, Still learning
     private Context context;
 
+    //Creating the final datatype with private access modifier
     private static final String DATABASE_NAME = "BookLibrary.db";
     private static final int DATABASE_VERSION = 1;
 
@@ -24,13 +27,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PAGES = "book_pages";
     private static final String COLUMN_DESCRIPTION = "book_description";
 
-    public MyDatabaseHelper(@Nullable Context context) {
+    public MyDatabaseHelper(@Nullable Context context)
+    {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
-
+    //Creating a table in a database using query method with String concatination val i guess execute in the SQL
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase db)
+    {
 
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -42,17 +47,21 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_DESCRIPTION + " TEXT);";
         db.execSQL(query);
     }
+    // If TableName exist the SQL drop TABLE
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int i, int i1)
+    {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
+    //Method of adding student with parameter
     void addBook(String title, String author,String genre ,int publish,int pages, String description)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
+        // Putting value in the database by col for example , ID|TITLE | AUTHOR | GENRE | PUBLISH | PAGES |DES
+        //                                   the id incrementing|THE CODE| Koni | ACTION| 2023    | 100   |something
         cv.put(COLUMN_TITLE, title);
         cv.put(COLUMN_AUTHOR, author);
         cv.put(COLUMN_GENRE, genre);
@@ -60,17 +69,24 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PAGES, pages);
         cv.put(COLUMN_DESCRIPTION, description);
 
+        //Data is long res = database insert func tableName Col and the content Val
         long result = db.insert(TABLE_NAME,null, cv);
+        //if there no val 1 = no val|no input
         if(result == -1)
         {
+            // FAILED TO ADD OR PUT THE USER INPUT IN THE DATABASE! , SAD
             Toast.makeText(context, "Failed to add a book", Toast.LENGTH_SHORT).show();
-        }else
+        }
+        else
         {
+            //SUCCESS TO ADD THE USER INPUT IN THE DATABASE WHICH MEAN U SUCCEEDING TO INSERT A VALUE IN THE DATABASE!
             Toast.makeText(context, "Successfully! New Book added", Toast.LENGTH_SHORT).show();
         }
     }
 
-    Cursor readAllData(){
+    // Read All user input int the data base
+    Cursor readAllData()
+    {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -80,6 +96,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+    //Method of updating a value in the database with parameter
     void updateData(String row_id, String title, String author,String genre, String publish, String pages, String description)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -91,25 +109,38 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PAGES, pages);
         cv.put(COLUMN_DESCRIPTION, description);
 
+        //update value if the id exists in the table
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if(result == -1)
         {
+            //Failed to update
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
+        }
+        else
+        {
+            //Success to update val
             Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
         }
     }
-    void deleteOneRow(String row_id){
+
+    //Deleting one row where the id is located
+    void deleteOneRow(String row_id)
+    {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
-        if(result == -1){
+        if(result == -1)
+        {
             Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
-        }else{
+        }
+        else
+        {
             Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    void deleteAllData(){
+    // Deleted all the user value in the database using this method
+    void deleteAllData()
+    {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }

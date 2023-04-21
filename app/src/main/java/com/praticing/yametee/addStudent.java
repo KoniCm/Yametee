@@ -9,13 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class addStudent extends AppCompatActivity {
+public class addStudent extends AppCompatActivity
+{
 
     EditText id_input, name_input, level_input,section_input,strand_input;
     Button addStudent_btn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_student);
 
@@ -26,9 +28,12 @@ public class addStudent extends AppCompatActivity {
         strand_input = findViewById(R.id.strand_input);
         addStudent_btn = findViewById(R.id.addStudent_btn);
 
-        addStudent_btn.setOnClickListener(new View.OnClickListener() {
+        addStudent_btn.setOnClickListener(new View.OnClickListener()
+        {
+            //isEmpty
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 if(id_input.getText().toString().isEmpty() || name_input.getText().toString().isEmpty() ||
                         level_input.getText().toString().isEmpty() || section_input.getText().toString().isEmpty() || strand_input.getText().toString().isEmpty())
                 {
@@ -36,6 +41,7 @@ public class addStudent extends AppCompatActivity {
                 }
                 else
                 {
+                    //Calling database name and placing value in the layout by trim
                     StudentDatabase myDB = new StudentDatabase(addStudent.this);
                     myDB.addStudent(id_input.getText().toString().trim(),
                             name_input.getText().toString().trim(),
@@ -43,9 +49,11 @@ public class addStudent extends AppCompatActivity {
                             section_input.getText().toString().trim(),
                             strand_input.getText().toString().trim());
 
+                    //Going to the next activity
                     Intent intent = new Intent(addStudent.this,studentActivity.class);
                     startActivity(intent);
 
+                    //clear all text field
                     id_input.getText().clear();
                     name_input.getText().clear();
                     level_input.getText().clear();

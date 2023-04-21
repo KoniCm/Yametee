@@ -22,19 +22,26 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class BookActivity extends AppCompatActivity {
+public class BookActivity extends AppCompatActivity
+{
 
     RecyclerView recyclerView;
     FloatingActionButton add_button;
 
+    //Connecting date base
     MyDatabaseHelper myDB;
+
+    //Array list
     ArrayList<String> book_id, book_title, book_author,book_genre,book_publish,book_pages,book_description;
+
+    //Connecting Adapter
     CustomAdapter customAdapter;
 
     TextView no_data;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_activity);
 
@@ -42,13 +49,17 @@ public class BookActivity extends AppCompatActivity {
         add_button = findViewById(R.id.add_button);
         no_data = findViewById(R.id.no_data);
 
-        add_button.setOnClickListener(new View.OnClickListener() {
+        add_button.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Intent intent = new Intent(BookActivity.this, AddActivity.class);
                 startActivity(intent);
             }
         });
+
+        //creating arraylist
 
         myDB = new MyDatabaseHelper(BookActivity.this);
         book_id = new ArrayList<>();
@@ -59,6 +70,8 @@ public class BookActivity extends AppCompatActivity {
         book_pages = new ArrayList<>();
         book_description = new ArrayList<>();
 
+
+
         storeDataInArrays();
 
         customAdapter = new CustomAdapter(BookActivity.this,this, book_id, book_title, book_author,book_genre,
@@ -66,12 +79,19 @@ public class BookActivity extends AppCompatActivity {
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(BookActivity.this));
     }
-    void storeDataInArrays(){
+
+    //read Data and Store in a database
+    void storeDataInArrays()
+    {
         Cursor cursor = myDB.readAllData();
-        if(cursor.getCount() == 0){
+        if(cursor.getCount() == 0)
+        {
             no_data.setVisibility(View.VISIBLE);
-        }else{
-            while (cursor.moveToNext()){
+        }
+        else
+        {
+            while (cursor.moveToNext())
+            {
                 book_id.add(cursor.getString(0));
                 book_title.add(cursor.getString(1));
                 book_author.add(cursor.getString(2));
@@ -83,13 +103,18 @@ public class BookActivity extends AppCompatActivity {
             no_data.setVisibility(View.GONE);
         }
     }
+    //refresh activity
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1){
+        if(requestCode == 1)
+        {
             recreate();
         }
     }
+
+    //implementing menu bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -99,6 +124,7 @@ public class BookActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    //have a functionality
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
@@ -118,20 +144,28 @@ public class BookActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    //if user backPress
     @Override
     public void onBackPressed()
     {
         Intent goBack = new Intent(BookActivity.this, MainActivity.class);
         startActivity(goBack);
     }
-    void deleteAll(){
+
+    //delete all row in the bookActivity
+    void deleteAll()
+    {
+        //basic dialog box
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete All?");
         builder.setIcon(R.drawable.black_delete);
         builder.setMessage("Are you sure you want to delete all Data?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
+        {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(BookActivity.this);
                 myDB.deleteAllData();
 
@@ -141,9 +175,11 @@ public class BookActivity extends AppCompatActivity {
                 finish();
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener()
+        {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
 
             }
         });

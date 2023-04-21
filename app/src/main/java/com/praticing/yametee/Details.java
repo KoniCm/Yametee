@@ -1,16 +1,10 @@
 package com.praticing.yametee;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +14,8 @@ public class Details extends AppCompatActivity
     String id, title, author, genre, publish, pages, description;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
@@ -31,10 +26,13 @@ public class Details extends AppCompatActivity
         pages_input = findViewById(R.id.pages_details);
         description_input = findViewById(R.id.description_details);
 
+        // Calling this method first
         getAndSetIntentData();
 
+        //Same in the activity what book title display on the top right corner
         ActionBar ab = getSupportActionBar();
-        if (ab != null) {
+        if (ab != null)
+        {
             ab.setTitle(title);
         }
 
@@ -66,8 +64,10 @@ public class Details extends AppCompatActivity
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
+    //if the user back pressed , going to the bookActivity
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         Intent intent = new Intent(Details.this,BookActivity.class);
         startActivity(intent);
     }

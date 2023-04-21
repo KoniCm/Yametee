@@ -11,7 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UpdateActivity extends AppCompatActivity {
+public class UpdateActivity extends AppCompatActivity
+{
 
     EditText title_input, author_input,genre_input,publish_input,pages_input,description_input;
     Button update_button,delete_button;
@@ -20,7 +21,8 @@ public class UpdateActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
@@ -36,13 +38,15 @@ public class UpdateActivity extends AppCompatActivity {
         //Calling this method
         getAndSetIntentData();
 
+        //Action bar title of a book
         ActionBar ab = getSupportActionBar();
         if (ab != null)
         {
             ab.setTitle(title);
         }
 
-        update_button.setOnClickListener(new View.OnClickListener() {
+        update_button.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view)
             {
@@ -55,15 +59,20 @@ public class UpdateActivity extends AppCompatActivity {
                 publish = publish_input.getText().toString().trim();
                 pages = pages_input.getText().toString().trim();
                 description = description_input.getText().toString().trim();
+                //parameter
                 MyDB.updateData(id,title,author,genre,publish,pages,description);
 
+                //Going to the next activity
                 Intent intent = new Intent(UpdateActivity.this,BookActivity.class);
                 startActivity(intent);
             }
         });
-        delete_button.setOnClickListener(new View.OnClickListener() {
+        delete_button.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
+                //calling this method
                 deleteOneRow();
             }
         });
@@ -96,13 +105,19 @@ public class UpdateActivity extends AppCompatActivity {
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
-    void deleteOneRow(){
+
+    //RecycleView in bookActivity layout OneRow Deleted depends on the user
+    void deleteOneRow()
+    {
+        //Simple Dialog box
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete");
         builder.setMessage("Are you sure you want to delete?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
+        {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
                 myDB.deleteOneRow(id);
                 finish();
@@ -115,8 +130,10 @@ public class UpdateActivity extends AppCompatActivity {
         builder.create().show();
     }
 
+    //if the user back pressed the app it will go in the dashboard layout
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         Intent intent = new Intent(UpdateActivity.this,MainActivity.class);
         startActivity(intent);
     }

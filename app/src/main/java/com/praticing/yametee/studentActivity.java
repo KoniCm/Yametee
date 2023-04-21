@@ -11,25 +11,31 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class studentActivity extends AppCompatActivity {
+public class studentActivity extends AppCompatActivity
+{
 
     FloatingActionButton add_btn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
 
         add_btn = findViewById(R.id.addStudent_btn);
 
-        add_btn.setOnClickListener(new View.OnClickListener() {
+        //Student to AddStudent activity using floating action button
+        add_btn.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Intent intent = new Intent(studentActivity.this, addStudent.class);
                 startActivity(intent);
             }
         });
     }
+    // If the user back press , going to the Dashboard activity
     @Override
     public void onBackPressed()
     {

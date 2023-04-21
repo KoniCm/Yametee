@@ -3,37 +3,31 @@ package com.praticing.yametee;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowInsets;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder>
 {
-    String id;
     private Activity activity;
     private Context context;
     private ArrayList book_id, book_title, book_author,book_genre,book_publish, book_pages,book_description;
 
     Animation animation;
 
+    //parameter constructor
     CustomAdapter(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
                   ArrayList book_genre,ArrayList book_publish,
                   ArrayList book_pages, ArrayList book_description)
@@ -49,13 +43,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.book_description = book_description;
     }
 
+    //inflating my_row layout to view in the bookActivity layout
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_row, parent, false);
         return new MyViewHolder(view);
     }
+    //Tap . get position
     @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder,final int position)
@@ -66,19 +63,24 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.book_publish_txt.setText(String.valueOf(book_publish.get(position)));
         holder.book_pages_txt.setText(String.valueOf(book_pages.get(position)));
         holder.book_description_txt.setText(String.valueOf(book_description.get(position)));
-        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+        holder.mainLayout.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 PopupMenu popupMenu = new PopupMenu(context, v);
                 popupMenu.getMenuInflater().inflate(R.menu.details_edit, popupMenu.getMenu());
                 popupMenu.show();
 
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener()
+                {
                     @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
+                    public boolean onMenuItemClick(MenuItem menuItem)
+                    {
                         switch (menuItem.getItemId())
                         {
                             case R.id.edit_menu:
+                                //getting the value , the user input display and going to the update activity
                                 Intent intent = new Intent(context, UpdateActivity.class);
                                 intent.putExtra("id", String.valueOf(book_id.get(position)));
                                 intent.putExtra("title", String.valueOf(book_title.get(position)));
@@ -90,6 +92,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                                 activity.startActivityForResult(intent, 1);
                                 break;
                             case R.id.view_menu:
+                                // Same as edit_menu but its going to the details activity
                                 Intent viewIntent = new Intent(context, Details.class);
                                 viewIntent.putExtra("id", String.valueOf(book_id.get(position)));
                                 viewIntent.putExtra("title", String.valueOf(book_title.get(position)));
@@ -100,6 +103,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                                 viewIntent.putExtra("des", String.valueOf(book_description.get(position)));
                                 activity.startActivityForResult(viewIntent, 1);
                                 break;
+                                //something nothing change
                             default:
                                 return false;
                         }
@@ -110,17 +114,21 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         });
     }
 
+    //book ID size 100+
     @Override
     public int getItemCount()
     {
         return book_id.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    //Implementing method find by ID
+    public class MyViewHolder extends RecyclerView.ViewHolder
+    {
         TextView book_title_txt, book_author_txt,book_genre_txt,book_publish_txt,book_pages_txt, book_description_txt;
         LinearLayout mainLayout;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView)
+        {
             super(itemView);
             book_title_txt = itemView.findViewById(R.id.book_title_txt);
             book_author_txt = itemView.findViewById(R.id.book_author_txt);

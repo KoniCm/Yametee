@@ -9,12 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class AddActivity extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity
+{
     EditText title_input, author_input, genre_input, publish_input, pages_input, description_input;
     Button add_button,bookCover_button;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
@@ -27,16 +29,21 @@ public class AddActivity extends AppCompatActivity {
         bookCover_button = findViewById(R.id.bookCover_button);
         add_button = findViewById(R.id.add_button);
 
-        bookCover_button.setOnClickListener(new View.OnClickListener() {
+        bookCover_button.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Toast.makeText(AddActivity.this, "you clicked add photo", Toast.LENGTH_SHORT).show();
             }
         });
 
-        add_button.setOnClickListener(new View.OnClickListener() {
+        add_button.setOnClickListener(new View.OnClickListener()
+        {
+            //if the field empty keyword(isEmpty)
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 if(title_input.getText().toString().isEmpty() || author_input.getText().toString().isEmpty() ||
                         genre_input.getText().toString().isEmpty() || publish_input.getText().toString().isEmpty() || pages_input.getText().toString().isEmpty() ||
                         description_input.getText().toString().isEmpty())
@@ -45,6 +52,7 @@ public class AddActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    //Parameter in the database
                     MyDatabaseHelper myDB = new MyDatabaseHelper(AddActivity.this);
                     myDB.addBook(title_input.getText().toString().trim(),
                             author_input.getText().toString().trim(),
@@ -53,9 +61,11 @@ public class AddActivity extends AppCompatActivity {
                             Integer.valueOf(pages_input.getText().toString().trim()),
                             description_input.getText().toString().trim());
 
+                    //Going to the next activity
                     Intent intent = new Intent(AddActivity.this,BookActivity.class);
                     startActivity(intent);
 
+                    //Clearing a text field
                     title_input.getText().clear();
                     author_input.getText().clear();
                     genre_input.getText().clear();

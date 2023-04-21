@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     ImageView mainAC_btn,student_btn;
 
@@ -20,17 +21,22 @@ public class MainActivity extends AppCompatActivity {
         mainAC_btn = findViewById(R.id.mainAc_btn);
         student_btn = findViewById(R.id.student_btn);
 
+        //Going to the bookActivity // Dashboard to BookActivity
         mainAC_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Intent go = new Intent(MainActivity.this, BookActivity.class);
                 startActivity(go);
             }
         });
-        student_btn.setOnClickListener(new View.OnClickListener() {
+        //same, but going to the Student  // Dashboard to StudentActivity
+        student_btn.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Intent intent = new Intent(MainActivity.this,studentActivity.class);
                 startActivity(intent);
             }
