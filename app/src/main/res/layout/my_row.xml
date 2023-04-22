@@ -12,18 +12,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
+        android:layout_margin="2dp"
         app:cardElevation="25dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp">
+            android:padding="5dp">
 
             <ImageView
                 android:id="@+id/imageView_txt"
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/ic_launcher_foreground"
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:background="@mipmap/book_cover"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,6 +85,7 @@
                 android:id="@+id/book_pages_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
                 android:text="pages"
                 android:textColor="#15616d"
                 android:textSize="18sp"

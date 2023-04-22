@@ -134,7 +134,7 @@ public class UpdateActivity extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        Intent intent = new Intent(UpdateActivity.this,MainActivity.class);
+        Intent intent = new Intent(UpdateActivity.this,BookActivity.class);
         startActivity(intent);
     }
 }

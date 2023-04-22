@@ -117,4 +117,12 @@ public class UpdateStudentActivity extends AppCompatActivity
         builder.setNegativeButton("No", null);
         builder.create().show();
     }
+
+    //if the user back pressed the app it will go in the dashboard layout
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(UpdateStudentActivity.this,studentActivity.class);
+        startActivity(intent);
+    }
 }
