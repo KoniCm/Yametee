@@ -1,19 +1,16 @@
 package com.praticing.yametee;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 public class AddActivity extends AppCompatActivity
 {
     EditText title_input, author_input, genre_input, publish_input, pages_input, description_input;
     Button add_button,bookCover_button;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,12 +26,10 @@ public class AddActivity extends AppCompatActivity
         bookCover_button = findViewById(R.id.bookCover_button);
         add_button = findViewById(R.id.add_button);
 
-        bookCover_button.setOnClickListener(new View.OnClickListener()
-        {
+        bookCover_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                Toast.makeText(AddActivity.this, "you clicked add photo", Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                Toast.makeText(AddActivity.this, "You clicked Add photo...", Toast.LENGTH_SHORT).show();
             }
         });
 
