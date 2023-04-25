@@ -10,7 +10,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity
 {
 
-    ImageView mainAC_btn,student_btn;
+    ImageView mainAC_btn,student_btn,bookborrowreturn_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity
 
         mainAC_btn = findViewById(R.id.mainAc_btn);
         student_btn = findViewById(R.id.student_btn);
+        bookborrowreturn_btn = findViewById(R.id.bookborrowreturn_btn);
 
         //Going to the bookActivity // Dashboard to BookActivity
         mainAC_btn.setOnClickListener(new View.OnClickListener()
@@ -38,6 +39,16 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intent = new Intent(MainActivity.this,studentActivity.class);
+                startActivity(intent);
+            }
+        });
+        //same, but its going to the borrowing book and returning book
+        bookborrowreturn_btn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(MainActivity.this, Portal.class);
                 startActivity(intent);
             }
         });

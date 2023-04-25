@@ -11,9 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/MainColor">
         <activity
+            android:name=".Portal"
+            android:exported="false" />
+        <activity
             android:name=".UpdateStudentActivity"
             android:exported="false"
-            android:parentActivityName=".studentActivity"/>
+            android:parentActivityName=".studentActivity" />
         <activity
             android:name=".BookActivity"
             android:exported="false" />
@@ -23,8 +26,12 @@
             android:label="Student Management System" />
         <activity
             android:name=".Details"
-            android:parentActivityName=".BookActivity" />
-        <activity android:name=".UpdateActivity" />
+            android:parentActivityName=".BookActivity"
+            android:label="Book Details"/>
+
+        <activity android:name=".UpdateActivity"
+            android:parentActivityName=".BookActivity"/>
+
         <activity
             android:name=".AddActivity"
             android:label="Adding Book"

@@ -29,13 +29,6 @@ public class Details extends AppCompatActivity
         // Calling this method first
         getAndSetIntentData();
 
-        //Same in the activity what book title display on the top right corner
-        ActionBar ab = getSupportActionBar();
-        if (ab != null)
-        {
-            ab.setTitle(title);
-        }
-
     }
     void getAndSetIntentData()
     {
