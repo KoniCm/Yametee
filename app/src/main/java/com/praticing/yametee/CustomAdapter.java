@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -63,6 +64,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.book_publish_txt.setText(String.valueOf(book_publish.get(position)));
         holder.book_pages_txt.setText(String.valueOf(book_pages.get(position)));
         holder.book_description_txt.setText(String.valueOf(book_description.get(position)));
+
         holder.mainLayout.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -103,6 +105,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                                 viewIntent.putExtra("des", String.valueOf(book_description.get(position)));
                                 activity.startActivityForResult(viewIntent, 1);
                                 break;
+                            case R.id.borrowed_men:
+                                Toast.makeText(activity, "You Clicked the Borrowed menu", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.return_men:
+                                Toast.makeText(activity, "You Clicked the Return menu", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.rate_men:
+                                Toast.makeText(activity, "You Clicked the Rated menu", Toast.LENGTH_SHORT).show();
                                 //something nothing change
                             default:
                                 return false;
