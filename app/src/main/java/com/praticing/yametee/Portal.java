@@ -2,9 +2,7 @@ package com.praticing.yametee;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
-
 import android.os.Bundle;
-
 import com.google.android.material.tabs.TabLayout;
 import com.praticing.yametee.fragments.MyViewPagerAdapter;
 
@@ -32,6 +30,7 @@ public class Portal extends AppCompatActivity
             @Override
             public void onTabSelected(TabLayout.Tab tab)
             {
+                //selected pos user
                 viewPager2.setCurrentItem(tab.getPosition());
             }
 
@@ -49,7 +48,9 @@ public class Portal extends AppCompatActivity
         });
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
-            public void onPageSelected(int position) {
+            public void onPageSelected(int position)
+            {
+                //follow the top bar
                 super.onPageSelected(position);
                 tabLayout.getTabAt(position).select();
             }

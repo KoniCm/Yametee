@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:text="Borrow Book List"
         android:layout_centerInParent="true"
-        android:textSize="32sp"/>
+        android:textSize="32sp"
+        android:alpha="0.5"/>
 
 </RelativeLayout>
