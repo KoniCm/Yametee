@@ -9,9 +9,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity
 {
-
     ImageView mainAC_btn,student_btn,bookborrowreturn_btn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -21,18 +19,17 @@ public class MainActivity extends AppCompatActivity
         mainAC_btn = findViewById(R.id.mainAc_btn);
         student_btn = findViewById(R.id.student_btn);
         bookborrowreturn_btn = findViewById(R.id.bookborrowreturn_btn);
-
         //Going to the bookActivity // Dashboard to BookActivity
         mainAC_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                Intent go = new Intent(MainActivity.this, BookActivity.class);
-                startActivity(go);
+                Intent intent = new Intent(MainActivity.this, BookActivity.class);
+                startActivity(intent);
             }
         });
-        //same, but going to the Student  // Dashboard to StudentActivity
+        //same, but it goes to the Student  // Dashboard to StudentActivity
         student_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -42,7 +39,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-        //same, but its going to the borrowing book and returning book
+        //same, but it goes to the borrow/return // Dashboard to Portal = borrow/return
         bookborrowreturn_btn.setOnClickListener(new View.OnClickListener()
         {
             @Override

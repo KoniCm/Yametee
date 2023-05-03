@@ -33,7 +33,7 @@
         android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="75dp">
+        android:layout_marginStart="90dp">
 
         <LinearLayout
             android:layout_width="match_parent"
