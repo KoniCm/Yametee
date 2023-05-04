@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
-    //This is a back press functionalities with simple dialog message
+    //This is a back press functionalities with simple dialog message.
     @Override
     public void onBackPressed()
     {
