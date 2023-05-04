@@ -1,6 +1,5 @@
 package com.praticing.yametee;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -52,7 +51,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         return new MyViewHolder(view);
     }
     //Tap . get position
-    @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder,final int position)
     {
