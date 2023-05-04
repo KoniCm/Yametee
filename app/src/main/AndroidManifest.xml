@@ -23,7 +23,10 @@
         <activity
             android:name=".BookActivity"
             android:exported="false" />
-        <activity android:name=".addStudent" />
+
+        <activity android:name=".addStudent"
+            android:exported="false"
+            android:parentActivityName=".studentActivity"/>
 
         <activity
             android:name=".studentActivity"
