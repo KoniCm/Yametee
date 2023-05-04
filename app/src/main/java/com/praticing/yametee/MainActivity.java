@@ -53,4 +53,23 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+    //This is a back press functionalities with simple dialog message
+    @Override
+    public void onBackPressed()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Do you want to exit");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                Toast.makeText(MainActivity.this, "Thank you for using our program!", Toast.LENGTH_SHORT).show();
+                finishAffinity();
+            }
+        });
+        builder.setNegativeButton("No", null);
+        builder.create().show();
+    }
 }
