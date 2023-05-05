@@ -19,8 +19,8 @@ public class Splash extends AppCompatActivity
             @Override
             public void run()
             {
-                //SplashScreen to Dashboard
-                Intent intent = new Intent(Splash.this,MainActivity.class);
+                //SplashScreen to LoginSystem
+                Intent intent = new Intent(Splash.this,LoginSystem.class);
                 startActivity(intent);
             }
             //Delaying in 2500 which means in sec is 2.5sec

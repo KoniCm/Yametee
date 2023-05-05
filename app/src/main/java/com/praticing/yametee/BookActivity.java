@@ -70,8 +70,6 @@ public class BookActivity extends AppCompatActivity
         book_pages = new ArrayList<>();
         book_description = new ArrayList<>();
 
-
-
         storeDataInArrays();
 
         customAdapter = new CustomAdapter(BookActivity.this,this, book_id, book_title, book_author,book_genre,

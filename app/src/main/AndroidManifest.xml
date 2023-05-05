@@ -10,46 +10,53 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MainColor">
-
+        <activity
+            android:name=".BookListStudent"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardStudent"
+            android:exported="false" />
+        <activity
+            android:name=".studentPanel"
+            android:exported="false" />
+        <activity
+            android:name=".adminPanel"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSystem"
+            android:exported="true" />
         <activity
             android:name=".Portal"
             android:exported="false" />
-
         <activity
             android:name=".UpdateStudentActivity"
             android:exported="false"
             android:parentActivityName=".studentActivity" />
-
         <activity
             android:name=".BookActivity"
             android:exported="false" />
-
-        <activity android:name=".addStudent"
+        <activity
+            android:name=".addStudent"
             android:exported="false"
-            android:parentActivityName=".studentActivity"/>
-
+            android:parentActivityName=".studentActivity" />
         <activity
             android:name=".studentActivity"
             android:label="Student Management System" />
-
         <activity
             android:name=".Details"
-            android:parentActivityName=".BookActivity"
-            android:label="Book Details"/>
-
-        <activity android:name=".UpdateActivity"
-            android:parentActivityName=".BookActivity"/>
-
+            android:label="Book Details"
+            android:parentActivityName=".BookActivity" />
+        <activity
+            android:name=".UpdateActivity"
+            android:parentActivityName=".BookActivity" />
         <activity
             android:name=".AddActivity"
             android:label="Adding Book"
             android:parentActivityName=".BookActivity" />
-
         <activity
             android:name=".MainActivity"
             android:label="Book Maintenance"
             android:theme="@style/DashboardPrime" />
-
         <activity
             android:name=".Splash"
             android:exported="true"

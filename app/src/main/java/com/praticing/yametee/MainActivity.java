@@ -2,6 +2,7 @@ package com.praticing.yametee;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,16 +13,16 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
-    ImageView mainAC_btn,student_btn,bookborrowreturn_btn;
+    CardView mainAC_btn,student_btn,bookborrowreturn_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainAC_btn = findViewById(R.id.mainAc_btn);
-        student_btn = findViewById(R.id.student_btn);
-        bookborrowreturn_btn = findViewById(R.id.bookborrowreturn_btn);
+        mainAC_btn = findViewById(R.id.mainAc);
+        student_btn = findViewById(R.id.student);
+        bookborrowreturn_btn = findViewById(R.id.bookborrowreturn);
         //Going to the bookActivity // Dashboard to BookActivity
         mainAC_btn.setOnClickListener(new View.OnClickListener()
         {
@@ -53,23 +54,24 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
-    //This is a back press functionalities with simple dialog message.
+
     @Override
     public void onBackPressed()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder build = new AlertDialog.Builder(this);
 
-        builder.setMessage("Do you want to exit");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
+        build.setMessage("Do you want to sign out your account");
+        build.setPositiveButton("Yes", new DialogInterface.OnClickListener()
         {
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {
-                Toast.makeText(MainActivity.this, "Thank you for using our program!", Toast.LENGTH_SHORT).show();
-                finishAffinity();
+                Toast.makeText(MainActivity.this, "Your account has been sign out", Toast.LENGTH_SHORT).show();
+                Intent signOut = new Intent(MainActivity.this,LoginSystem.class);
+                startActivity(signOut);
             }
         });
-        builder.setNegativeButton("No", null);
-        builder.create().show();
+        build.setNegativeButton("No", null);
+        build.create().show();
     }
 }
