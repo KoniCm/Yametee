@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class DashboardStudent extends AppCompatActivity
 {
-    CardView booklistforstudent;
+    CardView booklistforstudent,borrowreturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -21,6 +21,7 @@ public class DashboardStudent extends AppCompatActivity
         setContentView(R.layout.activity_dashboard_student);
 
         booklistforstudent = findViewById(R.id.bookListforStudent);
+        borrowreturn = findViewById(R.id.borrowreturn);
 
         booklistforstudent.setOnClickListener(new View.OnClickListener()
         {
@@ -28,6 +29,15 @@ public class DashboardStudent extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intent = new Intent(DashboardStudent.this,BookListStudent.class);
+                startActivity(intent);
+            }
+        });
+        borrowreturn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(DashboardStudent.this,Portal.class);
                 startActivity(intent);
             }
         });
