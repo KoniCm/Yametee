@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/MainColor">
         <activity
+            android:name=".StudentBookDetails"
+            android:exported="false" />
+        <activity
             android:name=".BookListStudent"
             android:exported="false" />
         <activity

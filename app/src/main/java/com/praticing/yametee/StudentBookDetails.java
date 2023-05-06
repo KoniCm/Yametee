@@ -1,13 +1,15 @@
 package com.praticing.yametee;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Details extends AppCompatActivity
+public class StudentBookDetails extends AppCompatActivity
 {
+
     TextView title_input, author_input,genre_input,publish_input,pages_input,description_input;
     String id, title, author, genre, publish, pages, description;
 
@@ -15,7 +17,7 @@ public class Details extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details);
+        setContentView(R.layout.activity_student_book_details);
 
         title_input = findViewById(R.id.title_details);
         author_input = findViewById(R.id.author_details);
@@ -26,7 +28,6 @@ public class Details extends AppCompatActivity
 
         // Calling this method first
         getAndSetIntentData();
-
     }
     void getAndSetIntentData()
     {
@@ -55,11 +56,11 @@ public class Details extends AppCompatActivity
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
-    //if the user back pressed , going to the bookActivity
+    //if the user back pressed , going to the DashboardStudent
     @Override
     public void onBackPressed()
     {
-        Intent intent = new Intent(Details.this,BookActivity.class);
+        Intent intent = new Intent(StudentBookDetails.this,BookListStudent.class);
         startActivity(intent);
     }
 }

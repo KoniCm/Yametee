@@ -79,7 +79,7 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
                         {
                             case R.id.view_menu:
                                 // Same as edit_menu but its going to the details activity
-                                Intent viewIntent = new Intent(context, Details.class);
+                                Intent viewIntent = new Intent(context, StudentBookDetails.class);
                                 viewIntent.putExtra("id", String.valueOf(book_id.get(position)));
                                 viewIntent.putExtra("title", String.valueOf(book_title.get(position)));
                                 viewIntent.putExtra("author", String.valueOf(book_author.get(position)));
