@@ -34,12 +34,12 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="#65000000"
                     android:id="@+id/admin"
                     android:layout_width="220dp"
                     android:layout_height="220dp"
-                    android:layout_margin="20dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp">
+                    android:layout_margin="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Librarian"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -78,12 +78,12 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="#65000000"
                     android:id="@+id/student"
                     android:layout_width="220dp"
                     android:layout_height="220dp"
-                    android:layout_margin="20dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp">
+                    android:layout_margin="20dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Student"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
