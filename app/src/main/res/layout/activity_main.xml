@@ -20,6 +20,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="STI Book List"
+            android:visibility="gone"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +29,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="75dp">
@@ -126,14 +127,14 @@
                                     android:layout_height="90dp"
                                     android:layout_marginTop="50dp"
                                     android:layout_marginBottom="8dp"
-                                    app:layout_constraintBottom_toTopOf="@+id/student"
+                                    app:layout_constraintBottom_toTopOf="@+id/student1"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
                                     app:srcCompat="@mipmap/student_dasr" />
 
                                 <TextView
-                                    android:id="@+id/student"
+                                    android:id="@+id/student1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Student"

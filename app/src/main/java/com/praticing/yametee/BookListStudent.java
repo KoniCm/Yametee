@@ -102,7 +102,7 @@ public class BookListStudent extends AppCompatActivity
                 startActivity(intent);
                 return true;
             case R.id.delete_all:
-                Toast.makeText(this, "You don't have permission", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You don't have a permission", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

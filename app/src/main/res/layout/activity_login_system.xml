@@ -56,7 +56,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/baseline_person_24" />
+                            app:srcCompat="@drawable/book_system" />
 
                         <TextView
                             android:id="@+id/book"
@@ -99,7 +99,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/baseline_person_24" />
+                            app:srcCompat="@mipmap/student_dasr" />
 
                         <TextView
                             android:layout_width="wrap_content"
