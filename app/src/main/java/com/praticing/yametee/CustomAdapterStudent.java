@@ -11,10 +11,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 
 public class CustomAdapterStudent extends RecyclerView.Adapter<CustomAdapterStudent.MyViewHolder>
@@ -68,14 +66,12 @@ public class CustomAdapterStudent extends RecyclerView.Adapter<CustomAdapterStud
             }
         });
     }
-
     //book ID size 100+
     @Override
     public int getItemCount()
     {
         return student_id.size();
     }
-
     //Implementing method find by ID
     public class MyViewHolder extends RecyclerView.ViewHolder
     {

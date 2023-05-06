@@ -13,12 +13,10 @@ import android.widget.Toast;
 
 public class UpdateActivity extends AppCompatActivity
 {
-
     EditText title_input, author_input,genre_input,publish_input,pages_input,description_input;
     Button update_button,delete_button;
 
     String id, title, author, genre, publish, pages,description;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -105,7 +103,6 @@ public class UpdateActivity extends AppCompatActivity
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
-
     //RecycleView in bookActivity layout OneRow Deleted depends on the user
     void deleteOneRow()
     {
@@ -129,7 +126,6 @@ public class UpdateActivity extends AppCompatActivity
         builder.setNegativeButton("No", null);
         builder.create().show();
     }
-
     //if the user back pressed the app it will go in the dashboard layout
     @Override
     public void onBackPressed()

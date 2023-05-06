@@ -48,7 +48,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper
         db.execSQL(query);
     }
     // If TableName exist the SQL drop TABLE
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1)
     {
@@ -83,7 +82,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper
             Toast.makeText(context, "Successfully! New Book added", Toast.LENGTH_SHORT).show();
         }
     }
-
     // Read All user input int the data base
     Cursor readAllData()
     {
@@ -96,7 +94,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper
         }
         return cursor;
     }
-
     //Method of updating a value in the database with parameter
     void updateData(String row_id, String title, String author,String genre, String publish, String pages, String description)
     {
@@ -122,7 +119,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper
             Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
         }
     }
-
     //Deleting one row where the id is located
     void deleteOneRow(String row_id)
     {

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -17,21 +16,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 
 public class studentActivity extends AppCompatActivity
 {
-
     RecyclerView recyclerView;
     FloatingActionButton add_btn;
-
     StudentDatabase mystDB;
-
     ArrayList<String> student_id, student_name, student_level, student_section,student_strand;
-
     CustomAdapterStudent customAdapterStudent;
     TextView no_data;
 
@@ -69,7 +62,6 @@ public class studentActivity extends AppCompatActivity
                 student_section, student_strand);
         recyclerView.setAdapter(customAdapterStudent);
         recyclerView.setLayoutManager(new LinearLayoutManager(studentActivity.this));
-
     }
     //read Data and Store in a database
     void storeDataInArrays()
@@ -108,7 +100,6 @@ public class studentActivity extends AppCompatActivity
 
         return super.onCreateOptionsMenu(menu);
     }
-
     //have a functionality
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)

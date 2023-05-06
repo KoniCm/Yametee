@@ -12,6 +12,7 @@ public class Splash extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
         // this is a method in a splash screen, you can see the splash screen
         // at the beginning of the application
         new Handler().postDelayed(new Runnable()

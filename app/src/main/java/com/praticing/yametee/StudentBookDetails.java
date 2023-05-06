@@ -1,7 +1,6 @@
 package com.praticing.yametee;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -9,7 +8,6 @@ import android.widget.Toast;
 
 public class StudentBookDetails extends AppCompatActivity
 {
-
     TextView title_input, author_input,genre_input,publish_input,pages_input,description_input;
     String id, title, author, genre, publish, pages, description;
 

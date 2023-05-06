@@ -6,7 +6,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -24,7 +23,6 @@ import java.util.ArrayList;
 
 public class BookActivity extends AppCompatActivity
 {
-
     RecyclerView recyclerView;
     FloatingActionButton add_button;
 

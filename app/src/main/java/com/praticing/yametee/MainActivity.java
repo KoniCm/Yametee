@@ -3,12 +3,10 @@ package com.praticing.yametee;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
@@ -54,7 +52,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
-
     @Override
     public void onBackPressed()
     {

@@ -40,7 +40,6 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
         this.book_pages = book_pages;
         this.book_description = book_description;
     }
-
     //inflating my_row layout to view in the bookActivity layout
     @NonNull
     @Override
@@ -107,14 +106,12 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
             }
         });
     }
-
     //book ID size 100+
     @Override
     public int getItemCount()
     {
         return book_id.size();
     }
-
     //Implementing method find by ID
     public class MyViewHolder extends RecyclerView.ViewHolder
     {

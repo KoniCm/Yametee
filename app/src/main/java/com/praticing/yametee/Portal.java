@@ -8,10 +8,8 @@ import com.praticing.yametee.fragments.MyViewPagerAdapter;
 
 public class Portal extends AppCompatActivity
 {
-
     TabLayout tabLayout;
     ViewPager2 viewPager2;
-
     MyViewPagerAdapter myView;
 
     @Override
@@ -46,7 +44,8 @@ public class Portal extends AppCompatActivity
 
             }
         });
-        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback()
+        {
             @Override
             public void onPageSelected(int position)
             {

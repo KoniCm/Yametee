@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 public class UpdateStudentActivity extends AppCompatActivity
 {
-
     EditText id_input, name_input, level_input,section_input,strand_input;
     Button updateStudent_btn, deleteStudent_btn;
 

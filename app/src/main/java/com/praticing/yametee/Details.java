@@ -26,7 +26,6 @@ public class Details extends AppCompatActivity
 
         // Calling this method first
         getAndSetIntentData();
-
     }
     void getAndSetIntentData()
     {

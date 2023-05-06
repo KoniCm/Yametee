@@ -26,9 +26,11 @@ public class AddActivity extends AppCompatActivity
         bookCover_button = findViewById(R.id.bookCover_button);
         add_button = findViewById(R.id.add_button);
 
-        bookCover_button.setOnClickListener(new View.OnClickListener() {
+        bookCover_button.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Toast.makeText(AddActivity.this, "You clicked Add photo...", Toast.LENGTH_SHORT).show();
             }
         });

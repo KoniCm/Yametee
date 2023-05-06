@@ -14,24 +14,20 @@ public class StudentDatabase extends SQLiteOpenHelper
     private Context context;
 
     //Creating the final datatype with private access modifier
-
     private static final String DATABASE_NAME = "studentData.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "my_Student";
-
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "student_name";
     private static final String COLUMN_LEVEl = "student_level";
     private static final String COLUMN_SECTION = "student_section";
     private static final String COLUMN_STRAND = "student_strand";
 
-
     StudentDatabase(@Nullable Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
-
     //Creating a table val i guess execute in the SQL
     @Override
     public void onCreate(SQLiteDatabase db)
@@ -44,7 +40,6 @@ public class StudentDatabase extends SQLiteOpenHelper
                 COLUMN_STRAND + " TEXT);";
         db.execSQL(query);
     }
-
     // If TableName exist the SQL drop TABLE
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1)
@@ -52,7 +47,6 @@ public class StudentDatabase extends SQLiteOpenHelper
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
-
     //Method of adding student with parameter
     void addStudent(String id, String name, int level,String section,String strand)
     {
