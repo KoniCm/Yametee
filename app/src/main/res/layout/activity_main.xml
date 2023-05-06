@@ -29,7 +29,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
-        android:layout_marginTop="-50dp"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="75dp">
@@ -65,7 +65,7 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
-                            app:cardCornerRadius="10dp"
+                            app:cardCornerRadius="5dp"
                             android:id="@+id/mainAc"
                             android:layout_width="220dp"
                             android:layout_height="220dp"
@@ -109,7 +109,7 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
-                            app:cardCornerRadius="10dp"
+                            app:cardCornerRadius="5dp"
                             android:id="@+id/student"
                             android:layout_width="220dp"
                             android:layout_height="220dp"
@@ -173,7 +173,7 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
-                            app:cardCornerRadius="10dp"
+                            app:cardCornerRadius="5dp"
                             android:id="@+id/bookborrowreturn"
                             android:layout_width="220dp"
                             android:layout_height="220dp"

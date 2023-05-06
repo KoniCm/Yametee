@@ -34,7 +34,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    app:cardCornerRadius="10dp"
+                    app:cardCornerRadius="5dp"
                     app:cardBackgroundColor="#65000000"
                     android:id="@+id/admin"
                     android:layout_width="220dp"
@@ -78,7 +78,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    app:cardCornerRadius="10dp"
+                    app:cardCornerRadius="5dp"
                     app:cardBackgroundColor="#65000000"
                     android:id="@+id/student"
                     android:layout_width="220dp"
