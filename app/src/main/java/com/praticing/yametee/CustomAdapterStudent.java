@@ -20,8 +20,9 @@ public class CustomAdapterStudent extends RecyclerView.Adapter<CustomAdapterStud
     private Activity activity;
     private Context context;
     private ArrayList student_id, student_name, student_level, student_section, student_strand;
-
     Animation animation;
+
+    //Constructor with parameter
     CustomAdapterStudent(Activity activity,Context context, ArrayList student_id, ArrayList student_name,
                          ArrayList student_level, ArrayList student_section, ArrayList student_strand)
     {

@@ -26,7 +26,7 @@
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/baseline_person_add_24" />
 
     <TextView
         android:id="@+id/no_data"

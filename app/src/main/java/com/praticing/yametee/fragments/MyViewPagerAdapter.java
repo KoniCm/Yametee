@@ -1,7 +1,6 @@
 package com.praticing.yametee.fragments;
 
 import android.annotation.SuppressLint;
-import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;

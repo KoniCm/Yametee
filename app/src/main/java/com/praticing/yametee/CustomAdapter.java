@@ -24,7 +24,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     Animation animation;
 
-    //parameter constructor
+    //Constructor with parameter
     CustomAdapter(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
                   ArrayList book_genre,ArrayList book_publish,
                   ArrayList book_pages, ArrayList book_description)

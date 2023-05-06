@@ -10,9 +10,4 @@
         android:icon="@drawable/ic_delete"
         android:title="Dashboard"
         app:showAsAction="never"/>
-
-    <item android:id="@+id/setting"
-        android:icon="@drawable/ic_delete"
-        android:title="Login"
-        app:showAsAction="never"/>
 </menu>

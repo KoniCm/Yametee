@@ -1,12 +1,20 @@
 package com.praticing.yametee;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class BookListStudent extends AppCompatActivity
@@ -72,5 +80,38 @@ public class BookListStudent extends AppCompatActivity
             }
             no_data.setVisibility(View.GONE);
         }
+    }
+    //implementing menu bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_item, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //have a functionality
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.home:
+                Intent intent = new Intent(BookListStudent.this, DashboardStudent.class);
+                startActivity(intent);
+                return true;
+            case R.id.delete_all:
+                Toast.makeText(this, "You don't have permission", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(BookListStudent.this,DashboardStudent.class);
+        startActivity(intent);
     }
 }

@@ -73,8 +73,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="Book Maintenance"
-            android:theme="@style/DashboardPrime" />
+            android:label="Book Maintenance" />
 
         <activity
             android:name=".Splash"

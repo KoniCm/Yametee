@@ -130,9 +130,6 @@ public class BookActivity extends AppCompatActivity
                 Intent intent = new Intent(BookActivity.this, MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.setting:
-                Toast.makeText(this, "Setting selected", Toast.LENGTH_SHORT).show();
-                return  true;
             case R.id.delete_all:
                 deleteAll();
                 return true;

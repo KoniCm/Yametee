@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper
 {
-    // I don't know what is the context, Still learning
+    //A Context is a handle to the system
     private Context context;
 
     //Creating the final datatype with private access modifier
@@ -32,7 +32,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
-    //Creating a table in a database using query method with String concatination val i guess execute in the SQL
+    //Creating a table in a database using query method with String concatination var execute in the SQL
     @Override
     public void onCreate(SQLiteDatabase db)
     {

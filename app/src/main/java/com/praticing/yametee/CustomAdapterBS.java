@@ -25,7 +25,7 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
 
     Animation animation;
 
-    //parameter constructor
+    //Constructor with parameter
     CustomAdapterBS(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
                   ArrayList book_genre,ArrayList book_publish,
                   ArrayList book_pages, ArrayList book_description)
@@ -40,7 +40,7 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
         this.book_pages = book_pages;
         this.book_description = book_description;
     }
-    //inflating my_row layout to view in the bookActivity layout
+    //inflating my_row layout to view in the BookListStudent layout
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
@@ -77,7 +77,7 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
                         switch (menuItem.getItemId())
                         {
                             case R.id.view_menu:
-                                // Same as edit_menu but its going to the details activity
+                                // Same as edit_menu but its going to the StudentBookDetails activity
                                 Intent viewIntent = new Intent(context, StudentBookDetails.class);
                                 viewIntent.putExtra("id", String.valueOf(book_id.get(position)));
                                 viewIntent.putExtra("title", String.valueOf(book_title.get(position)));
