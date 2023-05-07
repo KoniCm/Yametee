@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/MainColor"
         tools:targetApi="31">
-
         <activity
             android:name=".AdminPanel"
             android:exported="false" />
