@@ -17,11 +17,6 @@
                 android:title="Borrowed"
                 />
 
-            <item android:id="@+id/return_men"
-                app:showAsAction="ifRoom"
-                android:title="Return"
-                />
-
             <item android:id="@+id/rate_men"
                 app:showAsAction="ifRoom"
                 android:title="Rate Book"

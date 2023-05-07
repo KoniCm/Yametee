@@ -1,6 +1,7 @@
 package com.praticing.yametee;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -88,12 +89,16 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
                                 viewIntent.putExtra("des", String.valueOf(book_description.get(position)));
                                 activity.startActivityForResult(viewIntent, 1);
                                 break;
+
                             case R.id.borrowed_men:
-                                Toast.makeText(activity, "You Clicked the Borrowed menu", Toast.LENGTH_SHORT).show();
+                                //Inflating dialog
+                                Dialog dialog = new Dialog(context);
+                                dialog.setContentView(R.layout.dialog_borrow);
+                                dialog.show();
+                                //------------------------------------------------------
+                                //unfinished
                                 break;
-                            case R.id.return_men:
-                                Toast.makeText(activity, "You Clicked the Return menu", Toast.LENGTH_SHORT).show();
-                                break;
+
                             case R.id.rate_men:
                                 Toast.makeText(activity, "You Clicked the Rated menu", Toast.LENGTH_SHORT).show();
                                 //something nothing change
@@ -115,7 +120,7 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
     //Implementing method find by ID
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
-        TextView book_title_txt, book_author_txt,book_genre_txt,book_publish_txt,book_pages_txt, book_description_txt;
+        TextView book_title_txt, book_author_txt, book_genre_txt, book_publish_txt, book_pages_txt, book_description_txt;
         LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView)
