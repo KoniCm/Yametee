@@ -27,8 +27,8 @@ public class LoginSystem extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent admin = new Intent(LoginSystem.this,adminPanel.class);
-                startActivity(admin);
+                Intent intent = new Intent(LoginSystem.this,AdminPanel.class);
+                startActivity(intent);
             }
         });
         student.setOnClickListener(new View.OnClickListener()
