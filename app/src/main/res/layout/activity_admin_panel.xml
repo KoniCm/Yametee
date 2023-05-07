@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         app:endIconMode="clear_text"
-        app:endIconTint="@color/black">
+        app:endIconTint="@color/black"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_username"
@@ -36,6 +37,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:errorEnabled="true"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/black">
 
@@ -57,7 +59,7 @@
         android:text="Login"/>
 
     <TextView
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="350dp"
         android:id="@+id/help_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
