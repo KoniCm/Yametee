@@ -34,11 +34,11 @@
                 android:id="@+id/student_id_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="32dp"
                 android:hint="ID"
                 android:textColor="#15616d"
-                android:textSize="25sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -47,13 +47,14 @@
                 android:id="@+id/student_name_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="65dp"
+                android:layout_marginStart="60dp"
                 android:layout_marginTop="4dp"
                 android:hint="Name"
                 android:textColor="#15616d"
-                android:textStyle=""
+                android:textSize="20dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/student_id_txt" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/student_level_txt"
