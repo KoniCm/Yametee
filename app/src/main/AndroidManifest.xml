@@ -26,7 +26,8 @@
             android:exported="false" />
         <activity
             android:name=".studentPanel"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/loginStyle"/>
         <activity
             android:name=".LoginSystem"
             android:exported="true" />

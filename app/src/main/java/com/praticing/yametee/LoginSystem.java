@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 public class LoginSystem extends AppCompatActivity
 {
     CardView student,admin;
@@ -21,7 +20,6 @@ public class LoginSystem extends AppCompatActivity
 
         student = findViewById(R.id.student);
         admin = findViewById(R.id.admin);
-
         admin.setOnClickListener(new View.OnClickListener()
         {
             @Override
