@@ -4,11 +4,19 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:padding="15dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Borrow Book"
+        android:textSize="18sp"
+        android:gravity="center" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_Borrow"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
 
@@ -21,12 +29,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_startDate"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_startDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Start Date"
@@ -36,12 +44,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_returnDate"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Return Date"
             android:inputType="date" />
@@ -50,8 +58,10 @@
 
     <Button
         android:id="@+id/btn_confirm"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"/>
+        android:backgroundTint="#00B0FF"
+        android:text="Submit"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

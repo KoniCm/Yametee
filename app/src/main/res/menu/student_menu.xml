@@ -17,6 +17,10 @@
                 android:title="Borrowed"
                 />
 
+            <item android:id="@+id/favourite"
+                app:showAsAction="ifRoom"
+                android:title="Favourite"/>
+
             <item android:id="@+id/rate_men"
                 app:showAsAction="ifRoom"
                 android:title="Rate Book"

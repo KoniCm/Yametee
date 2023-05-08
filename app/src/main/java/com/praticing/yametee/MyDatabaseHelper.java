@@ -55,7 +55,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper
         onCreate(db);
     }
     //Method of adding student with parameter
-    void addBook(String title, String author,String genre ,int publish,int pages, String description)
+    void addBook(String title, String author, String genre , String publish, int pages, String description)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();

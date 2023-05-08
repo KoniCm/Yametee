@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 
 public class BookListStudent extends AppCompatActivity
@@ -29,6 +31,8 @@ public class BookListStudent extends AppCompatActivity
     ArrayList<String> book_id, book_title, book_author,book_genre,book_publish,book_pages,book_description;
 
     CustomAdapterBS customAdapterBS;
+
+    TextInputEditText input_startDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

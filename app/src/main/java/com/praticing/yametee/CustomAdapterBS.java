@@ -1,6 +1,8 @@
 package com.praticing.yametee;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 
 public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyViewHolder>
@@ -52,7 +57,7 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
     }
     //Tap . get position
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder,final int position)
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") final int position)
     {
         holder.book_title_txt.setText(String.valueOf(book_title.get(position)));
         holder.book_author_txt.setText(String.valueOf(book_author.get(position)));
@@ -89,19 +94,21 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
                                 viewIntent.putExtra("des", String.valueOf(book_description.get(position)));
                                 activity.startActivityForResult(viewIntent, 1);
                                 break;
-
                             case R.id.borrowed_men:
-                                //Inflating dialog
                                 Dialog dialog = new Dialog(context);
                                 dialog.setContentView(R.layout.dialog_borrow);
+                                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
                                 dialog.show();
-                                //------------------------------------------------------
-                                //unfinished
                                 break;
-
                             case R.id.rate_men:
-                                Toast.makeText(activity, "You Clicked the Rated menu", Toast.LENGTH_SHORT).show();
-                                //something nothing change
+                                Dialog dialogRate = new Dialog(context);
+                                dialogRate.setContentView(R.layout.rate_book);
+                                dialogRate.show();
+                                break;
+                            case R.id.favourite:
+                                //call this method
+                                Diafavourite();
+                                break;
                             default:
                                 return false;
                         }
@@ -138,5 +145,16 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
             animation = AnimationUtils.loadAnimation(context, R.anim.anim_trans);
             mainLayout.setAnimation(animation);
         }
+    }
+    void Diafavourite()
+    {
+        AlertDialog.Builder bui = new AlertDialog.Builder(context);
+
+        bui.setTitle("Favourite");
+        bui.setMessage("Favourite this book?");
+        bui.setPositiveButton("Yes", null);
+        bui.setNegativeButton("No", null);
+
+        bui.create().show();
     }
 }

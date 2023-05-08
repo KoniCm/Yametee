@@ -1,10 +1,14 @@
 package com.praticing.yametee;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 public class AddActivity extends AppCompatActivity
@@ -26,6 +30,23 @@ public class AddActivity extends AppCompatActivity
         bookCover_button = findViewById(R.id.bookCover_button);
         add_button = findViewById(R.id.add_button);
 
+        publish_input.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                DatePickerDialog datePicker = new DatePickerDialog(AddActivity.this);
+                datePicker.show();
+                datePicker.setOnDateSetListener(new DatePickerDialog.OnDateSetListener()
+                {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day)
+                    {
+                        publish_input.setText(year +"-"+ month +"-"+ day);
+                    }
+                });
+            }
+        });
         bookCover_button.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -54,7 +75,7 @@ public class AddActivity extends AppCompatActivity
                     myDB.addBook(title_input.getText().toString().trim(),
                             author_input.getText().toString().trim(),
                             genre_input.getText().toString().trim(),
-                            Integer.valueOf(publish_input.getText().toString().trim()),
+                            publish_input.getText().toString().trim(),
                             Integer.valueOf(pages_input.getText().toString().trim()),
                             description_input.getText().toString().trim());
 

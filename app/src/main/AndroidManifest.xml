@@ -12,7 +12,8 @@
         tools:targetApi="31">
         <activity
             android:name=".AdminPanel"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/loginStyle"/>
         <activity
             android:name=".StudentBookDetails"
             android:exported="false" />
@@ -59,10 +60,11 @@
         <activity
             android:name=".MainActivity"
             android:label="Book Maintenance" />
+
         <activity
             android:name=".Splash"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.Material3.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />

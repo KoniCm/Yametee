@@ -20,4 +20,9 @@
     <style name="DashboardPrime" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#15616d</item>
     </style>
+    
+    <style name="loginStyle" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">#15616d</item>
+        <item name="backgroundColor">#00E5FF</item>
+    </style>
 </resources>
