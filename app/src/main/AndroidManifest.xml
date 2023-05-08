@@ -11,23 +11,26 @@
         android:theme="@style/MainColor"
         tools:targetApi="31">
         <activity
+            android:name=".FavouriteBookList"
+            android:exported="false" />
+        <activity
             android:name=".AdminPanel"
             android:exported="false"
-            android:theme="@style/loginStyle"/>
+            android:theme="@style/loginStyle" />
         <activity
             android:name=".StudentBookDetails"
             android:exported="false" />
         <activity
             android:name=".BookListStudent"
             android:exported="false"
-            android:theme="@style/loginStyle"/>
+            android:theme="@style/loginStyle" />
         <activity
             android:name=".DashboardStudent"
             android:exported="false" />
         <activity
             android:name=".studentPanel"
             android:exported="false"
-            android:theme="@style/loginStyle"/>
+            android:theme="@style/loginStyle" />
         <activity
             android:name=".LoginSystem"
             android:exported="true" />
@@ -62,7 +65,6 @@
         <activity
             android:name=".MainActivity"
             android:label="Book Maintenance" />
-
         <activity
             android:name=".Splash"
             android:exported="true"

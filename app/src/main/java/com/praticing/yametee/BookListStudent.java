@@ -32,8 +32,6 @@ public class BookListStudent extends AppCompatActivity
 
     CustomAdapterBS customAdapterBS;
 
-    TextInputEditText input_startDate;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -90,7 +88,7 @@ public class BookListStudent extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_item, menu);
+        inflater.inflate(R.menu.student_men, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -105,8 +103,9 @@ public class BookListStudent extends AppCompatActivity
                 Intent intent = new Intent(BookListStudent.this, DashboardStudent.class);
                 startActivity(intent);
                 return true;
-            case R.id.delete_all:
-                Toast.makeText(this, "You don't have permission", Toast.LENGTH_SHORT).show();
+            case R.id.favList:
+                Intent favListBook = new Intent(BookListStudent.this,FavouriteBookList.class);
+                startActivity(favListBook);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

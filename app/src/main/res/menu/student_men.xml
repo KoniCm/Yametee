@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/delete_all"
-        android:icon="@drawable/ic_delete"
-        android:title="Delete"
-        app:showAsAction="always"/>
-
     <item android:id="@+id/home"
         android:icon="@drawable/ic_delete"
         android:title="Dashboard"
         app:showAsAction="never"/>
+
+    <item android:id="@+id/favList"
+        android:title="Favourite"
+        android:icon="@drawable/baseline_bookmark_border_24"
+        app:showAsAction="ifRoom"/>
 
 </menu>

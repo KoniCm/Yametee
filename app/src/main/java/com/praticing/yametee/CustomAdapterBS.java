@@ -162,6 +162,7 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
             public void onClick(DialogInterface dialogInterface, int i)
             {
                 Toast.makeText(context, "Added to your favourite",Toast.LENGTH_SHORT).show();
+
             }
         });
         bui.setNegativeButton("No", null);
