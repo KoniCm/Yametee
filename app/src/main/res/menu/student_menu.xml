@@ -14,12 +14,14 @@
         <menu>
             <item android:id="@+id/borrowed_men"
                 app:showAsAction="ifRoom"
-                android:title="Borrowed"
+                android:title="borrow"
+                android:icon="@drawable/baseline_back_hand_24"
                 />
 
             <item android:id="@+id/favourite"
                 app:showAsAction="ifRoom"
-                android:title="Favourite"/>
+                android:title="Favourite"
+                android:icon="@drawable/baseline_favorite_24"/>
 
             <item android:id="@+id/rate_men"
                 app:showAsAction="ifRoom"

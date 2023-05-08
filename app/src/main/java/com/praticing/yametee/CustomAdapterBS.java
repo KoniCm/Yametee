@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -23,11 +24,10 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
-public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyViewHolder>
-{
+public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyViewHolder> {
     private Activity activity;
     private Context context;
-    private ArrayList book_id, book_title, book_author,book_genre,book_publish, book_pages,book_description;
+    private ArrayList book_id, book_title, book_author, book_genre, book_publish, book_pages, book_description;
 
     Animation animation;
 
@@ -107,7 +107,7 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
                                 break;
                             case R.id.favourite:
                                 //call this method
-                                Diafavourite();
+                                Diafavourite(String.valueOf(book_title.get(position)));
                                 break;
                             default:
                                 return false;
@@ -129,6 +129,7 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
     {
         TextView book_title_txt, book_author_txt, book_genre_txt, book_publish_txt, book_pages_txt, book_description_txt;
         LinearLayout mainLayout;
+        String title;
 
         public MyViewHolder(@NonNull View itemView)
         {
@@ -141,18 +142,28 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
             book_description_txt = itemView.findViewById(R.id.book_description_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);
 
+            String title = book_title_txt.getText().toString();
+
             //Simple Animation
             animation = AnimationUtils.loadAnimation(context, R.anim.anim_trans);
             mainLayout.setAnimation(animation);
         }
     }
-    void Diafavourite()
+    void Diafavourite(String title)
     {
         AlertDialog.Builder bui = new AlertDialog.Builder(context);
 
-        bui.setTitle("Favourite");
-        bui.setMessage("Favourite this book?");
-        bui.setPositiveButton("Yes", null);
+        bui.setTitle(title);
+        bui.setIcon(R.drawable.baseline_favorite_24);
+        bui.setMessage("You want favourite this book?");
+        bui.setPositiveButton("Yes", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                Toast.makeText(context, "Added to your favourite",Toast.LENGTH_SHORT).show();
+            }
+        });
         bui.setNegativeButton("No", null);
 
         bui.create().show();

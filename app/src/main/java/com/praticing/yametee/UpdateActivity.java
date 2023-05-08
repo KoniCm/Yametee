@@ -3,11 +3,14 @@ package com.praticing.yametee;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -32,6 +35,25 @@ public class UpdateActivity extends AppCompatActivity
         description_input = findViewById(R.id.description_input2);
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
+        
+        publish_input.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(UpdateActivity.this);
+                datePickerDialog.show();
+
+                datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener()
+                {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day)
+                    {
+                        publish_input.setText(year +"-"+ month +"-"+ day);
+                    }
+                });
+            }
+        });
 
         //Calling this method
         getAndSetIntentData();
@@ -108,7 +130,7 @@ public class UpdateActivity extends AppCompatActivity
     {
         //Simple Dialog box
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Delete");
+        builder.setTitle(title);
         builder.setMessage("Are you sure you want to delete?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
         {

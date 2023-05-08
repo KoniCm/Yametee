@@ -7,14 +7,8 @@
     android:padding="15dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Borrow Book"
-        android:textSize="18sp"
-        android:gravity="center" />
-
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/input_Borrow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,6 +23,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
@@ -38,11 +33,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Start Date"
+            android:drawableEnd="@drawable/baseline_date_range_24"
             android:inputType="date" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/input_returnDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,6 +48,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_date_range_24"
             android:hint="Return Date"
             android:inputType="date" />
 

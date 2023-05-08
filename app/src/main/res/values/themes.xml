@@ -12,17 +12,22 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-
     </style>
+
     <style name="MainColor" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#15616d</item>
     </style>
+
     <style name="DashboardPrime" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#15616d</item>
     </style>
     
-    <style name="loginStyle" parent="Theme.MaterialComponents.Light">
+    <style name="loginStyle" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">#15616d</item>
         <item name="backgroundColor">#00E5FF</item>
+    </style>
+    
+    <style name="splash_screen" parent="DashboardPrime">
+        <!--no item required-->
     </style>
 </resources>

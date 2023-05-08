@@ -19,7 +19,8 @@
             android:exported="false" />
         <activity
             android:name=".BookListStudent"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/loginStyle"/>
         <activity
             android:name=".DashboardStudent"
             android:exported="false" />
@@ -64,7 +65,7 @@
         <activity
             android:name=".Splash"
             android:exported="true"
-            android:theme="@style/Theme.Material3.Light.NoActionBar">
+            android:theme="@style/splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
