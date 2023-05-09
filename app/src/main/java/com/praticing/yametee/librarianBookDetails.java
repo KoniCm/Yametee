@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Details extends AppCompatActivity
+public class librarianBookDetails extends AppCompatActivity
 {
     TextView title_input, author_input,genre_input,publish_input,pages_input,description_input;
     String id, title, author, genre, publish, pages, description;
@@ -58,7 +58,7 @@ public class Details extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        Intent intent = new Intent(Details.this,BookActivity.class);
+        Intent intent = new Intent(librarianBookDetails.this,BookActivity.class);
         startActivity(intent);
     }
 }

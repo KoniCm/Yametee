@@ -15,7 +15,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -27,13 +26,13 @@ public class BookActivity extends AppCompatActivity
     FloatingActionButton add_button;
 
     //Connecting date base
-    MyDatabaseHelper myDB;
+    LibrarianDatabase myDB;
 
     //Array list
     ArrayList<String> book_id, book_title, book_author,book_genre,book_publish,book_pages,book_description;
 
     //Connecting Adapter
-    CustomAdapter customAdapter;
+    LibrarianCustomAdapter customAdapter;
 
     TextView no_data;
 
@@ -52,14 +51,14 @@ public class BookActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(BookActivity.this, AddActivity.class);
+                Intent intent = new Intent(BookActivity.this, addBookActivity.class);
                 startActivity(intent);
             }
         });
 
         //creating arraylist
 
-        myDB = new MyDatabaseHelper(BookActivity.this);
+        myDB = new LibrarianDatabase(BookActivity.this);
         book_id = new ArrayList<>();
         book_title = new ArrayList<>();
         book_author = new ArrayList<>();
@@ -70,7 +69,7 @@ public class BookActivity extends AppCompatActivity
 
         storeDataInArrays();
 
-        customAdapter = new CustomAdapter(BookActivity.this,this, book_id, book_title, book_author,book_genre,
+        customAdapter = new LibrarianCustomAdapter(BookActivity.this,this, book_id, book_title, book_author,book_genre,
                 book_publish,book_pages, book_description);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(BookActivity.this));
@@ -127,7 +126,7 @@ public class BookActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case R.id.home:
-                Intent intent = new Intent(BookActivity.this, MainActivity.class);
+                Intent intent = new Intent(BookActivity.this, DashboardLibrarian.class);
                 startActivity(intent);
                 return true;
             case R.id.delete_all:
@@ -142,7 +141,7 @@ public class BookActivity extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        Intent goBack = new Intent(BookActivity.this, MainActivity.class);
+        Intent goBack = new Intent(BookActivity.this, DashboardLibrarian.class);
         startActivity(goBack);
     }
 
@@ -159,7 +158,7 @@ public class BookActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {
-                MyDatabaseHelper myDB = new MyDatabaseHelper(BookActivity.this);
+                LibrarianDatabase myDB = new LibrarianDatabase(BookActivity.this);
                 myDB.deleteAllData();
 
                 //Refresh Activity

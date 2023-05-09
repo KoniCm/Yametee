@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-public class AddActivity extends AppCompatActivity
+public class addBookActivity extends AppCompatActivity
 {
     EditText title_input, author_input, genre_input, publish_input, pages_input, description_input;
     Button add_button,bookCover_button;
@@ -34,7 +34,7 @@ public class AddActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                DatePickerDialog datePicker = new DatePickerDialog(AddActivity.this);
+                DatePickerDialog datePicker = new DatePickerDialog(addBookActivity.this);
                 datePicker.show();
                 datePicker.setOnDateSetListener(new DatePickerDialog.OnDateSetListener()
                 {
@@ -51,7 +51,7 @@ public class AddActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(AddActivity.this, "You clicked Add photo...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(addBookActivity.this, "You clicked Add photo...", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -65,12 +65,12 @@ public class AddActivity extends AppCompatActivity
                         genre_input.getText().toString().isEmpty() || publish_input.getText().toString().isEmpty() || pages_input.getText().toString().isEmpty() ||
                         description_input.getText().toString().isEmpty())
                 {
-                    Toast.makeText(AddActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addBookActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     //Parameter in the database
-                    MyDatabaseHelper myDB = new MyDatabaseHelper(AddActivity.this);
+                    LibrarianDatabase myDB = new LibrarianDatabase(addBookActivity.this);
                     myDB.addBook(title_input.getText().toString().trim(),
                             author_input.getText().toString().trim(),
                             genre_input.getText().toString().trim(),
@@ -79,7 +79,7 @@ public class AddActivity extends AppCompatActivity
                             description_input.getText().toString().trim());
 
                     //Going to the next activity
-                    Intent intent = new Intent(AddActivity.this,BookActivity.class);
+                    Intent intent = new Intent(addBookActivity.this,BookActivity.class);
                     startActivity(intent);
 
                     //Clearing a text field

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class AdminPanel extends AppCompatActivity {
+public class librarianLoginActivity extends AppCompatActivity {
 
     final String permanentUser = "admin";
     final String permanentPass = "admin123";
@@ -43,17 +43,17 @@ public class AdminPanel extends AppCompatActivity {
 
                 if(user_X.isEmpty() || pass_X.isEmpty())
                 {
-                    Toast.makeText(AdminPanel.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(librarianLoginActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
                 }
                 else if(user_X.equals(permanentUser) && pass_X.equals(permanentPass))
                 {
-                    Toast.makeText(AdminPanel.this, "Successfully login as a admin!", Toast.LENGTH_SHORT).show();
-                    Intent bypass = new Intent(AdminPanel.this,MainActivity.class);
+                    Toast.makeText(librarianLoginActivity.this, "Successfully login as a Librarian!", Toast.LENGTH_SHORT).show();
+                    Intent bypass = new Intent(librarianLoginActivity.this, DashboardLibrarian.class);
                     startActivity(bypass);
                 }
                 else
                 {
-                    Toast.makeText(AdminPanel.this, "Wrong username or password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(librarianLoginActivity.this, "Wrong username or password", Toast.LENGTH_SHORT).show();
                 }
             }
         });

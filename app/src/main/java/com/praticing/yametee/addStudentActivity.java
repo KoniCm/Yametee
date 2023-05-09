@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class addStudent extends AppCompatActivity
+public class addStudentActivity extends AppCompatActivity
 {
 
     EditText id_input, name_input, level_input,section_input,strand_input;
@@ -36,12 +36,12 @@ public class addStudent extends AppCompatActivity
                 if(id_input.getText().toString().isEmpty() || name_input.getText().toString().isEmpty() ||
                         level_input.getText().toString().isEmpty() || section_input.getText().toString().isEmpty() || strand_input.getText().toString().isEmpty())
                 {
-                    Toast.makeText(addStudent.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addStudentActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     //Calling database name and placing value in the layout by trim
-                    StudentDatabase myDB = new StudentDatabase(addStudent.this);
+                    StudentDatabase myDB = new StudentDatabase(addStudentActivity.this);
                     myDB.addStudent(id_input.getText().toString().trim(),
                             name_input.getText().toString().trim(),
                             Integer.valueOf(level_input.getText().toString().trim()),
@@ -49,7 +49,7 @@ public class addStudent extends AppCompatActivity
                             strand_input.getText().toString().trim());
 
                     //Going to the next activity
-                    Intent intent = new Intent(addStudent.this,studentActivity.class);
+                    Intent intent = new Intent(addStudentActivity.this,studentActivity.class);
                     startActivity(intent);
 
                     //clear all text field

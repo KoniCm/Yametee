@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".studentPanel">
+    tools:context=".studentLoginActivity">
 
     <TextView
         android:layout_width="wrap_content"

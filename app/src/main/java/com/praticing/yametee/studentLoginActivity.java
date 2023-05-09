@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class studentPanel extends AppCompatActivity
+public class studentLoginActivity extends AppCompatActivity
 {
     Button btn_loginStudent;
     @Override
@@ -23,7 +23,7 @@ public class studentPanel extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(studentPanel.this,DashboardStudent.class);
+                Intent intent = new Intent(studentLoginActivity.this,DashboardStudent.class);
                 startActivity(intent);
             }
         });

@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class MyDatabaseHelper extends SQLiteOpenHelper
+public class LibrarianDatabase extends SQLiteOpenHelper
 {
     //A Context is a handle to the system
     private Context context;
@@ -27,7 +27,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper
     private static final String COLUMN_PAGES = "book_pages";
     private static final String COLUMN_DESCRIPTION = "book_description";
 
-    MyDatabaseHelper(@Nullable Context context)
+    LibrarianDatabase(@Nullable Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;

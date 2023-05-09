@@ -13,9 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
@@ -25,12 +22,12 @@ public class BookListStudent extends AppCompatActivity
     TextView no_data;
 
     //Connecting date base
-    MyDatabaseHelper myDB;
+    LibrarianDatabase myDB;
 
     //Array list
     ArrayList<String> book_id, book_title, book_author,book_genre,book_publish,book_pages,book_description;
 
-    CustomAdapterBS customAdapterBS;
+    CustomAdapterBookListForStudent customAdapterBS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,7 +40,7 @@ public class BookListStudent extends AppCompatActivity
 
         //creating arraylist
 
-        myDB = new MyDatabaseHelper(BookListStudent.this);
+        myDB = new LibrarianDatabase(BookListStudent.this);
         book_id = new ArrayList<>();
         book_title = new ArrayList<>();
         book_author = new ArrayList<>();
@@ -54,7 +51,7 @@ public class BookListStudent extends AppCompatActivity
 
         storeDataInArrays();
 
-        customAdapterBS = new CustomAdapterBS(BookListStudent.this,this, book_id, book_title, book_author,book_genre,
+        customAdapterBS = new CustomAdapterBookListForStudent(BookListStudent.this,this, book_id, book_title, book_author,book_genre,
                 book_publish,book_pages, book_description);
         recyclerView.setAdapter(customAdapterBS);
         recyclerView.setLayoutManager(new LinearLayoutManager(BookListStudent.this));

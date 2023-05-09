@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder>
+public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustomAdapter.MyViewHolder>
 {
     private Activity activity;
     private Context context;
@@ -25,9 +25,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     Animation animation;
 
     //Constructor with parameter
-    CustomAdapter(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
-                  ArrayList book_genre,ArrayList book_publish,
-                  ArrayList book_pages, ArrayList book_description)
+    LibrarianCustomAdapter(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
+                           ArrayList book_genre, ArrayList book_publish,
+                           ArrayList book_pages, ArrayList book_description)
     {
         this.activity = activity;
         this.context = context;
@@ -78,7 +78,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                         {
                             case R.id.edit_menu:
                                 //getting the value , the user input display and going to the update activity
-                                Intent intent = new Intent(context, UpdateActivity.class);
+                                Intent intent = new Intent(context, updateBookActivity.class);
                                 intent.putExtra("id", String.valueOf(book_id.get(position)));
                                 intent.putExtra("title", String.valueOf(book_title.get(position)));
                                 intent.putExtra("author", String.valueOf(book_author.get(position)));
@@ -90,7 +90,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                                 break;
                             case R.id.view_menu:
                                 // Same as edit_menu but its going to the details activity
-                                Intent viewIntent = new Intent(context, Details.class);
+                                Intent viewIntent = new Intent(context, librarianBookDetails.class);
                                 viewIntent.putExtra("id", String.valueOf(book_id.get(position)));
                                 viewIntent.putExtra("title", String.valueOf(book_title.get(position)));
                                 viewIntent.putExtra("author", String.valueOf(book_author.get(position)));

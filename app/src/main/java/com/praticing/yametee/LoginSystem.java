@@ -25,7 +25,7 @@ public class LoginSystem extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(LoginSystem.this,AdminPanel.class);
+                Intent intent = new Intent(LoginSystem.this, librarianLoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -34,7 +34,7 @@ public class LoginSystem extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent student = new Intent(LoginSystem.this,studentPanel.class);
+                Intent student = new Intent(LoginSystem.this, studentLoginActivity.class);
                 startActivity(student);
             }
         });

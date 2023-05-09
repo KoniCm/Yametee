@@ -9,7 +9,6 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/input_Borrow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
@@ -18,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Borrow from"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:id="@+id/input_Borrow"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

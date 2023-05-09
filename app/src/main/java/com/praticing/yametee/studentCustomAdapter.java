@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class CustomAdapterStudent extends RecyclerView.Adapter<CustomAdapterStudent.MyViewHolder>
+public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdapter.MyViewHolder>
 {
     private Activity activity;
     private Context context;
@@ -23,7 +23,7 @@ public class CustomAdapterStudent extends RecyclerView.Adapter<CustomAdapterStud
     Animation animation;
 
     //Constructor with parameter
-    CustomAdapterStudent(Activity activity,Context context, ArrayList student_id, ArrayList student_name,
+    studentCustomAdapter(Activity activity, Context context, ArrayList student_id, ArrayList student_name,
                          ArrayList student_level, ArrayList student_section, ArrayList student_strand)
     {
         this.activity = activity;
@@ -57,7 +57,7 @@ public class CustomAdapterStudent extends RecyclerView.Adapter<CustomAdapterStud
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(context, UpdateStudentActivity.class);
+                Intent intent = new Intent(context, updateStudentActivity.class);
                 intent.putExtra("row_id",String.valueOf(student_id.get(position)));
                 intent.putExtra("name",String.valueOf(student_name.get(position)));
                 intent.putExtra("level",String.valueOf(student_level.get(position)));

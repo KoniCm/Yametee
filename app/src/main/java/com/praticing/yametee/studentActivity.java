@@ -15,7 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public class studentActivity extends AppCompatActivity
     FloatingActionButton add_btn;
     StudentDatabase mystDB;
     ArrayList<String> student_id, student_name, student_level, student_section,student_strand;
-    CustomAdapterStudent customAdapterStudent;
+    studentCustomAdapter customAdapterStudent;
     TextView no_data;
 
     @Override
@@ -44,7 +44,7 @@ public class studentActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(studentActivity.this, addStudent.class);
+                Intent intent = new Intent(studentActivity.this, addStudentActivity.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class studentActivity extends AppCompatActivity
 
         storeDataInArrays();
 
-        customAdapterStudent = new CustomAdapterStudent(studentActivity.this,this, student_id, student_name, student_level,
+        customAdapterStudent = new studentCustomAdapter(studentActivity.this,this, student_id, student_name, student_level,
                 student_section, student_strand);
         recyclerView.setAdapter(customAdapterStudent);
         recyclerView.setLayoutManager(new LinearLayoutManager(studentActivity.this));
@@ -88,7 +88,7 @@ public class studentActivity extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        Intent goBack = new Intent(studentActivity.this, MainActivity.class);
+        Intent goBack = new Intent(studentActivity.this, DashboardLibrarian.class);
         startActivity(goBack);
     }
     //implementing menu bar
@@ -107,7 +107,7 @@ public class studentActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case R.id.home:
-                Intent intent = new Intent(studentActivity.this, MainActivity.class);
+                Intent intent = new Intent(studentActivity.this, DashboardLibrarian.class);
                 startActivity(intent);
                 return true;
             case R.id.delete_all:

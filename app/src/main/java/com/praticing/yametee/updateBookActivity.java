@@ -14,7 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UpdateActivity extends AppCompatActivity
+public class updateBookActivity extends AppCompatActivity
 {
     EditText title_input, author_input,genre_input,publish_input,pages_input,description_input;
     Button update_button,delete_button;
@@ -41,7 +41,7 @@ public class UpdateActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(UpdateActivity.this);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(updateBookActivity.this);
                 datePickerDialog.show();
 
                 datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener()
@@ -70,7 +70,7 @@ public class UpdateActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                MyDatabaseHelper MyDB = new MyDatabaseHelper(UpdateActivity.this);
+                LibrarianDatabase MyDB = new LibrarianDatabase(updateBookActivity.this);
 
                 //Changing Value
                 title = title_input.getText().toString().trim();
@@ -83,7 +83,7 @@ public class UpdateActivity extends AppCompatActivity
                 MyDB.updateData(id,title,author,genre,publish,pages,description);
 
                 //Going to the next activity
-                Intent intent = new Intent(UpdateActivity.this,BookActivity.class);
+                Intent intent = new Intent(updateBookActivity.this,BookActivity.class);
                 startActivity(intent);
             }
         });
@@ -137,11 +137,11 @@ public class UpdateActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {
-                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                LibrarianDatabase myDB = new LibrarianDatabase(updateBookActivity.this);
                 myDB.deleteOneRow(id);
                 finish();
 
-                Intent intent = new Intent(UpdateActivity.this,BookActivity.class);
+                Intent intent = new Intent(updateBookActivity.this,BookActivity.class);
                 startActivity(intent);
             }
         });
@@ -152,7 +152,7 @@ public class UpdateActivity extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        Intent intent = new Intent(UpdateActivity.this,BookActivity.class);
+        Intent intent = new Intent(updateBookActivity.this,BookActivity.class);
         startActivity(intent);
     }
 }

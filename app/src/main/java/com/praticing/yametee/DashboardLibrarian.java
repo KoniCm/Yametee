@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
+public class DashboardLibrarian extends AppCompatActivity
 {
     CardView mainAC_btn,student_btn,bookborrowreturn_btn;
     @Override
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(MainActivity.this, BookActivity.class);
+                Intent intent = new Intent(DashboardLibrarian.this, BookActivity.class);
                 startActivity(intent);
             }
         });
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(MainActivity.this,studentActivity.class);
+                Intent intent = new Intent(DashboardLibrarian.this,studentActivity.class);
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(MainActivity.this, Portal.class);
+                Intent intent = new Intent(DashboardLibrarian.this, Portal.class);
                 startActivity(intent);
             }
         });
@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {
-                Toast.makeText(MainActivity.this, "Your account has been sign out", Toast.LENGTH_SHORT).show();
-                Intent signOut = new Intent(MainActivity.this,LoginSystem.class);
+                Toast.makeText(DashboardLibrarian.this, "Your account has been sign out", Toast.LENGTH_SHORT).show();
+                Intent signOut = new Intent(DashboardLibrarian.this,LoginSystem.class);
                 startActivity(signOut);
             }
         });

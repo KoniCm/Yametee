@@ -14,7 +14,7 @@
             android:name=".FavouriteBookList"
             android:exported="false" />
         <activity
-            android:name=".AdminPanel"
+            android:name=".librarianLoginActivity"
             android:exported="false"
             android:theme="@style/loginStyle" />
         <activity
@@ -28,7 +28,7 @@
             android:name=".DashboardStudent"
             android:exported="false" />
         <activity
-            android:name=".studentPanel"
+            android:name=".studentLoginActivity"
             android:exported="false"
             android:theme="@style/loginStyle" />
         <activity
@@ -38,32 +38,32 @@
             android:name=".Portal"
             android:exported="false" />
         <activity
-            android:name=".UpdateStudentActivity"
+            android:name=".updateStudentActivity"
             android:exported="false"
             android:parentActivityName=".studentActivity" />
         <activity
             android:name=".BookActivity"
             android:exported="false" />
         <activity
-            android:name=".addStudent"
+            android:name=".addStudentActivity"
             android:exported="false"
             android:parentActivityName=".studentActivity" />
         <activity
             android:name=".studentActivity"
-            android:label="Student Management System" />
+            android:label="Student" />
         <activity
-            android:name=".Details"
+            android:name=".librarianBookDetails"
             android:label="Book Details"
             android:parentActivityName=".BookActivity" />
         <activity
-            android:name=".UpdateActivity"
+            android:name=".updateBookActivity"
             android:parentActivityName=".BookActivity" />
         <activity
-            android:name=".AddActivity"
+            android:name=".addBookActivity"
             android:label="Adding Book"
             android:parentActivityName=".BookActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".DashboardLibrarian"
             android:label="Book Maintenance" />
         <activity
             android:name=".Splash"

@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UpdateStudentActivity extends AppCompatActivity
+public class updateStudentActivity extends AppCompatActivity
 {
     EditText id_input, name_input, level_input,section_input,strand_input;
     Button updateStudent_btn, deleteStudent_btn;
@@ -47,7 +47,7 @@ public class UpdateStudentActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                StudentDatabase studentDatabase = new StudentDatabase(UpdateStudentActivity.this);
+                StudentDatabase studentDatabase = new StudentDatabase(updateStudentActivity.this);
                 id = id_input.getText().toString().trim();
                 name = name_input.getText().toString().trim();
                 level = level_input.getText().toString().trim();
@@ -55,7 +55,7 @@ public class UpdateStudentActivity extends AppCompatActivity
                 strand = strand_input.getText().toString().trim();
                 studentDatabase.updateData(id,name,level,section,strand);
 
-                Intent intent = new Intent(UpdateStudentActivity.this, studentActivity.class);
+                Intent intent = new Intent(updateStudentActivity.this, studentActivity.class);
                 startActivity(intent);
             }
         });
@@ -105,11 +105,11 @@ public class UpdateStudentActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {
-                StudentDatabase myDB = new StudentDatabase(UpdateStudentActivity.this);
+                StudentDatabase myDB = new StudentDatabase(updateStudentActivity.this);
                 myDB.deleteOneRow(id);
                 finish();
 
-                Intent intent = new Intent(UpdateStudentActivity.this,studentActivity.class);
+                Intent intent = new Intent(updateStudentActivity.this,studentActivity.class);
                 startActivity(intent);
             }
         });
@@ -121,7 +121,7 @@ public class UpdateStudentActivity extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        Intent intent = new Intent(UpdateStudentActivity.this,studentActivity.class);
+        Intent intent = new Intent(updateStudentActivity.this,studentActivity.class);
         startActivity(intent);
     }
 }

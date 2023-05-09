@@ -15,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
-public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyViewHolder> {
+public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<CustomAdapterBookListForStudent.MyViewHolder> {
     private Activity activity;
     private Context context;
     private ArrayList book_id, book_title, book_author, book_genre, book_publish, book_pages, book_description;
@@ -32,9 +33,9 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
     Animation animation;
 
     //Constructor with parameter
-    CustomAdapterBS(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
-                  ArrayList book_genre,ArrayList book_publish,
-                  ArrayList book_pages, ArrayList book_description)
+    CustomAdapterBookListForStudent(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
+                                    ArrayList book_genre, ArrayList book_publish,
+                                    ArrayList book_pages, ArrayList book_description)
     {
         this.activity = activity;
         this.context = context;
@@ -95,10 +96,8 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
                                 activity.startActivityForResult(viewIntent, 1);
                                 break;
                             case R.id.borrowed_men:
-                                Dialog dialog = new Dialog(context);
-                                dialog.setContentView(R.layout.dialog_borrow);
-                                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-                                dialog.show();
+                                //call this method
+                                dialogBorrow();
                                 break;
                             case R.id.rate_men:
                                 Dialog dialogRate = new Dialog(context);
@@ -129,8 +128,6 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
     {
         TextView book_title_txt, book_author_txt, book_genre_txt, book_publish_txt, book_pages_txt, book_description_txt;
         LinearLayout mainLayout;
-        String title;
-
         public MyViewHolder(@NonNull View itemView)
         {
             super(itemView);
@@ -141,8 +138,6 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
             book_pages_txt = itemView.findViewById(R.id.book_pages_txt);
             book_description_txt = itemView.findViewById(R.id.book_description_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);
-
-            String title = book_title_txt.getText().toString();
 
             //Simple Animation
             animation = AnimationUtils.loadAnimation(context, R.anim.anim_trans);
@@ -168,5 +163,12 @@ public class CustomAdapterBS extends RecyclerView.Adapter<CustomAdapterBS.MyView
         bui.setNegativeButton("No", null);
 
         bui.create().show();
+    }
+    void dialogBorrow()
+    {
+        Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.dialog_borrow);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.show();
     }
 }
