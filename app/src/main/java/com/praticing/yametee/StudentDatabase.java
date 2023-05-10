@@ -18,6 +18,7 @@ public class StudentDatabase extends SQLiteOpenHelper
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "my_Student";
     private static final String COLUMN_ID = "id";
+    private static final String COLUMN_PASS = "student_pass";
     private static final String COLUMN_NAME = "student_name";
     private static final String COLUMN_LEVEl = "student_level";
     private static final String COLUMN_SECTION = "student_section";
@@ -37,7 +38,8 @@ public class StudentDatabase extends SQLiteOpenHelper
                 COLUMN_NAME + " TEXT, " +
                 COLUMN_LEVEl + " INTEGER, " +
                 COLUMN_SECTION + " TEXT, " +
-                COLUMN_STRAND + " TEXT);";
+                COLUMN_STRAND + " TEXT, " +
+                COLUMN_PASS + " TEXT);";
         db.execSQL(query);
     }
     // If TableName exist the SQL drop TABLE
@@ -48,7 +50,7 @@ public class StudentDatabase extends SQLiteOpenHelper
         onCreate(db);
     }
     //Method of adding student with parameter
-    void addStudent(String id, String name, int level,String section,String strand)
+    void addStudent(String id, String name, int level,String section,String strand,String pass)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -60,6 +62,7 @@ public class StudentDatabase extends SQLiteOpenHelper
         cv.put(COLUMN_LEVEl, level);
         cv.put(COLUMN_SECTION, section);
         cv.put(COLUMN_STRAND, strand);
+        cv.put(COLUMN_PASS, pass);
 
         //Data is long res = database insert func tableName Col and the content Val
         long result = db.insert(TABLE_NAME,null, cv);
@@ -95,7 +98,7 @@ public class StudentDatabase extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }
-    void updateData(String row_id, String name, String level, String section, String strand)
+    void updateData(String row_id, String name, String level, String section, String strand,String pass)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -105,6 +108,7 @@ public class StudentDatabase extends SQLiteOpenHelper
         cv.put(COLUMN_LEVEl, level);
         cv.put(COLUMN_SECTION, section);
         cv.put(COLUMN_STRAND, strand);
+        cv.put(COLUMN_PASS, pass);
 
         //update value if the id exists in the table
         long result = db.update(TABLE_NAME, cv, "id=?", new String[]{row_id});

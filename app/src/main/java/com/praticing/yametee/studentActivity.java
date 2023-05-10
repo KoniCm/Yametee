@@ -22,9 +22,8 @@ import java.util.ArrayList;
 public class studentActivity extends AppCompatActivity
 {
     RecyclerView recyclerView;
-    FloatingActionButton add_btn;
     StudentDatabase mystDB;
-    ArrayList<String> student_id, student_name, student_level, student_section,student_strand;
+    ArrayList<String> student_id, student_name, student_level, student_section,student_strand,student_pass;
     studentCustomAdapter customAdapterStudent;
     TextView no_data;
 
@@ -35,19 +34,7 @@ public class studentActivity extends AppCompatActivity
         setContentView(R.layout.activity_student);
 
         recyclerView = findViewById(R.id.recyclerView);
-        add_btn = findViewById(R.id.addStudent_btn);
         no_data = findViewById(R.id.no_data);
-
-        //Student to AddStudent activity using floating action button
-        add_btn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(studentActivity.this, addStudentActivity.class);
-                startActivity(intent);
-            }
-        });
 
         mystDB = new StudentDatabase(studentActivity.this);
         student_id = new ArrayList<>();
@@ -55,11 +42,12 @@ public class studentActivity extends AppCompatActivity
         student_level = new ArrayList<>();
         student_section = new ArrayList<>();
         student_strand = new ArrayList<>();
+        student_pass = new ArrayList<>();
 
         storeDataInArrays();
 
         customAdapterStudent = new studentCustomAdapter(studentActivity.this,this, student_id, student_name, student_level,
-                student_section, student_strand);
+                student_section, student_strand,student_pass);
         recyclerView.setAdapter(customAdapterStudent);
         recyclerView.setLayoutManager(new LinearLayoutManager(studentActivity.this));
     }
@@ -80,6 +68,7 @@ public class studentActivity extends AppCompatActivity
                 student_level.add(cursor.getString(2));
                 student_section.add(cursor.getString(3));
                 student_strand.add(cursor.getString(4));
+                student_pass.add(cursor.getString(5));
             }
             no_data.setVisibility(View.GONE);
         }

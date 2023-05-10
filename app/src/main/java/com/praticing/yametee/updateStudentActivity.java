@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 public class updateStudentActivity extends AppCompatActivity
 {
-    EditText id_input, name_input, level_input,section_input,strand_input;
+    EditText id_input, name_input, level_input,section_input,strand_input,pass_input;
     Button updateStudent_btn, deleteStudent_btn;
 
-    String id, name, level, section, strand;
+    String id, name, level, section, strand, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,6 +30,7 @@ public class updateStudentActivity extends AppCompatActivity
         level_input = findViewById(R.id.level_input2);
         section_input = findViewById(R.id.section_input2);
         strand_input = findViewById(R.id.strand_input2);
+        pass_input = findViewById(R.id.pass_input2);
         updateStudent_btn = findViewById(R.id.updateStudent_btn);
         deleteStudent_btn = findViewById(R.id.deleteStudent_btn);
 
@@ -53,7 +54,8 @@ public class updateStudentActivity extends AppCompatActivity
                 level = level_input.getText().toString().trim();
                 section = section_input.getText().toString().trim();
                 strand = strand_input.getText().toString().trim();
-                studentDatabase.updateData(id,name,level,section,strand);
+                pass = pass_input.getText().toString().trim();
+                studentDatabase.updateData(id,name,level,section,strand,pass);
 
                 Intent intent = new Intent(updateStudentActivity.this, studentActivity.class);
                 startActivity(intent);
@@ -73,7 +75,7 @@ public class updateStudentActivity extends AppCompatActivity
     void getAndSetIntentData()
     {
         if(getIntent().hasExtra("row_id") && getIntent().hasExtra("name") && getIntent().hasExtra("level") && getIntent().hasExtra("section") &&
-                getIntent().hasExtra("strand"))
+                getIntent().hasExtra("strand") && getIntent().hasExtra("pass"))
         {
             //Getting Data from Intent
             id = getIntent().getStringExtra("row_id");
@@ -81,6 +83,7 @@ public class updateStudentActivity extends AppCompatActivity
             level = getIntent().getStringExtra("level");
             section = getIntent().getStringExtra("section");
             strand = getIntent().getStringExtra("strand");
+            pass = getIntent().getStringExtra("pass");
 
             //Setting Intent Data
             id_input.setText(id);
@@ -88,6 +91,7 @@ public class updateStudentActivity extends AppCompatActivity
             level_input.setText(level);
             section_input.setText(section);
             strand_input.setText(strand);
+            pass_input.setText(pass);
         }
         else
         {

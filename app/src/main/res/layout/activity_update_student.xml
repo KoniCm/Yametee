@@ -136,6 +136,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pages_input" />
 
+        <EditText
+            android:id="@+id/pass_input2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:gravity="start|center_vertical"
+            android:hint="Password"
+            android:inputType="textPersonName"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/publish_input" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

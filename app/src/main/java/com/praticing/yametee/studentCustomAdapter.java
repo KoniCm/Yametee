@@ -19,12 +19,12 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
 {
     private Activity activity;
     private Context context;
-    private ArrayList student_id, student_name, student_level, student_section, student_strand;
+    private ArrayList student_id, student_name, student_level, student_section, student_strand, student_pass;
     Animation animation;
 
     //Constructor with parameter
     studentCustomAdapter(Activity activity, Context context, ArrayList student_id, ArrayList student_name,
-                         ArrayList student_level, ArrayList student_section, ArrayList student_strand)
+                         ArrayList student_level, ArrayList student_section, ArrayList student_strand, ArrayList student_pass)
     {
         this.activity = activity;
         this.context = context;
@@ -33,6 +33,7 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
         this.student_level = student_level;
         this.student_section = student_section;
         this.student_strand = student_strand;
+        this.student_pass = student_pass;
     }
     @NonNull
     @Override
@@ -52,6 +53,7 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
         holder.student_level_txt.setText(String.valueOf(student_level.get(position)));
         holder.student_section_txt.setText(String.valueOf(student_section.get(position)));
         holder.student_strand_txt.setText(String.valueOf(student_strand.get(position)));
+        holder.student_pass_txt.setText(String.valueOf(student_pass.get(position)));
         holder.studentMainLayout.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -63,6 +65,7 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
                 intent.putExtra("level",String.valueOf(student_level.get(position)));
                 intent.putExtra("section",String.valueOf(student_section.get(position)));
                 intent.putExtra("strand",String.valueOf(student_strand.get(position)));
+                intent.putExtra("pass",String.valueOf(student_pass.get(position)));
                 activity.startActivityForResult(intent,1);
             }
         });
@@ -76,7 +79,7 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
     //Implementing method find by ID
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
-        TextView student_id_txt, student_name_txt, student_level_txt, student_section_txt, student_strand_txt;
+        TextView student_id_txt, student_name_txt, student_level_txt, student_section_txt, student_strand_txt,student_pass_txt;
         LinearLayout studentMainLayout;
         public MyViewHolder(@NonNull View itemView)
         {
@@ -86,6 +89,7 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
             student_level_txt = itemView.findViewById(R.id.student_level_txt);
             student_section_txt = itemView.findViewById(R.id.student_section_txt);
             student_strand_txt = itemView.findViewById(R.id.student_strand_txt);
+            student_pass_txt = itemView.findViewById(R.id.student_pass_txt);
             studentMainLayout = itemView.findViewById(R.id.studentMainLayout);
 
             //Simple Animation

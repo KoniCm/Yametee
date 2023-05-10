@@ -52,6 +52,13 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create an account?"
+        android:textSize="14sp"/>
+
 
     <Button
         android:backgroundTint="#00B0FF"

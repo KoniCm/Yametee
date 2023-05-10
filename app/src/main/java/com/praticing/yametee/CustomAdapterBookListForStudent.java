@@ -35,8 +35,7 @@ public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<Custom
     //Constructor with parameter
     CustomAdapterBookListForStudent(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
                                     ArrayList book_genre, ArrayList book_publish,
-                                    ArrayList book_pages, ArrayList book_description)
-    {
+                                    ArrayList book_pages, ArrayList book_description) {
         this.activity = activity;
         this.context = context;
         this.book_id = book_id;
@@ -47,19 +46,19 @@ public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<Custom
         this.book_pages = book_pages;
         this.book_description = book_description;
     }
+
     //inflating my_row layout to view in the BookListStudent layout
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_row, parent, false);
         return new MyViewHolder(view);
     }
+
     //Tap . get position
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") final int position)
-    {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.book_title_txt.setText(String.valueOf(book_title.get(position)));
         holder.book_author_txt.setText(String.valueOf(book_author.get(position)));
         holder.book_genre_txt.setText(String.valueOf(book_genre.get(position)));
@@ -67,22 +66,17 @@ public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<Custom
         holder.book_pages_txt.setText(String.valueOf(book_pages.get(position)));
         holder.book_description_txt.setText(String.valueOf(book_description.get(position)));
 
-        holder.mainLayout.setOnClickListener(new View.OnClickListener()
-        {
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(context, v);
                 popupMenu.getMenuInflater().inflate(R.menu.student_menu, popupMenu.getMenu());
                 popupMenu.show();
 
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener()
-                {
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
-                    public boolean onMenuItemClick(MenuItem menuItem)
-                    {
-                        switch (menuItem.getItemId())
-                        {
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
                             case R.id.view_menu:
                                 // Same as edit_menu but its going to the StudentBookDetails activity
                                 Intent viewIntent = new Intent(context, StudentBookDetails.class);
@@ -96,8 +90,7 @@ public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<Custom
                                 activity.startActivityForResult(viewIntent, 1);
                                 break;
                             case R.id.borrowed_men:
-                                //call this method
-                                dialogBorrow();
+                                DiaBorrow();
                                 break;
                             case R.id.rate_men:
                                 Dialog dialogRate = new Dialog(context);
@@ -123,11 +116,13 @@ public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<Custom
     {
         return book_id.size();
     }
+
     //Implementing method find by ID
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
         TextView book_title_txt, book_author_txt, book_genre_txt, book_publish_txt, book_pages_txt, book_description_txt;
         LinearLayout mainLayout;
+
         public MyViewHolder(@NonNull View itemView)
         {
             super(itemView);
@@ -144,31 +139,37 @@ public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<Custom
             mainLayout.setAnimation(animation);
         }
     }
-    void Diafavourite(String title)
-    {
+
+    void Diafavourite(String title) {
         AlertDialog.Builder bui = new AlertDialog.Builder(context);
 
         bui.setTitle(title);
         bui.setIcon(R.drawable.baseline_favorite_24);
         bui.setMessage("You want favourite this book?");
-        bui.setPositiveButton("Yes", new DialogInterface.OnClickListener()
-        {
+        bui.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                Toast.makeText(context, "Added to your favourite",Toast.LENGTH_SHORT).show();
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(context, "Added to your favourite", Toast.LENGTH_SHORT).show();
 
             }
         });
         bui.setNegativeButton("No", null);
-
         bui.create().show();
     }
-    void dialogBorrow()
+
+    void DiaBorrow()
     {
-        Dialog dialog = new Dialog(context);
-        dialog.setContentView(R.layout.dialog_borrow);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Do you want to borrow this book?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                Toast.makeText(context, "Your request is now on pending...",Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("No", null);
+        builder.create().show();
     }
 }
