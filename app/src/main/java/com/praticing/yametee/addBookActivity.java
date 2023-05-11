@@ -10,8 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-public class addBookActivity extends AppCompatActivity
-{
+public class addBookActivity extends AppCompatActivity {
     EditText title_input, author_input, genre_input, publish_input, pages_input, description_input;
     Button add_button,bookCover_button;
     @Override

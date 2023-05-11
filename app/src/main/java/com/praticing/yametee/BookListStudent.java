@@ -16,8 +16,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class BookListStudent extends AppCompatActivity
-{
+public class BookListStudent extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView no_data;
 
@@ -30,8 +29,7 @@ public class BookListStudent extends AppCompatActivity
     CustomAdapterBookListForStudent customAdapterBS;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_list_student);
 
@@ -58,17 +56,11 @@ public class BookListStudent extends AppCompatActivity
 
     }
     //read Data and Store in a database
-    void storeDataInArrays()
-    {
+    void storeDataInArrays() {
         Cursor cursor = myDB.readAllData();
-        if(cursor.getCount() == 0)
-        {
-            no_data.setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            while (cursor.moveToNext())
-            {
+        if(cursor.getCount() == 0) { no_data.setVisibility(View.VISIBLE); }
+        else {
+            while (cursor.moveToNext()) {
                 book_id.add(cursor.getString(0));
                 book_title.add(cursor.getString(1));
                 book_author.add(cursor.getString(2));
@@ -82,8 +74,7 @@ public class BookListStudent extends AppCompatActivity
     }
     //implementing menu bar
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.student_men, menu);
 
@@ -92,10 +83,8 @@ public class BookListStudent extends AppCompatActivity
 
     //have a functionality
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item)
-    {
-        switch (item.getItemId())
-        {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.home:
                 Intent intent = new Intent(BookListStudent.this, DashboardStudent.class);
                 startActivity(intent);
@@ -109,8 +98,7 @@ public class BookListStudent extends AppCompatActivity
         }
     }
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         Intent intent = new Intent(BookListStudent.this,DashboardStudent.class);
         startActivity(intent);
     }

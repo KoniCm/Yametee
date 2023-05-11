@@ -6,14 +6,12 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class librarianBookDetails extends AppCompatActivity
-{
+public class librarianBookDetails extends AppCompatActivity {
     TextView title_input, author_input,genre_input,publish_input,pages_input,description_input;
     String id, title, author, genre, publish, pages, description;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
@@ -27,8 +25,7 @@ public class librarianBookDetails extends AppCompatActivity
         // Calling this method first
         getAndSetIntentData();
     }
-    void getAndSetIntentData()
-    {
+    void getAndSetIntentData() {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") && getIntent().hasExtra("genre") && getIntent().hasExtra("publish") &&
                 getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des"))
         {
@@ -48,16 +45,13 @@ public class librarianBookDetails extends AppCompatActivity
             publish_input.setText(publish);
             pages_input.setText(pages);
             description_input.setText(description);
-        }
-        else
-        {
+        } else {
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
     //if the user back pressed , going to the bookActivity
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         Intent intent = new Intent(librarianBookDetails.this,BookActivity.class);
         startActivity(intent);
     }

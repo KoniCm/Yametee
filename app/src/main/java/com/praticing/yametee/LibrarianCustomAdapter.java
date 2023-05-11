@@ -16,8 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustomAdapter.MyViewHolder>
-{
+public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustomAdapter.MyViewHolder> {
     private Activity activity;
     private Context context;
     private ArrayList book_id, book_title, book_author,book_genre,book_publish, book_pages,book_description;
@@ -27,8 +26,7 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
     //Constructor with parameter
     LibrarianCustomAdapter(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
                            ArrayList book_genre, ArrayList book_publish,
-                           ArrayList book_pages, ArrayList book_description)
-    {
+                           ArrayList book_pages, ArrayList book_description) {
         this.activity = activity;
         this.context = context;
         this.book_id = book_id;
@@ -43,16 +41,14 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
     //inflating my_row layout to view in the bookActivity layout
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_row, parent, false);
         return new MyViewHolder(view);
     }
     //Tap . get position
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder,final int position)
-    {
+    public void onBindViewHolder(@NonNull MyViewHolder holder,final int position) {
         holder.book_title_txt.setText(String.valueOf(book_title.get(position)));
         holder.book_author_txt.setText(String.valueOf(book_author.get(position)));
         holder.book_genre_txt.setText(String.valueOf(book_genre.get(position)));
@@ -60,22 +56,17 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
         holder.book_pages_txt.setText(String.valueOf(book_pages.get(position)));
         holder.book_description_txt.setText(String.valueOf(book_description.get(position)));
 
-        holder.mainLayout.setOnClickListener(new View.OnClickListener()
-        {
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(context, v);
                 popupMenu.getMenuInflater().inflate(R.menu.details_edit, popupMenu.getMenu());
                 popupMenu.show();
 
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener()
-                {
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
-                    public boolean onMenuItemClick(MenuItem menuItem)
-                    {
-                        switch (menuItem.getItemId())
-                        {
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
                             case R.id.edit_menu:
                                 //getting the value , the user input display and going to the update activity
                                 Intent intent = new Intent(context, updateBookActivity.class);
@@ -118,13 +109,11 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
     }
 
     //Implementing method find by ID
-    public class MyViewHolder extends RecyclerView.ViewHolder
-    {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView book_title_txt, book_author_txt,book_genre_txt,book_publish_txt,book_pages_txt, book_description_txt;
         LinearLayout mainLayout;
 
-        public MyViewHolder(@NonNull View itemView)
-        {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             book_title_txt = itemView.findViewById(R.id.book_title_txt);
             book_author_txt = itemView.findViewById(R.id.book_author_txt);

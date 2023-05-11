@@ -9,8 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class StudentDatabase extends SQLiteOpenHelper
-{
+public class StudentDatabase extends SQLiteOpenHelper {
     private Context context;
 
     //Creating the final datatype with private access modifier
@@ -24,15 +23,13 @@ public class StudentDatabase extends SQLiteOpenHelper
     private static final String COLUMN_SECTION = "student_section";
     private static final String COLUMN_STRAND = "student_strand";
 
-    StudentDatabase(@Nullable Context context)
-    {
+    StudentDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
     //Creating a table val i guess execute in the SQL
     @Override
-    public void onCreate(SQLiteDatabase db)
-    {
+    public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER, " +
                 COLUMN_NAME + " TEXT, " +
@@ -44,14 +41,12 @@ public class StudentDatabase extends SQLiteOpenHelper
     }
     // If TableName exist the SQL drop TABLE
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1)
-    {
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
     //Method of adding student with parameter
-    void addStudent(String id, String name, int level,String section,String strand,String pass)
-    {
+    void addStudent(String id, String name, int level,String section,String strand,String pass) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -68,21 +63,17 @@ public class StudentDatabase extends SQLiteOpenHelper
         long result = db.insert(TABLE_NAME,null, cv);
 
         //if there no val 1 = no val|no input
-        if(result == -1)
-        {
+        if(result == -1) {
             // FAILED TO ADD OR PUT THE USER INPUT IN THE DATABASE! , SAD
             Toast.makeText(context, "Failed to add a book", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
+        } else {
             //SUCCESS TO ADD THE USER INPUT IN THE DATABASE WHICH MEAN U SUCCEEDING TO INSERT A VALUE IN THE DATABASE!
             Toast.makeText(context, "Successfully! New Student added", Toast.LENGTH_SHORT).show();
         }
 
     }
     // Read All user input int the data base
-    Cursor readAllData()
-    {
+    Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -93,13 +84,11 @@ public class StudentDatabase extends SQLiteOpenHelper
         return cursor;
     }
     // Deleted all the user value in the database using this method
-    void deleteAllData()
-    {
+    void deleteAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }
-    void updateData(String row_id, String name, String level, String section, String strand,String pass)
-    {
+    void updateData(String row_id, String name, String level, String section, String strand,String pass) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -112,27 +101,20 @@ public class StudentDatabase extends SQLiteOpenHelper
 
         //update value if the id exists in the table
         long result = db.update(TABLE_NAME, cv, "id=?", new String[]{row_id});
-        if(result == -1)
-        {
+        if(result == -1) {
             //Failed to update
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
+        } else {
             //Success to update val
             Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
         }
     }
-    void deleteOneRow(String row_id)
-    {
+    void deleteOneRow(String row_id) {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, "id=?", new String[]{row_id});
-        if(result == -1)
-        {
+        if(result == -1) {
             Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
+        } else {
             Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
         }
     }

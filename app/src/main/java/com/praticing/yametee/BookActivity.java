@@ -42,11 +42,9 @@ public class BookActivity extends AppCompatActivity {
         add_button = findViewById(R.id.add_button);
         no_data = findViewById(R.id.no_data);
 
-        add_button.setOnClickListener(new View.OnClickListener()
-        {
+        add_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 Intent intent = new Intent(BookActivity.this, addBookActivity.class);
                 startActivity(intent);
             }
@@ -72,8 +70,7 @@ public class BookActivity extends AppCompatActivity {
     }
 
     //read Data and Store in a database
-    void storeDataInArrays()
-    {
+    void storeDataInArrays() {
         Cursor cursor = myDB.readAllData();
         if(cursor.getCount() == 0) { no_data.setVisibility(View.VISIBLE); }
         else {

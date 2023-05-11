@@ -6,21 +6,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class MyViewPagerAdapter extends FragmentStateAdapter
-{
+public class MyViewPagerAdapter extends FragmentStateAdapter {
 
     @SuppressLint("ResourceType")
-    public MyViewPagerAdapter(@NonNull FragmentActivity fragmentActivity)
-    {
+    public MyViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
 
     }
     @NonNull
     @Override
-    public Fragment createFragment(int position)
-    {
-        switch (position)
-        {
+    public Fragment createFragment(int position) {
+        switch (position) {
             case 0:
                 return new BorrowingActivity();
             case 1:
@@ -30,8 +26,5 @@ public class MyViewPagerAdapter extends FragmentStateAdapter
         }
     }
     @Override
-    public int getItemCount()
-    {
-        return 2;
-    }
+    public int getItemCount() { return 2; }
 }

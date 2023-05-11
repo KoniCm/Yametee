@@ -12,16 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class updateStudentActivity extends AppCompatActivity
-{
+public class updateStudentActivity extends AppCompatActivity {
     EditText id_input, name_input, level_input,section_input,strand_input,pass_input;
     Button updateStudent_btn, deleteStudent_btn;
 
     String id, name, level, section, strand, pass;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_student);
 
@@ -39,15 +37,12 @@ public class updateStudentActivity extends AppCompatActivity
 
         //Action bar title of a book
         ActionBar ab = getSupportActionBar();
-        if (ab != null)
-        {
+        if (ab != null) {
             ab.setTitle(id);
         }
-        updateStudent_btn.setOnClickListener(new View.OnClickListener()
-        {
+        updateStudent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 StudentDatabase studentDatabase = new StudentDatabase(updateStudentActivity.this);
                 id = id_input.getText().toString().trim();
                 name = name_input.getText().toString().trim();
@@ -62,21 +57,17 @@ public class updateStudentActivity extends AppCompatActivity
             }
         });
 
-        deleteStudent_btn.setOnClickListener(new View.OnClickListener()
-        {
+        deleteStudent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 deleteOneRow();
             }
         });
     }
     //Viewing The Data!
-    void getAndSetIntentData()
-    {
+    void getAndSetIntentData() {
         if(getIntent().hasExtra("row_id") && getIntent().hasExtra("name") && getIntent().hasExtra("level") && getIntent().hasExtra("section") &&
-                getIntent().hasExtra("strand") && getIntent().hasExtra("pass"))
-        {
+                getIntent().hasExtra("strand") && getIntent().hasExtra("pass")) {
             //Getting Data from Intent
             id = getIntent().getStringExtra("row_id");
             name = getIntent().getStringExtra("name");
@@ -92,23 +83,18 @@ public class updateStudentActivity extends AppCompatActivity
             section_input.setText(section);
             strand_input.setText(strand);
             pass_input.setText(pass);
-        }
-        else
-        {
+        } else {
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
-    void deleteOneRow()
-    {
+    void deleteOneRow() {
         //Simple Dialog box
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete " + id);
         builder.setMessage("Are you sure you want to delete?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
-        {
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 StudentDatabase myDB = new StudentDatabase(updateStudentActivity.this);
                 myDB.deleteOneRow(id);
                 finish();
@@ -123,8 +109,7 @@ public class updateStudentActivity extends AppCompatActivity
 
     //if the user back pressed the app it will go in the dashboard layout
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         Intent intent = new Intent(updateStudentActivity.this,studentActivity.class);
         startActivity(intent);
     }

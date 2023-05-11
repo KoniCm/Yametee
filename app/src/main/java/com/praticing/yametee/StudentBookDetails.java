@@ -6,14 +6,12 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StudentBookDetails extends AppCompatActivity
-{
+public class StudentBookDetails extends AppCompatActivity {
     TextView title_input, author_input,genre_input,publish_input,pages_input,description_input;
     String id, title, author, genre, publish, pages, description;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_book_details);
 
@@ -27,11 +25,9 @@ public class StudentBookDetails extends AppCompatActivity
         // Calling this method first
         getAndSetIntentData();
     }
-    void getAndSetIntentData()
-    {
+    void getAndSetIntentData() {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") && getIntent().hasExtra("genre") && getIntent().hasExtra("publish") &&
-                getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des"))
-        {
+                getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des")) {
             //Getting Data from Intent
             id = getIntent().getStringExtra("id");
             title = getIntent().getStringExtra("title");
@@ -48,16 +44,13 @@ public class StudentBookDetails extends AppCompatActivity
             publish_input.setText(publish);
             pages_input.setText(pages);
             description_input.setText(description);
-        }
-        else
-        {
+        } else {
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
     //if the user back pressed , going to the DashboardStudent
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         Intent intent = new Intent(StudentBookDetails.this,BookListStudent.class);
         startActivity(intent);
     }

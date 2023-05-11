@@ -9,12 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class DashboardLibrarian extends AppCompatActivity
-{
+public class DashboardLibrarian extends AppCompatActivity {
     CardView mainAC_btn,student_btn,bookborrowreturn_btn;
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -22,8 +20,7 @@ public class DashboardLibrarian extends AppCompatActivity
         student_btn = findViewById(R.id.student);
         bookborrowreturn_btn = findViewById(R.id.bookborrowreturn);
         //Going to the bookActivity // Dashboard to BookActivity
-        mainAC_btn.setOnClickListener(new View.OnClickListener()
-        {
+        mainAC_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -32,8 +29,7 @@ public class DashboardLibrarian extends AppCompatActivity
             }
         });
         //same, but it goes to the Student  // Dashboard to StudentActivity
-        student_btn.setOnClickListener(new View.OnClickListener()
-        {
+        student_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -42,8 +38,7 @@ public class DashboardLibrarian extends AppCompatActivity
             }
         });
         //same, but it goes to the borrow/return // Dashboard to Portal = borrow/return
-        bookborrowreturn_btn.setOnClickListener(new View.OnClickListener()
-        {
+        bookborrowreturn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -53,13 +48,11 @@ public class DashboardLibrarian extends AppCompatActivity
         });
     }
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         AlertDialog.Builder build = new AlertDialog.Builder(this);
 
         build.setMessage("Do you want to sign out your account");
-        build.setPositiveButton("Yes", new DialogInterface.OnClickListener()
-        {
+        build.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {

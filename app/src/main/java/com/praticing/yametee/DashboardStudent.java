@@ -9,21 +9,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class DashboardStudent extends AppCompatActivity
-{
+public class DashboardStudent extends AppCompatActivity {
     CardView booklistforstudent,borrowreturn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_student);
 
         booklistforstudent = findViewById(R.id.bookListforStudent);
         borrowreturn = findViewById(R.id.borrowreturn);
 
-        booklistforstudent.setOnClickListener(new View.OnClickListener()
-        {
+        booklistforstudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -31,8 +28,7 @@ public class DashboardStudent extends AppCompatActivity
                 startActivity(intent);
             }
         });
-        borrowreturn.setOnClickListener(new View.OnClickListener()
-        {
+        borrowreturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -42,13 +38,11 @@ public class DashboardStudent extends AppCompatActivity
         });
     }
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         AlertDialog.Builder build = new AlertDialog.Builder(this);
 
         build.setMessage("Do you want to sign out your account");
-        build.setPositiveButton("Yes", new DialogInterface.OnClickListener()
-        {
+        build.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {

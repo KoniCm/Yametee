@@ -19,8 +19,7 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
-public class studentActivity extends AppCompatActivity
-{
+public class studentActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     StudentDatabase mystDB;
     ArrayList<String> student_id, student_name, student_level, student_section,student_strand,student_pass;
@@ -28,8 +27,7 @@ public class studentActivity extends AppCompatActivity
     TextView no_data;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
 
@@ -52,17 +50,12 @@ public class studentActivity extends AppCompatActivity
         recyclerView.setLayoutManager(new LinearLayoutManager(studentActivity.this));
     }
     //read Data and Store in a database
-    void storeDataInArrays()
-    {
+    void storeDataInArrays() {
         Cursor cursor = mystDB.readAllData();
-        if(cursor.getCount() == 0)
-        {
+        if(cursor.getCount() == 0) {
             no_data.setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            while (cursor.moveToNext())
-            {
+        } else {
+            while (cursor.moveToNext()) {
                 student_id.add(cursor.getString(0));
                 student_name.add(cursor.getString(1));
                 student_level.add(cursor.getString(2));
@@ -75,15 +68,13 @@ public class studentActivity extends AppCompatActivity
     }
     // If the user back press , going to the Dashboard activity
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         Intent goBack = new Intent(studentActivity.this, DashboardLibrarian.class);
         startActivity(goBack);
     }
     //implementing menu bar
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_item, menu);
 
@@ -91,10 +82,8 @@ public class studentActivity extends AppCompatActivity
     }
     //have a functionality
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item)
-    {
-        switch (item.getItemId())
-        {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.home:
                 Intent intent = new Intent(studentActivity.this, DashboardLibrarian.class);
                 startActivity(intent);
@@ -107,18 +96,15 @@ public class studentActivity extends AppCompatActivity
         }
     }
     //delete all row in the bookActivity
-    void deleteAll()
-    {
+    void deleteAll() {
         //basic dialog box
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete All?");
         builder.setIcon(R.drawable.black_delete);
         builder.setMessage("Are you sure you want to delete all Data?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
-        {
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 StudentDatabase myDB = new StudentDatabase(studentActivity.this);
                 myDB.deleteAllData();
 
@@ -128,19 +114,11 @@ public class studentActivity extends AppCompatActivity
                 finish();
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                //nothing change you can null it
-            }
-        });
+        builder.setNegativeButton("No",null);
         builder.create().show();
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1)
         {

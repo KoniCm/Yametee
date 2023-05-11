@@ -22,8 +22,7 @@ public class librarianLoginActivity extends AppCompatActivity {
     Button login_btn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_panel);
 
@@ -33,32 +32,24 @@ public class librarianLoginActivity extends AppCompatActivity {
         login_btn = findViewById(R.id.btn_login);
 
 
-        login_btn.setOnClickListener(new View.OnClickListener()
-        {
+        login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 String user_X = input_user.getText().toString();
                 String pass_X = input_pass.getText().toString();
 
-                if(user_X.isEmpty() || pass_X.isEmpty())
-                {
+                if(user_X.isEmpty() || pass_X.isEmpty()) {
                     Toast.makeText(librarianLoginActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
-                }
-                else if(user_X.equals(permanentUser) && pass_X.equals(permanentPass))
-                {
+                } else if(user_X.equals(permanentUser) && pass_X.equals(permanentPass)) {
                     Toast.makeText(librarianLoginActivity.this, "Successfully login as a Librarian!", Toast.LENGTH_SHORT).show();
                     Intent bypass = new Intent(librarianLoginActivity.this, DashboardLibrarian.class);
                     startActivity(bypass);
-                }
-                else
-                {
+                } else {
                     Toast.makeText(librarianLoginActivity.this, "Wrong username or password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        help_btn.setOnClickListener(new View.OnClickListener()
-        {
+        help_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -66,8 +57,7 @@ public class librarianLoginActivity extends AppCompatActivity {
             }
         });
     }
-    void OpenDialogHelper()
-    {
+    void OpenDialogHelper() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Username and Password: "+"\n");

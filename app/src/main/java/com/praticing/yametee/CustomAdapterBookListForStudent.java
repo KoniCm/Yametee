@@ -112,19 +112,16 @@ public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<Custom
     }
     //book ID size 100+
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return book_id.size();
     }
 
     //Implementing method find by ID
-    public class MyViewHolder extends RecyclerView.ViewHolder
-    {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView book_title_txt, book_author_txt, book_genre_txt, book_publish_txt, book_pages_txt, book_description_txt;
         LinearLayout mainLayout;
 
-        public MyViewHolder(@NonNull View itemView)
-        {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             book_title_txt = itemView.findViewById(R.id.book_title_txt);
             book_author_txt = itemView.findViewById(R.id.book_author_txt);
@@ -161,8 +158,7 @@ public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<Custom
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage("Do you want to borrow this book?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
-        {
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {

@@ -15,8 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdapter.MyViewHolder>
-{
+public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdapter.MyViewHolder> {
     private Activity activity;
     private Context context;
     private ArrayList student_id, student_name, student_level, student_section, student_strand, student_pass;
@@ -24,8 +23,7 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
 
     //Constructor with parameter
     studentCustomAdapter(Activity activity, Context context, ArrayList student_id, ArrayList student_name,
-                         ArrayList student_level, ArrayList student_section, ArrayList student_strand, ArrayList student_pass)
-    {
+                         ArrayList student_level, ArrayList student_section, ArrayList student_strand, ArrayList student_pass) {
         this.activity = activity;
         this.context = context;
         this.student_id = student_id;
@@ -37,8 +35,7 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
     }
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_rowstudent, parent, false);
         return new MyViewHolder(view);
@@ -46,19 +43,16 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
     //Tap . get position
     @SuppressLint("RecyclerView")
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position)
-    {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.student_id_txt.setText(String.valueOf(student_id.get(position)));
         holder.student_name_txt.setText(String.valueOf(student_name.get(position)));
         holder.student_level_txt.setText(String.valueOf(student_level.get(position)));
         holder.student_section_txt.setText(String.valueOf(student_section.get(position)));
         holder.student_strand_txt.setText(String.valueOf(student_strand.get(position)));
         holder.student_pass_txt.setText(String.valueOf(student_pass.get(position)));
-        holder.studentMainLayout.setOnClickListener(new View.OnClickListener()
-        {
+        holder.studentMainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 Intent intent = new Intent(context, updateStudentActivity.class);
                 intent.putExtra("row_id",String.valueOf(student_id.get(position)));
                 intent.putExtra("name",String.valueOf(student_name.get(position)));
@@ -72,17 +66,14 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
     }
     //book ID size 100+
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return student_id.size();
     }
     //Implementing method find by ID
-    public class MyViewHolder extends RecyclerView.ViewHolder
-    {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView student_id_txt, student_name_txt, student_level_txt, student_section_txt, student_strand_txt,student_pass_txt;
         LinearLayout studentMainLayout;
-        public MyViewHolder(@NonNull View itemView)
-        {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             student_id_txt = itemView.findViewById(R.id.student_id_txt);
             student_name_txt = itemView.findViewById(R.id.student_name_txt);

@@ -14,16 +14,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class updateBookActivity extends AppCompatActivity
-{
+public class updateBookActivity extends AppCompatActivity {
     EditText title_input, author_input,genre_input,publish_input,pages_input,description_input;
     Button update_button,delete_button;
 
     String id, title, author, genre, publish, pages,description;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
@@ -36,19 +34,15 @@ public class updateBookActivity extends AppCompatActivity
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
         
-        publish_input.setOnClickListener(new View.OnClickListener()
-        {
+        publish_input.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(updateBookActivity.this);
                 datePickerDialog.show();
 
-                datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener()
-                {
+                datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day)
-                    {
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         publish_input.setText(year +"-"+ month +"-"+ day);
                     }
                 });
@@ -60,16 +54,13 @@ public class updateBookActivity extends AppCompatActivity
 
         //Action bar title of a book
         ActionBar ab = getSupportActionBar();
-        if (ab != null)
-        {
+        if (ab != null) {
             ab.setTitle(title);
         }
 
-        update_button.setOnClickListener(new View.OnClickListener()
-        {
+        update_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 LibrarianDatabase MyDB = new LibrarianDatabase(updateBookActivity.this);
 
                 //Changing Value
@@ -87,22 +78,18 @@ public class updateBookActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-        delete_button.setOnClickListener(new View.OnClickListener()
-        {
+        delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 //calling this method
                 deleteOneRow();
             }
         });
     }
     //Viewing The Data!
-    void getAndSetIntentData()
-    {
+    void getAndSetIntentData() {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") && getIntent().hasExtra("genre") && getIntent().hasExtra("publish") &&
-                getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des"))
-        {
+                getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des")) {
             //Getting Data from Intent
             id = getIntent().getStringExtra("id");
             title = getIntent().getStringExtra("title");
@@ -119,24 +106,19 @@ public class updateBookActivity extends AppCompatActivity
             publish_input.setText(publish);
             pages_input.setText(pages);
             description_input.setText(description);
-        }
-        else
-        {
+        } else {
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
     //RecycleView in bookActivity layout OneRow Deleted depends on the user
-    void deleteOneRow()
-    {
+    void deleteOneRow() {
         //Simple Dialog box
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
         builder.setMessage("Are you sure you want to delete?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
-        {
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 LibrarianDatabase myDB = new LibrarianDatabase(updateBookActivity.this);
                 myDB.deleteOneRow(id);
                 finish();
@@ -150,8 +132,7 @@ public class updateBookActivity extends AppCompatActivity
     }
     //if the user back pressed the app it will go in the dashboard layout
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         Intent intent = new Intent(updateBookActivity.this,BookActivity.class);
         startActivity(intent);
     }
