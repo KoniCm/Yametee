@@ -62,8 +62,8 @@ public class addStudentActivity extends AppCompatActivity {
                             name_input.getText().toString().trim(),
                             Integer.valueOf(level_input.getText().toString().trim()),
                             section_input.getText().toString().trim(),
-                            pass_input.getText().toString().trim(),
-                            strand_input.getText().toString().trim());
+                            strand_input.getText().toString().trim(),
+                            pass_input.getText().toString().trim());
 
                     //Going to the next activity
                     Toast.makeText(addStudentActivity.this,"Success! Account Register!",Toast.LENGTH_SHORT).show();

@@ -118,4 +118,14 @@ public class StudentDatabase extends SQLiteOpenHelper {
             Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
         }
     }
+    public boolean checkIdPassword(String id, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " where " + COLUMN_ID + " =? and " + COLUMN_PASS + " =?", new String[] {id,password});
+
+        if(cursor.getCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

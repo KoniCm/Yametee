@@ -7,150 +7,158 @@
     tools:context=".updateStudentActivity"
     android:padding="30sp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/border"
-        android:orientation="vertical"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="70dp">
 
-        <TextView
-            android:id="@+id/Display"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:gravity="center"
-            android:text="Student"
-            android:textColor="#15616d"
-            android:textSize="45dp"
-            android:textStyle="bold|italic" />
-
-        <EditText
-            android:id="@+id/id_input2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="45dp"
             android:background="@drawable/border"
-            android:ems="10"
-            android:gravity="start|center_vertical"
-            android:hint="ID"
-            android:inputType="number"
-            android:padding="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/name_input2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/border"
-            android:ems="10"
-            android:gravity="start|center_vertical"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            android:padding="15dp"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_input2" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.341">
 
-        <EditText
-            android:id="@+id/level_input2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/border"
-            android:ems="10"
-            android:gravity="start|center_vertical"
-            android:hint="Grade Level"
-            android:inputType="number"
-            android:padding="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/author_input2" />
+            <TextView
+                android:id="@+id/Display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:text="Student"
+                android:textColor="#15616d"
+                android:textSize="45dp"
+                android:textStyle="bold|italic" />
 
-        <EditText
-            android:id="@+id/section_input2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/border"
-            android:ems="10"
-            android:gravity="start|center_vertical"
-            android:hint="Section"
-            android:inputType="textPersonName"
-            android:padding="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/genre_input2" />
+            <EditText
+                android:id="@+id/id_input2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="45dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:gravity="start|center_vertical"
+                android:hint="ID"
+                android:inputType="number"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/strand_input2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/border"
-            android:ems="10"
-            android:gravity="start|center_vertical"
-            android:hint="Strand"
-            android:inputType="textPersonName"
-            android:padding="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/publish_input2" />
+            <EditText
+                android:id="@+id/name_input2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:gravity="start|center_vertical"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_input2" />
 
-        <Button
-            android:id="@+id/updateStudent_btn"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/border"
-            android:backgroundTint="#00E676"
-            android:text="update"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pages_input" />
+            <EditText
+                android:id="@+id/level_input2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:gravity="start|center_vertical"
+                android:hint="Grade Level"
+                android:inputType="number"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/author_input2" />
 
-        <Button
-            android:id="@+id/deleteStudent_btn"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/border"
-            android:backgroundTint="#FF1744"
-            android:text="delete"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pages_input" />
+            <EditText
+                android:id="@+id/section_input2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:gravity="start|center_vertical"
+                android:hint="Section"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/genre_input2" />
 
-        <EditText
-            android:id="@+id/pass_input2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/border"
-            android:ems="10"
-            android:gravity="start|center_vertical"
-            android:hint="Password"
-            android:inputType="textPersonName"
-            android:padding="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/publish_input" />
+            <EditText
+                android:id="@+id/strand_input2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:gravity="start|center_vertical"
+                android:hint="Strand"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/publish_input2" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/pass_input2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:gravity="start|center_vertical"
+                android:hint="Password"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/publish_input" />
+
+            <Button
+                android:id="@+id/updateStudent_btn"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/border"
+                android:backgroundTint="#00E676"
+                android:text="update"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pages_input" />
+
+            <Button
+                android:id="@+id/deleteStudent_btn"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/border"
+                android:backgroundTint="#FF1744"
+                android:text="delete"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pages_input" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
