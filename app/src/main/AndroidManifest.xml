@@ -46,8 +46,7 @@
             android:exported="false" />
         <activity
             android:name=".addStudentActivity"
-            android:exported="false"
-            android:parentActivityName=".studentActivity" />
+            android:exported="false" />
         <activity
             android:name=".studentActivity"
             android:label="Student" />
