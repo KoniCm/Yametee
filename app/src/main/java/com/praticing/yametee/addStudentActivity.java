@@ -1,6 +1,8 @@
 package com.praticing.yametee;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -83,6 +85,8 @@ public class addStudentActivity extends AppCompatActivity {
                     myDB.addStudent(id.trim(), name.trim(), Integer.valueOf(level.trim()), section.trim(), strand.trim(), pass.trim());
 
                     //Going to the next activity
+                    Intent intent = new Intent(addStudentActivity.this,studentLoginActivity.class);
+                    startActivity(intent);
                     Toast.makeText(addStudentActivity.this,"Success! Account Register!",Toast.LENGTH_SHORT).show();
 
                     clearField();

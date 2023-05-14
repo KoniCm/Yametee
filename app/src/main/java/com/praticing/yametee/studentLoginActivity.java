@@ -54,4 +54,10 @@ public class studentLoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(studentLoginActivity.this,LoginSystem.class);
+        startActivity(intent);
+    }
 }

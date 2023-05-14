@@ -1,8 +1,12 @@
 package com.praticing.yametee;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -86,7 +90,7 @@ public class addBookActivity extends AppCompatActivity {
         bookCover_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(addBookActivity.this, "You clicked Add photo...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(addBookActivity.this,"Image Picked",Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -2,13 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:id="@+id/notify"
+        android:icon="@drawable/baseline_notifications_24"
+        android:title="Notification"
+        app:showAsAction="ifRoom"/>
+
     <item android:id="@+id/delete_all"
         android:icon="@drawable/ic_delete"
         android:title="Delete"
         app:showAsAction="always"/>
 
     <item android:id="@+id/home"
-        android:icon="@drawable/ic_delete"
         android:title="Dashboard"
         app:showAsAction="never"/>
 

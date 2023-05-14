@@ -142,7 +142,7 @@ public class CustomAdapterBookListForStudent extends RecyclerView.Adapter<Custom
 
         bui.setTitle(title);
         bui.setIcon(R.drawable.baseline_favorite_24);
-        bui.setMessage("You want favourite this book?");
+        bui.setMessage("Do you favourite this book?");
         bui.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

@@ -16,11 +16,11 @@ public class MyViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new BorrowingActivity();
+                return new WhoBorrow();
             case 1:
-                return new ReturningActivity();
+                return new WhoReturn();
             default:
-                return new BorrowingActivity();
+                return new WhoBorrow();
         }
     }
     @Override

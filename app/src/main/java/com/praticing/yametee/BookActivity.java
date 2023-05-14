@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -115,9 +116,15 @@ public class BookActivity extends AppCompatActivity {
             case R.id.delete_all:
                 deleteAll();
                 return true;
+            case R.id.notify:
+                notificationSend();
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void notificationSend() {
+        Toast.makeText(this, "Notification for Student Borrow", Toast.LENGTH_SHORT).show();
     }
 
     //if user backPress
