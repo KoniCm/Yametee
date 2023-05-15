@@ -8,13 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 public class DashboardLibrarian extends AppCompatActivity {
     CardView mainAC_btn,student_btn,bookborrowreturn_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dashboard_librarian);
 
         mainAC_btn = findViewById(R.id.mainAc);
         student_btn = findViewById(R.id.student);

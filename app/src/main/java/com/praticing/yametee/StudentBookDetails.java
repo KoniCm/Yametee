@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
-
 public class StudentBookDetails extends AppCompatActivity {
     TextView title_input, author_input,genre_input,publish_input,pages_input,description_input;
     String id, title, author, genre, publish, pages, description;
@@ -15,16 +14,21 @@ public class StudentBookDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_book_details);
 
+        findID();
+
+        // Calling this method first
+        getAndSetIntentData();
+    }
+
+    private void findID() {
         title_input = findViewById(R.id.title_details);
         author_input = findViewById(R.id.author_details);
         genre_input = findViewById(R.id.genre_details);
         publish_input = findViewById(R.id.publish_details);
         pages_input = findViewById(R.id.pages_details);
         description_input = findViewById(R.id.description_details);
-
-        // Calling this method first
-        getAndSetIntentData();
     }
+
     void getAndSetIntentData() {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") && getIntent().hasExtra("genre") && getIntent().hasExtra("publish") &&
                 getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des")) {

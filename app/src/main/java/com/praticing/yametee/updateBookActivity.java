@@ -3,7 +3,6 @@ package com.praticing.yametee;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,16 +22,9 @@ public class updateBookActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update);
+        setContentView(R.layout.activity_update_book);
 
-        title_input = findViewById(R.id.title_input2);
-        author_input = findViewById(R.id.author_input2);
-        genre_input = findViewById(R.id.genre_input2);
-        publish_input = findViewById(R.id.publish_input2);
-        pages_input = findViewById(R.id.pages_input2);
-        description_input = findViewById(R.id.description_input2);
-        update_button = findViewById(R.id.update_button);
-        delete_button = findViewById(R.id.delete_button);
+        findID();
         
         publish_input.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +78,18 @@ public class updateBookActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void findID() {
+        title_input = findViewById(R.id.title_input2);
+        author_input = findViewById(R.id.author_input2);
+        genre_input = findViewById(R.id.genre_input2);
+        publish_input = findViewById(R.id.publish_input2);
+        pages_input = findViewById(R.id.pages_input2);
+        description_input = findViewById(R.id.description_input2);
+        update_button = findViewById(R.id.update_button);
+        delete_button = findViewById(R.id.delete_button);
+    }
+
     //Viewing The Data!
     void getAndSetIntentData() {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") && getIntent().hasExtra("genre") && getIntent().hasExtra("publish") &&

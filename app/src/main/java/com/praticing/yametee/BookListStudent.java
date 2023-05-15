@@ -1,10 +1,8 @@
 package com.praticing.yametee;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -13,15 +11,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class BookListStudent extends AppCompatActivity {
+
+    private LibrarianDatabase lbDatabase;
     RecyclerView recyclerView;
     TextView no_data;
-
-    //Connecting date base
-    LibrarianDatabase myDB;
 
     //Array list
     ArrayList<String> book_id, book_title, book_author,book_genre,book_publish,book_pages,book_description;
@@ -32,13 +28,12 @@ public class BookListStudent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_list_student);
+        lbDatabase = new LibrarianDatabase(this);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        no_data = findViewById(R.id.no_data);
+        findID();
 
         //creating arraylist
 
-        myDB = new LibrarianDatabase(BookListStudent.this);
         book_id = new ArrayList<>();
         book_title = new ArrayList<>();
         book_author = new ArrayList<>();
@@ -53,11 +48,16 @@ public class BookListStudent extends AppCompatActivity {
                 book_publish,book_pages, book_description);
         recyclerView.setAdapter(customAdapterBS);
         recyclerView.setLayoutManager(new LinearLayoutManager(BookListStudent.this));
-
     }
+
+    private void findID() {
+        recyclerView = findViewById(R.id.recyclerView);
+        no_data = findViewById(R.id.no_data);
+    }
+
     //read Data and Store in a database
     void storeDataInArrays() {
-        Cursor cursor = myDB.readAllData();
+        Cursor cursor = lbDatabase.readAllData();
         if(cursor.getCount() == 0) { no_data.setVisibility(View.VISIBLE); }
         else {
             while (cursor.moveToNext()) {
@@ -83,7 +83,7 @@ public class BookListStudent extends AppCompatActivity {
 
     //have a functionality
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
                 Intent intent = new Intent(BookListStudent.this, DashboardStudent.class);

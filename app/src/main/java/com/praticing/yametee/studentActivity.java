@@ -1,7 +1,5 @@
 package com.praticing.yametee;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -82,7 +80,7 @@ public class studentActivity extends AppCompatActivity {
     }
     //have a functionality
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
                 Intent intent = new Intent(studentActivity.this, DashboardLibrarian.class);
@@ -118,7 +116,7 @@ public class studentActivity extends AppCompatActivity {
         builder.create().show();
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1)
         {

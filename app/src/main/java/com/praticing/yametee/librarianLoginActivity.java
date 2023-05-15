@@ -2,7 +2,6 @@ package com.praticing.yametee;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +12,8 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class librarianLoginActivity extends AppCompatActivity {
-
     final String permanentUser = "admin";
     final String permanentPass = "admin123";
-
     TextView help_btn;
     TextInputEditText input_user, input_pass;
     Button login_btn;
@@ -24,13 +21,9 @@ public class librarianLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_panel);
+        setContentView(R.layout.activity_librarian_login);
 
-        help_btn = findViewById(R.id.help_btn);
-        input_user = findViewById(R.id.input_username);
-        input_pass = findViewById(R.id.input_password);
-        login_btn = findViewById(R.id.btn_login);
-
+        findID();
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +50,14 @@ public class librarianLoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void findID() {
+        help_btn = findViewById(R.id.help_btn);
+        input_user = findViewById(R.id.input_username);
+        input_pass = findViewById(R.id.input_password);
+        login_btn = findViewById(R.id.btn_login);
+    }
+
     void OpenDialogHelper() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 

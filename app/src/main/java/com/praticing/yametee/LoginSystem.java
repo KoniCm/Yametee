@@ -16,8 +16,8 @@ public class LoginSystem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_system);
 
-        student = findViewById(R.id.student);
-        admin = findViewById(R.id.admin);
+        findID();
+        
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -34,6 +34,11 @@ public class LoginSystem extends AppCompatActivity {
                 startActivity(student);
             }
         });
+    }
+
+    private void findID() {
+        student = findViewById(R.id.student);
+        admin = findViewById(R.id.admin);
     }
 
     @Override

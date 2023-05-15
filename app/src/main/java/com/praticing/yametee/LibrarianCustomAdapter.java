@@ -1,5 +1,6 @@
 package com.praticing.yametee;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +13,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
@@ -39,16 +39,15 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
     }
 
     //inflating my_row layout to view in the bookActivity layout
-    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_row, parent, false);
         return new MyViewHolder(view);
     }
     //Tap . get position
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder,final int position) {
+    public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.book_title_txt.setText(String.valueOf(book_title.get(position)));
         holder.book_author_txt.setText(String.valueOf(book_author.get(position)));
         holder.book_genre_txt.setText(String.valueOf(book_genre.get(position)));
@@ -103,17 +102,14 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
     }
     //book ID size 100+
     @Override
-    public int getItemCount()
-    {
-        return book_id.size();
-    }
+    public int getItemCount() { return book_id.size(); }
 
     //Implementing method find by ID
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView book_title_txt, book_author_txt,book_genre_txt,book_publish_txt,book_pages_txt, book_description_txt;
         LinearLayout mainLayout;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(View itemView) {
             super(itemView);
             book_title_txt = itemView.findViewById(R.id.book_title_txt);
             book_author_txt = itemView.findViewById(R.id.book_author_txt);

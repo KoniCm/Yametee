@@ -1,12 +1,8 @@
 package com.praticing.yametee;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,10 +12,13 @@ import android.widget.Toast;
 public class addBookActivity extends AppCompatActivity {
     EditText title_input, author_input, genre_input, publish_input, pages_input, description_input;
     Button add_button,bookCover_button;
+
+    private LibrarianDatabase lbDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
+        lbDatabase = new LibrarianDatabase(this);
 
         findViewID();
         addBook();
@@ -39,7 +38,6 @@ public class addBookActivity extends AppCompatActivity {
     private void addBook() {
         add_button.setOnClickListener(new View.OnClickListener()
         {
-            //if the field empty keyword(isEmpty)
             @Override
             public void onClick(View view) {
                 //Declaration of book information
@@ -50,16 +48,14 @@ public class addBookActivity extends AppCompatActivity {
                 String pages = pages_input.getText().toString();
                 String description = description_input.getText().toString();
 
+                //if the field empty keyword(isEmpty)
                 if(isInputEmpty(title, author, genre, publish, pages, description)) {
 
                     Toast.makeText(addBookActivity.this, "Fill the empty blanks, Thank you!", Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    //Parameter in the database
-                    LibrarianDatabase myDB = new LibrarianDatabase(addBookActivity.this);
-
-                    myDB.addBook(title.trim(), author.trim(), genre.trim(), publish.trim(), Integer.valueOf(pages.trim()), description.trim());
+                    lbDatabase.addBook(title.trim(), author.trim(), genre.trim(), publish.trim(), Integer.valueOf(pages.trim()), description.trim());
 
                     //Going to the next activity
                     Intent intent = new Intent(addBookActivity.this,BookActivity.class);

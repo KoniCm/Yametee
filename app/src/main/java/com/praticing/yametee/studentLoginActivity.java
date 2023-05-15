@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.textfield.TextInputEditText;
-
 public class studentLoginActivity extends AppCompatActivity {
     Button btn_loginStudent;
     TextInputEditText input_username,input_password;
@@ -18,13 +16,10 @@ public class studentLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_panel);
+        setContentView(R.layout.activity_student_login);
         studentDatabase = new StudentDatabase(this);
 
-        input_username = findViewById(R.id.input_username);
-        input_password = findViewById(R.id.input_password);
-        btn_loginStudent = findViewById(R.id.btn_loginStudent);
-        register = findViewById(R.id.register);
+        findID();
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +48,13 @@ public class studentLoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void findID() {
+        input_username = findViewById(R.id.input_username);
+        input_password = findViewById(R.id.input_password);
+        btn_loginStudent = findViewById(R.id.btn_loginStudent);
+        register = findViewById(R.id.register);
     }
 
     @Override

@@ -1,7 +1,5 @@
 package com.praticing.yametee;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,17 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 
 public class BookActivity extends AppCompatActivity {
+    private LibrarianDatabase myDB;
     RecyclerView recyclerView;
     FloatingActionButton add_button;
-
-    //Connecting data base
-    LibrarianDatabase myDB;
 
     //Array list for book information
     ArrayList<String> book_id, book_title, book_author,book_genre,book_publish,book_pages,book_description;
@@ -39,9 +33,7 @@ public class BookActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_activity);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        add_button = findViewById(R.id.add_button);
-        no_data = findViewById(R.id.no_data);
+        findID();
 
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +82,7 @@ public class BookActivity extends AppCompatActivity {
 
     //refresh activity
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == 1) { recreate(); }
@@ -107,7 +99,7 @@ public class BookActivity extends AppCompatActivity {
 
     //have a functionality to trigger
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
                 Intent intent = new Intent(BookActivity.this, DashboardLibrarian.class);
@@ -155,5 +147,10 @@ public class BookActivity extends AppCompatActivity {
         });
         builder.setNegativeButton("No",null);
         builder.create().show();
+    }
+    private void findID() {
+        recyclerView = findViewById(R.id.recyclerView);
+        add_button = findViewById(R.id.add_button);
+        no_data = findViewById(R.id.no_data);
     }
 }

@@ -3,7 +3,6 @@ package com.praticing.yametee;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 public class updateStudentActivity extends AppCompatActivity {
     EditText id_input, name_input, level_input,section_input,strand_input,pass_input;
     Button updateStudent_btn, deleteStudent_btn;
@@ -23,14 +21,7 @@ public class updateStudentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_student);
 
-        id_input = findViewById(R.id.id_input2);
-        name_input = findViewById(R.id.name_input2);
-        level_input = findViewById(R.id.level_input2);
-        section_input = findViewById(R.id.section_input2);
-        strand_input = findViewById(R.id.strand_input2);
-        pass_input = findViewById(R.id.pass_input2);
-        updateStudent_btn = findViewById(R.id.updateStudent_btn);
-        deleteStudent_btn = findViewById(R.id.deleteStudent_btn);
+        findID();
 
         //Calling this method
         getAndSetIntentData();
@@ -64,6 +55,18 @@ public class updateStudentActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void findID() {
+        id_input = findViewById(R.id.id_input2);
+        name_input = findViewById(R.id.name_input2);
+        level_input = findViewById(R.id.level_input2);
+        section_input = findViewById(R.id.section_input2);
+        strand_input = findViewById(R.id.strand_input2);
+        pass_input = findViewById(R.id.pass_input2);
+        updateStudent_btn = findViewById(R.id.updateStudent_btn);
+        deleteStudent_btn = findViewById(R.id.deleteStudent_btn);
+    }
+
     //Viewing The Data!
     void getAndSetIntentData() {
         if(getIntent().hasExtra("row_id") && getIntent().hasExtra("name") && getIntent().hasExtra("level") && getIntent().hasExtra("section") &&
