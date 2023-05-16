@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.MainLogin;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -8,6 +8,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
+import com.praticing.yametee.Dashboard.DashboardStudent;
+import com.praticing.yametee.R;
+import com.praticing.yametee.Student.AddStudentActivity;
+import com.praticing.yametee.Student.StudentDatabase;
+
 public class StudentLoginActivity extends AppCompatActivity {
     Button btn_loginStudent;
     TextInputEditText input_username,input_password;
@@ -41,7 +46,7 @@ public class StudentLoginActivity extends AppCompatActivity {
                     Toast.makeText(StudentLoginActivity.this, "Please fill the empty field", Toast.LENGTH_SHORT).show();
                 } else if(checkAccount == true) {
                     Toast.makeText(StudentLoginActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(StudentLoginActivity.this,DashboardStudent.class);
+                    Intent intent = new Intent(StudentLoginActivity.this, DashboardStudent.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(StudentLoginActivity.this, "Wrong username and password!", Toast.LENGTH_SHORT).show();
@@ -59,7 +64,7 @@ public class StudentLoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(StudentLoginActivity.this,LoginSystem.class);
+        Intent intent = new Intent(StudentLoginActivity.this, LoginSystem.class);
         startActivity(intent);
     }
 }

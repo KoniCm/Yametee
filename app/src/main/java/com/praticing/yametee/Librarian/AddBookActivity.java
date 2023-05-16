@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Librarian;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.praticing.yametee.R;
+
 public class AddBookActivity extends AppCompatActivity {
     EditText titleInput, authorInput, genreInput, publishInput, pagesInput, descriptionInput;
     Button addButton, bookCoverButton;
@@ -59,7 +61,7 @@ public class AddBookActivity extends AppCompatActivity {
 
                     librarianDatabase.addBook(title.trim(), author.trim(), genre.trim(), publish.trim(), Integer.valueOf(pages.trim()), description.trim());
 
-                    Intent intent = new Intent(AddBookActivity.this,BookActivity.class);
+                    Intent intent = new Intent(AddBookActivity.this, BookActivity.class);
                     startActivity(intent);
 
                     clearTextField();

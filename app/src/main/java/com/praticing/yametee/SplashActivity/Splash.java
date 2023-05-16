@@ -1,9 +1,12 @@
-package com.praticing.yametee;
+package com.praticing.yametee.SplashActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import com.praticing.yametee.MainLogin.LoginSystem;
+import com.praticing.yametee.R;
+
 public class Splash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +19,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 //SplashScreen to LoginSystem
-                Intent intent = new Intent(Splash.this,LoginSystem.class);
+                Intent intent = new Intent(Splash.this, LoginSystem.class);
                 startActivity(intent);
             }
             //Delaying in 2500 which means in sec is 2.5sec

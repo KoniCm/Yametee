@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Student;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 
 public class StudentDatabase extends SQLiteOpenHelper {
@@ -23,7 +22,7 @@ public class StudentDatabase extends SQLiteOpenHelper {
     private static final String COLUMN_SECTION = "student_section";
     private static final String COLUMN_STRAND = "student_strand";
 
-    StudentDatabase(@Nullable Context context) {
+    public StudentDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -46,7 +45,7 @@ public class StudentDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
     //Method of adding student with parameter
-    void addStudent(String id, String name, int level,String section,String strand,String pass) {
+    public void addStudent(String id, String name, int level,String section,String strand,String pass) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -73,7 +72,7 @@ public class StudentDatabase extends SQLiteOpenHelper {
 
     }
     // Read All user input int the data base
-    Cursor readAllData() {
+    public Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -84,11 +83,11 @@ public class StudentDatabase extends SQLiteOpenHelper {
         return cursor;
     }
     // Deleted all the user value in the database using this method
-    void deleteAllData() {
+    public void deleteAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }
-    void updateData(String row_id, String name, String level, String section, String strand,String pass) {
+    public void updateData(String row_id, String name, String level, String section, String strand,String pass) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -109,7 +108,7 @@ public class StudentDatabase extends SQLiteOpenHelper {
             Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
         }
     }
-    void deleteOneRow(String row_id) {
+    public void deleteOneRow(String row_id) {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, "id=?", new String[]{row_id});
         if(result == -1) {

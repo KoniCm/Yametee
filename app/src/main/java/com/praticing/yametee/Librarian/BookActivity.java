@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Librarian;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.praticing.yametee.Dashboard.DashboardLibrarian;
+import com.praticing.yametee.R;
 import java.util.ArrayList;
 
 public class BookActivity extends AppCompatActivity {
@@ -63,7 +65,7 @@ public class BookActivity extends AppCompatActivity {
     }
 
     //read Data and Store in a database
-    void storeDataInArrays() {
+    private void storeDataInArrays() {
         Cursor cursor = myDB.readAllData();
         if(cursor.getCount() == 0) { no_data.setVisibility(View.VISIBLE); }
         else {

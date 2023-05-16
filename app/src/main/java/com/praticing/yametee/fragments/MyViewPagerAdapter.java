@@ -3,11 +3,14 @@ package com.praticing.yametee.fragments;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
 public class MyViewPagerAdapter extends FragmentStateAdapter {
+
     public MyViewPagerAdapter(FragmentActivity fragmentActivity) {
         super(fragmentActivity);
 
     }
+
     @Override
     public Fragment createFragment(int position) {
         switch (position) {
@@ -19,6 +22,7 @@ public class MyViewPagerAdapter extends FragmentStateAdapter {
                 return new WhoBorrow();
         }
     }
+
     @Override
     public int getItemCount() { return 2; }
 }

@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Student;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -12,7 +12,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+import com.praticing.yametee.R;
+import com.praticing.yametee.Librarian.UpdateStudentActivity;
 import java.util.ArrayList;
+
 public class StudentCustomAdapter extends RecyclerView.Adapter<StudentCustomAdapter.MyViewHolder> {
     private Activity activity;
     private Context context;
@@ -20,8 +23,8 @@ public class StudentCustomAdapter extends RecyclerView.Adapter<StudentCustomAdap
     Animation animation;
 
     //Constructor with parameter
-    StudentCustomAdapter(Activity activity, Context context, ArrayList student_id, ArrayList student_name,
-                         ArrayList student_level, ArrayList student_section, ArrayList student_strand, ArrayList student_pass) {
+    public StudentCustomAdapter(Activity activity, Context context, ArrayList student_id, ArrayList student_name,
+                                ArrayList student_level, ArrayList student_section, ArrayList student_strand, ArrayList student_pass) {
         this.activity = activity;
         this.context = context;
         this.student_id = student_id;
@@ -31,12 +34,14 @@ public class StudentCustomAdapter extends RecyclerView.Adapter<StudentCustomAdap
         this.student_strand = student_strand;
         this.student_pass = student_pass;
     }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_rowstudent, parent, false);
         return new MyViewHolder(view);
     }
+
     //Tap . get position
     @SuppressLint("RecyclerView")
     @Override

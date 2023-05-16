@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="15dp"
     android:background="@drawable/book_login_bg"
-    tools:context=".LoginSystem">
+    tools:context=".MainLogin.LoginSystem">
 
     <LinearLayout
         android:layout_width="match_parent"

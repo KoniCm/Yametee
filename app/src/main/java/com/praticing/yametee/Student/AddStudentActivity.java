@@ -1,19 +1,20 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Student;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.praticing.yametee.R;
+import com.praticing.yametee.MainLogin.StudentLoginActivity;
 import java.util.ArrayList;
 import java.util.List;
+
 public class AddStudentActivity extends AppCompatActivity {
     EditText id_input, name_input, level_input,section_input,strand_input,pass_input;
     Button addStudent_btn;
-
     private StudentDatabase stDatabase;
 
     @Override
@@ -25,6 +26,7 @@ public class AddStudentActivity extends AppCompatActivity {
         findID();
         addStudent();
     }
+
     private void addStudent() {
         addStudent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +73,7 @@ public class AddStudentActivity extends AppCompatActivity {
             }
         });
     }
+
     private void findID() {
         id_input = findViewById(R.id.id_input);
         name_input = findViewById(R.id.name_input);
@@ -80,6 +83,7 @@ public class AddStudentActivity extends AppCompatActivity {
         addStudent_btn = findViewById(R.id.addStudent_btn);
         pass_input = findViewById(R.id.pass_input);
     }
+
     private boolean isInputEmpty(String... inputs) {
         for (String input : inputs) {
             if(input.isEmpty()) {
@@ -88,6 +92,7 @@ public class AddStudentActivity extends AppCompatActivity {
         }
         return false;
     }
+
     private void clearField() {
         id_input.getText().clear();
         name_input.getText().clear();

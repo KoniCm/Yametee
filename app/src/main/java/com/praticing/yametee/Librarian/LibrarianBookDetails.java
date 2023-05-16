@@ -1,18 +1,20 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Librarian;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
-public class StudentBookDetails extends AppCompatActivity {
+import com.praticing.yametee.R;
+
+public class LibrarianBookDetails extends AppCompatActivity {
     TextView title_input, author_input,genre_input,publish_input,pages_input,description_input;
     String id, title, author, genre, publish, pages, description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_book_details);
+        setContentView(R.layout.activity_librarian_book_details);
 
         findID();
 
@@ -29,9 +31,10 @@ public class StudentBookDetails extends AppCompatActivity {
         description_input = findViewById(R.id.description_details);
     }
 
-    void getAndSetIntentData() {
+    private void getAndSetIntentData() {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") && getIntent().hasExtra("genre") && getIntent().hasExtra("publish") &&
-                getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des")) {
+                getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des"))
+        {
             //Getting Data from Intent
             id = getIntent().getStringExtra("id");
             title = getIntent().getStringExtra("title");
@@ -52,10 +55,10 @@ public class StudentBookDetails extends AppCompatActivity {
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
-    //if the user back pressed , going to the DashboardStudent
+    
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(StudentBookDetails.this,BookListStudent.class);
+        Intent intent = new Intent(LibrarianBookDetails.this, BookActivity.class);
         startActivity(intent);
     }
 }

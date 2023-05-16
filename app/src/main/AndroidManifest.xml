@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,60 +11,60 @@
         android:theme="@style/MainColor"
         tools:targetApi="31">
         <activity
-            android:name=".FavouriteBookList"
+            android:name=".Student.FavouriteBookList"
             android:exported="false" />
         <activity
-            android:name=".LibrarianLoginActivity"
+            android:name=".MainLogin.LibrarianLoginActivity"
             android:exported="false"
             android:theme="@style/loginStyle" />
         <activity
-            android:name=".StudentBookDetails"
+            android:name=".Student.StudentBookDetails"
             android:exported="false" />
         <activity
-            android:name=".BookListStudent"
+            android:name=".Student.BookListStudent"
             android:exported="false" />
         <activity
-            android:name=".DashboardStudent"
+            android:name=".Dashboard.DashboardStudent"
             android:exported="false" />
         <activity
-            android:name=".StudentLoginActivity"
+            android:name=".MainLogin.StudentLoginActivity"
             android:exported="false"
             android:theme="@style/loginStyle" />
         <activity
-            android:name=".LoginSystem"
+            android:name=".MainLogin.LoginSystem"
             android:exported="true" />
         <activity
-            android:name=".Portal"
+            android:name=".BorrowingReturn.Portal"
             android:exported="false" />
         <activity
-            android:name=".UpdateStudentActivity"
+            android:name=".Librarian.UpdateStudentActivity"
             android:exported="false"
-            android:parentActivityName=".StudentActivity" />
+            android:parentActivityName=".Librarian.StudentActivity" />
         <activity
-            android:name=".BookActivity"
+            android:name=".Librarian.BookActivity"
             android:exported="false" />
         <activity
-            android:name=".AddStudentActivity"
+            android:name=".Student.AddStudentActivity"
             android:exported="false" />
         <activity
-            android:name=".StudentActivity"
+            android:name=".Librarian.StudentActivity"
             android:label="Student List" />
         <activity
-            android:name=".LibrarianBookDetails"
+            android:name=".Librarian.LibrarianBookDetails"
             android:label="Book Details"
-            android:parentActivityName=".BookActivity" />
+            android:parentActivityName=".Librarian.BookActivity" />
         <activity
-            android:name=".UpdateBookActivity"
-            android:parentActivityName=".BookActivity" />
+            android:name=".Librarian.UpdateBookActivity"
+            android:parentActivityName=".Librarian.BookActivity" />
         <activity
-            android:name=".AddBookActivity"
+            android:name=".Librarian.AddBookActivity"
             android:label="Adding Book"
-            android:parentActivityName=".BookActivity" />
+            android:parentActivityName=".Librarian.BookActivity" />
         <activity
-            android:name=".DashboardLibrarian"
+            android:name=".Dashboard.DashboardLibrarian"
             android:label="Book Maintenance" />
         <activity
-            android:name=".Splash"
+            android:name=".SplashActivity.Splash"
             android:exported="true"
             android:theme="@style/splash_screen">
             <intent-filter>

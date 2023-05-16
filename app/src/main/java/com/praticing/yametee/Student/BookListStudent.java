@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Student;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,10 +11,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import com.praticing.yametee.Dashboard.DashboardStudent;
+import com.praticing.yametee.Librarian.LibrarianDatabase;
+import com.praticing.yametee.R;
 import java.util.ArrayList;
 
 public class BookListStudent extends AppCompatActivity {
-
     private LibrarianDatabase lbDatabase;
     RecyclerView recyclerView;
     TextView no_data;
@@ -56,7 +58,7 @@ public class BookListStudent extends AppCompatActivity {
     }
 
     //read Data and Store in a database
-    void storeDataInArrays() {
+    private void storeDataInArrays() {
         Cursor cursor = lbDatabase.readAllData();
         if(cursor.getCount() == 0) { no_data.setVisibility(View.VISIBLE); }
         else {
@@ -80,7 +82,6 @@ public class BookListStudent extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
     //have a functionality
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -90,7 +91,7 @@ public class BookListStudent extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.favList:
-                Intent favListBook = new Intent(BookListStudent.this,FavouriteBookList.class);
+                Intent favListBook = new Intent(BookListStudent.this, FavouriteBookList.class);
                 startActivity(favListBook);
                 return true;
             default:

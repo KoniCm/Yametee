@@ -1,7 +1,9 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Student;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.praticing.yametee.R;
+
 public class FavouriteBookList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

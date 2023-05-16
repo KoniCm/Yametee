@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.MainLogin;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.textfield.TextInputEditText;
+import com.praticing.yametee.Dashboard.DashboardLibrarian;
+import com.praticing.yametee.R;
 
 public class LibrarianLoginActivity extends AppCompatActivity {
     final String permanentUser = "admin";
@@ -42,6 +43,7 @@ public class LibrarianLoginActivity extends AppCompatActivity {
                 }
             }
         });
+
         help_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -58,7 +60,7 @@ public class LibrarianLoginActivity extends AppCompatActivity {
         login_btn = findViewById(R.id.btn_login);
     }
 
-    void OpenDialogHelper() {
+    private void OpenDialogHelper() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Username and Password: "+"\n");

@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Librarian;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-
+import com.praticing.yametee.Dashboard.DashboardLibrarian;
+import com.praticing.yametee.R;
+import com.praticing.yametee.Student.StudentCustomAdapter;
+import com.praticing.yametee.Student.StudentDatabase;
 import java.util.ArrayList;
 
 public class StudentActivity extends AppCompatActivity {
@@ -47,7 +50,7 @@ public class StudentActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(StudentActivity.this));
     }
     //read Data and Store in a database
-    void storeDataInArrays() {
+    private void storeDataInArrays() {
         Cursor cursor = mystDB.readAllData();
         if(cursor.getCount() == 0) {
             no_data.setVisibility(View.VISIBLE);
@@ -93,7 +96,7 @@ public class StudentActivity extends AppCompatActivity {
         }
     }
     //delete all row in the bookActivity
-    void deleteAll() {
+    private void deleteAll() {
         //basic dialog box
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete All?");
@@ -117,8 +120,7 @@ public class StudentActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1)
-        {
+        if(requestCode == 1) {
             recreate();
         }
     }

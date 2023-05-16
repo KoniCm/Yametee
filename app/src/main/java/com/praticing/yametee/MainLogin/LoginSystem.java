@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.MainLogin;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import com.praticing.yametee.R;
+
 public class LoginSystem extends AppCompatActivity {
     CardView student,admin;
 
@@ -26,6 +28,7 @@ public class LoginSystem extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        
         student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)

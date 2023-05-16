@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Librarian;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.praticing.yametee.R;
+import com.praticing.yametee.Student.StudentDatabase;
+
 public class UpdateStudentActivity extends AppCompatActivity {
     EditText id_input, name_input, level_input,section_input,strand_input,pass_input;
     Button updateStudent_btn, deleteStudent_btn;
@@ -31,6 +34,7 @@ public class UpdateStudentActivity extends AppCompatActivity {
         if (ab != null) {
             ab.setTitle(id);
         }
+
         updateStudent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +72,7 @@ public class UpdateStudentActivity extends AppCompatActivity {
     }
 
     //Viewing The Data!
-    void getAndSetIntentData() {
+    private void getAndSetIntentData() {
         if(getIntent().hasExtra("row_id") && getIntent().hasExtra("name") && getIntent().hasExtra("level") && getIntent().hasExtra("section") &&
                 getIntent().hasExtra("strand") && getIntent().hasExtra("pass")) {
             //Getting Data from Intent
@@ -90,7 +94,7 @@ public class UpdateStudentActivity extends AppCompatActivity {
             Toast.makeText(this, "You Failed, Quit!.", Toast.LENGTH_SHORT).show();
         }
     }
-    void deleteOneRow() {
+    private void deleteOneRow() {
         //Simple Dialog box
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete " + id);

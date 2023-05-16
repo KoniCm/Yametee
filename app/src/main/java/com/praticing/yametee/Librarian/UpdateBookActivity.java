@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Librarian;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -12,11 +12,11 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.praticing.yametee.R;
 
 public class UpdateBookActivity extends AppCompatActivity {
     EditText title_input, author_input,genre_input,publish_input,pages_input,description_input;
     Button update_button,delete_button;
-
     String id, title, author, genre, publish, pages,description;
 
     @Override
@@ -66,10 +66,11 @@ public class UpdateBookActivity extends AppCompatActivity {
                 MyDB.updateData(id,title,author,genre,publish,pages,description);
 
                 //Going to the next activity
-                Intent intent = new Intent(UpdateBookActivity.this,BookActivity.class);
+                Intent intent = new Intent(UpdateBookActivity.this, BookActivity.class);
                 startActivity(intent);
             }
         });
+
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +90,6 @@ public class UpdateBookActivity extends AppCompatActivity {
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
     }
-
     //Viewing The Data!
     void getAndSetIntentData() {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") && getIntent().hasExtra("genre") && getIntent().hasExtra("publish") &&

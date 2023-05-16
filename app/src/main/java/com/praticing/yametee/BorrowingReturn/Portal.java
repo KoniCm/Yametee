@@ -1,9 +1,10 @@
-package com.praticing.yametee;
+package com.praticing.yametee.BorrowingReturn;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
+import com.praticing.yametee.R;
 import com.praticing.yametee.fragments.MyViewPagerAdapter;
 
 public class Portal extends AppCompatActivity {

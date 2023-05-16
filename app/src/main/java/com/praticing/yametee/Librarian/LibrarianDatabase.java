@@ -1,4 +1,4 @@
-package com.praticing.yametee;
+package com.praticing.yametee.Librarian;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 
 public class LibrarianDatabase extends SQLiteOpenHelper {
@@ -26,7 +25,7 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
     private static final String COLUMN_PAGES = "book_pages";
     private static final String COLUMN_DESCRIPTION = "book_description";
 
-    LibrarianDatabase(@Nullable Context context) {
+    public LibrarianDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -51,7 +50,7 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
     //Method of adding student with parameter
-    void addBook(String title, String author, String genre , String publish, int pages, String description) {
+    public void addBook(String title, String author, String genre , String publish, int pages, String description) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         // Putting value in the database by col for example , ID|TITLE | AUTHOR | GENRE | PUBLISH | PAGES |DES
@@ -75,7 +74,7 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
         }
     }
     // Read All user input int the data base
-    Cursor readAllData() {
+    public Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -86,7 +85,7 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
         return cursor;
     }
     //Method of updating a value in the database with parameter
-    void updateData(String row_id, String title, String author,String genre, String publish, String pages, String description) {
+    public void updateData(String row_id, String title, String author,String genre, String publish, String pages, String description) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TITLE, title);
@@ -107,7 +106,7 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
         }
     }
     //Deleting one row where the id is located
-    void deleteOneRow(String row_id) {
+    public void deleteOneRow(String row_id) {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
         if(result == -1) {
@@ -118,7 +117,7 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
     }
 
     // Deleted all the user value in the database using this method
-    void deleteAllData() {
+    public void deleteAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
     }
