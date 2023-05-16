@@ -38,7 +38,7 @@ public class BookActivity extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BookActivity.this, addBookActivity.class);
+                Intent intent = new Intent(BookActivity.this, AddBookActivity.class);
                 startActivity(intent);
             }
         });

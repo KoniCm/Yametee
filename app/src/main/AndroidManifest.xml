@@ -60,7 +60,7 @@
             android:name=".updateBookActivity"
             android:parentActivityName=".BookActivity" />
         <activity
-            android:name=".addBookActivity"
+            android:name=".AddBookActivity"
             android:label="Adding Book"
             android:parentActivityName=".BookActivity" />
         <activity
