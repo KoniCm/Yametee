@@ -22,7 +22,7 @@ public class LoginSystem extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(LoginSystem.this, librarianLoginActivity.class);
+                Intent intent = new Intent(LoginSystem.this, LibrarianLoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -30,7 +30,7 @@ public class LoginSystem extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent student = new Intent(LoginSystem.this, studentLoginActivity.class);
+                Intent student = new Intent(LoginSystem.this, StudentLoginActivity.class);
                 startActivity(student);
             }
         });

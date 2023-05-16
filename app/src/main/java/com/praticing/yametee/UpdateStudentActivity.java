@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-public class updateStudentActivity extends AppCompatActivity {
+public class UpdateStudentActivity extends AppCompatActivity {
     EditText id_input, name_input, level_input,section_input,strand_input,pass_input;
     Button updateStudent_btn, deleteStudent_btn;
 
@@ -34,7 +34,7 @@ public class updateStudentActivity extends AppCompatActivity {
         updateStudent_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StudentDatabase studentDatabase = new StudentDatabase(updateStudentActivity.this);
+                StudentDatabase studentDatabase = new StudentDatabase(UpdateStudentActivity.this);
                 id = id_input.getText().toString().trim();
                 name = name_input.getText().toString().trim();
                 level = level_input.getText().toString().trim();
@@ -43,7 +43,7 @@ public class updateStudentActivity extends AppCompatActivity {
                 pass = pass_input.getText().toString().trim();
                 studentDatabase.updateData(id,name,level,section,strand,pass);
 
-                Intent intent = new Intent(updateStudentActivity.this, studentActivity.class);
+                Intent intent = new Intent(UpdateStudentActivity.this, StudentActivity.class);
                 startActivity(intent);
             }
         });
@@ -98,11 +98,11 @@ public class updateStudentActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                StudentDatabase myDB = new StudentDatabase(updateStudentActivity.this);
+                StudentDatabase myDB = new StudentDatabase(UpdateStudentActivity.this);
                 myDB.deleteOneRow(id);
                 finish();
 
-                Intent intent = new Intent(updateStudentActivity.this,studentActivity.class);
+                Intent intent = new Intent(UpdateStudentActivity.this, StudentActivity.class);
                 startActivity(intent);
             }
         });
@@ -113,7 +113,7 @@ public class updateStudentActivity extends AppCompatActivity {
     //if the user back pressed the app it will go in the dashboard layout
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(updateStudentActivity.this,studentActivity.class);
+        Intent intent = new Intent(UpdateStudentActivity.this, StudentActivity.class);
         startActivity(intent);
     }
 }

@@ -32,7 +32,7 @@ public class DashboardLibrarian extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(DashboardLibrarian.this,studentActivity.class);
+                Intent intent = new Intent(DashboardLibrarian.this, StudentActivity.class);
                 startActivity(intent);
             }
         });

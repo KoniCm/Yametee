@@ -13,14 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
-public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdapter.MyViewHolder> {
+public class StudentCustomAdapter extends RecyclerView.Adapter<StudentCustomAdapter.MyViewHolder> {
     private Activity activity;
     private Context context;
     private ArrayList student_id, student_name, student_level, student_section, student_strand, student_pass;
     Animation animation;
 
     //Constructor with parameter
-    studentCustomAdapter(Activity activity, Context context, ArrayList student_id, ArrayList student_name,
+    StudentCustomAdapter(Activity activity, Context context, ArrayList student_id, ArrayList student_name,
                          ArrayList student_level, ArrayList student_section, ArrayList student_strand, ArrayList student_pass) {
         this.activity = activity;
         this.context = context;
@@ -50,7 +50,7 @@ public class studentCustomAdapter extends RecyclerView.Adapter<studentCustomAdap
         holder.studentMainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, updateStudentActivity.class);
+                Intent intent = new Intent(context, UpdateStudentActivity.class);
                 intent.putExtra("row_id",String.valueOf(student_id.get(position)));
                 intent.putExtra("name",String.valueOf(student_name.get(position)));
                 intent.putExtra("level",String.valueOf(student_level.get(position)));

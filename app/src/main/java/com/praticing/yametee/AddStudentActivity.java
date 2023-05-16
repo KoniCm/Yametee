@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
-public class addStudentActivity extends AppCompatActivity {
+public class AddStudentActivity extends AppCompatActivity {
     EditText id_input, name_input, level_input,section_input,strand_input,pass_input;
     Button addStudent_btn;
 
@@ -47,23 +47,23 @@ public class addStudentActivity extends AppCompatActivity {
 
                 //if the field empty keyword(isEmpty)
                 if(isInputEmpty(id,name,level,section,strand,pass)) {
-                    Toast.makeText(addStudentActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddStudentActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
                 } else if(id.length() != 11) {
-                    Toast.makeText(addStudentActivity.this, "Enter a valid Student ID", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddStudentActivity.this, "Enter a valid Student ID", Toast.LENGTH_SHORT).show();
                 } else if (!level.equals("11") && !level.equals("12")) {
-                    Toast.makeText(addStudentActivity.this, "Enter a valid grade level", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddStudentActivity.this, "Enter a valid grade level", Toast.LENGTH_SHORT).show();
                 } else if(!listStrand.contains(strand.toLowerCase())) {
-                    Toast.makeText(addStudentActivity.this, "Enter a valid strand", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddStudentActivity.this, "Enter a valid strand", Toast.LENGTH_SHORT).show();
                 } else if(pass.length() < 8) {
-                    Toast.makeText(addStudentActivity.this,"Password must be longer than 8 characters!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddStudentActivity.this,"Password must be longer than 8 characters!",Toast.LENGTH_SHORT).show();
                 } else {
 
                     stDatabase.addStudent(id.trim(), name.trim(), Integer.valueOf(level.trim()), section.trim(), strand.trim(), pass.trim());
 
                     //Going to the next activity
-                    Intent intent = new Intent(addStudentActivity.this,studentLoginActivity.class);
+                    Intent intent = new Intent(AddStudentActivity.this, StudentLoginActivity.class);
                     startActivity(intent);
-                    Toast.makeText(addStudentActivity.this,"Success! Account Register!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddStudentActivity.this,"Success! Account Register!",Toast.LENGTH_SHORT).show();
 
                     //clear all text field
                     clearField();

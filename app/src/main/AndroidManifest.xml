@@ -17,7 +17,7 @@
             android:name=".FavouriteBookList"
             android:exported="false" />
         <activity
-            android:name=".librarianLoginActivity"
+            android:name=".LibrarianLoginActivity"
             android:exported="false"
             android:theme="@style/loginStyle" />
         <activity
@@ -30,7 +30,7 @@
             android:name=".DashboardStudent"
             android:exported="false" />
         <activity
-            android:name=".studentLoginActivity"
+            android:name=".StudentLoginActivity"
             android:exported="false"
             android:theme="@style/loginStyle" />
         <activity
@@ -40,24 +40,24 @@
             android:name=".Portal"
             android:exported="false" />
         <activity
-            android:name=".updateStudentActivity"
+            android:name=".UpdateStudentActivity"
             android:exported="false"
-            android:parentActivityName=".studentActivity" />
+            android:parentActivityName=".StudentActivity" />
         <activity
             android:name=".BookActivity"
             android:exported="false" />
         <activity
-            android:name=".addStudentActivity"
+            android:name=".AddStudentActivity"
             android:exported="false" />
         <activity
-            android:name=".studentActivity"
+            android:name=".StudentActivity"
             android:label="Student List" />
         <activity
-            android:name=".librarianBookDetails"
+            android:name=".LibrarianBookDetails"
             android:label="Book Details"
             android:parentActivityName=".BookActivity" />
         <activity
-            android:name=".updateBookActivity"
+            android:name=".UpdateBookActivity"
             android:parentActivityName=".BookActivity" />
         <activity
             android:name=".AddBookActivity"

@@ -14,14 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
-public class studentActivity extends AppCompatActivity {
+public class StudentActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     StudentDatabase mystDB;
     ArrayList<String> student_id, student_name, student_level, student_section,student_strand,student_pass;
-    studentCustomAdapter customAdapterStudent;
+    StudentCustomAdapter customAdapterStudent;
     TextView no_data;
 
     @Override
@@ -32,7 +31,7 @@ public class studentActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         no_data = findViewById(R.id.no_data);
 
-        mystDB = new StudentDatabase(studentActivity.this);
+        mystDB = new StudentDatabase(StudentActivity.this);
         student_id = new ArrayList<>();
         student_name = new ArrayList<>();
         student_level = new ArrayList<>();
@@ -42,10 +41,10 @@ public class studentActivity extends AppCompatActivity {
 
         storeDataInArrays();
 
-        customAdapterStudent = new studentCustomAdapter(studentActivity.this,this, student_id, student_name, student_level,
+        customAdapterStudent = new StudentCustomAdapter(StudentActivity.this,this, student_id, student_name, student_level,
                 student_section, student_strand,student_pass);
         recyclerView.setAdapter(customAdapterStudent);
-        recyclerView.setLayoutManager(new LinearLayoutManager(studentActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(StudentActivity.this));
     }
     //read Data and Store in a database
     void storeDataInArrays() {
@@ -67,7 +66,7 @@ public class studentActivity extends AppCompatActivity {
     // If the user back press , going to the Dashboard activity
     @Override
     public void onBackPressed() {
-        Intent goBack = new Intent(studentActivity.this, DashboardLibrarian.class);
+        Intent goBack = new Intent(StudentActivity.this, DashboardLibrarian.class);
         startActivity(goBack);
     }
     //implementing menu bar
@@ -83,7 +82,7 @@ public class studentActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
-                Intent intent = new Intent(studentActivity.this, DashboardLibrarian.class);
+                Intent intent = new Intent(StudentActivity.this, DashboardLibrarian.class);
                 startActivity(intent);
                 return true;
             case R.id.delete_all:
@@ -103,11 +102,11 @@ public class studentActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                StudentDatabase myDB = new StudentDatabase(studentActivity.this);
+                StudentDatabase myDB = new StudentDatabase(StudentActivity.this);
                 myDB.deleteAllData();
 
                 //Refresh Activity
-                Intent intent = new Intent(studentActivity.this, studentActivity.class);
+                Intent intent = new Intent(StudentActivity.this, StudentActivity.class);
                 startActivity(intent);
                 finish();
             }

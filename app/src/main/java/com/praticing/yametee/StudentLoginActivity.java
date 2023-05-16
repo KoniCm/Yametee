@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
-public class studentLoginActivity extends AppCompatActivity {
+public class StudentLoginActivity extends AppCompatActivity {
     Button btn_loginStudent;
     TextInputEditText input_username,input_password;
     TextView register;
@@ -24,7 +24,7 @@ public class studentLoginActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(studentLoginActivity.this,addStudentActivity.class);
+                Intent intent = new Intent(StudentLoginActivity.this, AddStudentActivity.class);
                 startActivity(intent);
             }
         });
@@ -38,13 +38,13 @@ public class studentLoginActivity extends AppCompatActivity {
                 boolean checkAccount = studentDatabase.checkIdPassword(id,pass);
 
                 if(id.isEmpty() || pass.isEmpty()) {
-                    Toast.makeText(studentLoginActivity.this, "Please fill the empty field", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StudentLoginActivity.this, "Please fill the empty field", Toast.LENGTH_SHORT).show();
                 } else if(checkAccount == true) {
-                    Toast.makeText(studentLoginActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(studentLoginActivity.this,DashboardStudent.class);
+                    Toast.makeText(StudentLoginActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(StudentLoginActivity.this,DashboardStudent.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(studentLoginActivity.this, "Wrong username and password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StudentLoginActivity.this, "Wrong username and password!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -59,7 +59,7 @@ public class studentLoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(studentLoginActivity.this,LoginSystem.class);
+        Intent intent = new Intent(StudentLoginActivity.this,LoginSystem.class);
         startActivity(intent);
     }
 }

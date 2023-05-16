@@ -13,7 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class updateBookActivity extends AppCompatActivity {
+public class UpdateBookActivity extends AppCompatActivity {
     EditText title_input, author_input,genre_input,publish_input,pages_input,description_input;
     Button update_button,delete_button;
 
@@ -29,7 +29,7 @@ public class updateBookActivity extends AppCompatActivity {
         publish_input.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(updateBookActivity.this);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(UpdateBookActivity.this);
                 datePickerDialog.show();
 
                 datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
@@ -53,7 +53,7 @@ public class updateBookActivity extends AppCompatActivity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LibrarianDatabase MyDB = new LibrarianDatabase(updateBookActivity.this);
+                LibrarianDatabase MyDB = new LibrarianDatabase(UpdateBookActivity.this);
 
                 //Changing Value
                 title = title_input.getText().toString().trim();
@@ -66,7 +66,7 @@ public class updateBookActivity extends AppCompatActivity {
                 MyDB.updateData(id,title,author,genre,publish,pages,description);
 
                 //Going to the next activity
-                Intent intent = new Intent(updateBookActivity.this,BookActivity.class);
+                Intent intent = new Intent(UpdateBookActivity.this,BookActivity.class);
                 startActivity(intent);
             }
         });
@@ -123,11 +123,11 @@ public class updateBookActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                LibrarianDatabase myDB = new LibrarianDatabase(updateBookActivity.this);
+                LibrarianDatabase myDB = new LibrarianDatabase(UpdateBookActivity.this);
                 myDB.deleteOneRow(id);
                 finish();
 
-                Intent intent = new Intent(updateBookActivity.this,BookActivity.class);
+                Intent intent = new Intent(UpdateBookActivity.this,BookActivity.class);
                 startActivity(intent);
             }
         });
@@ -137,7 +137,7 @@ public class updateBookActivity extends AppCompatActivity {
     //if the user back pressed the app it will go in the dashboard layout
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(updateBookActivity.this,BookActivity.class);
+        Intent intent = new Intent(UpdateBookActivity.this,BookActivity.class);
         startActivity(intent);
     }
 }

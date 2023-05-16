@@ -68,7 +68,7 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
                         switch (menuItem.getItemId()) {
                             case R.id.edit_menu:
                                 //getting the value , the user input display and going to the update activity
-                                Intent intent = new Intent(context, updateBookActivity.class);
+                                Intent intent = new Intent(context, UpdateBookActivity.class);
                                 intent.putExtra("id", String.valueOf(book_id.get(position)));
                                 intent.putExtra("title", String.valueOf(book_title.get(position)));
                                 intent.putExtra("author", String.valueOf(book_author.get(position)));
@@ -80,7 +80,7 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
                                 break;
                             case R.id.view_menu:
                                 // Same as edit_menu but its going to the details activity
-                                Intent viewIntent = new Intent(context, librarianBookDetails.class);
+                                Intent viewIntent = new Intent(context, LibrarianBookDetails.class);
                                 viewIntent.putExtra("id", String.valueOf(book_id.get(position)));
                                 viewIntent.putExtra("title", String.valueOf(book_title.get(position)));
                                 viewIntent.putExtra("author", String.valueOf(book_author.get(position)));

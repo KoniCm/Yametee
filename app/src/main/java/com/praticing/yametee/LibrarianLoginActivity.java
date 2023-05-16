@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class librarianLoginActivity extends AppCompatActivity {
+public class LibrarianLoginActivity extends AppCompatActivity {
     final String permanentUser = "admin";
     final String permanentPass = "admin123";
     TextView help_btn;
@@ -32,13 +32,13 @@ public class librarianLoginActivity extends AppCompatActivity {
                 String pass_X = input_pass.getText().toString();
 
                 if(user_X.isEmpty() || pass_X.isEmpty()) {
-                    Toast.makeText(librarianLoginActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LibrarianLoginActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
                 } else if(user_X.equals(permanentUser) && pass_X.equals(permanentPass)) {
-                    Toast.makeText(librarianLoginActivity.this, "Successfully login as a Librarian!", Toast.LENGTH_SHORT).show();
-                    Intent bypass = new Intent(librarianLoginActivity.this, DashboardLibrarian.class);
+                    Toast.makeText(LibrarianLoginActivity.this, "Successfully login as a Librarian!", Toast.LENGTH_SHORT).show();
+                    Intent bypass = new Intent(LibrarianLoginActivity.this, DashboardLibrarian.class);
                     startActivity(bypass);
                 } else {
-                    Toast.makeText(librarianLoginActivity.this, "Wrong username or password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LibrarianLoginActivity.this, "Wrong username or password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
