@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 
 public class LibrarianDatabase extends SQLiteOpenHelper {
@@ -40,7 +41,8 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
                 COLUMN_GENRE + " TEXT, " +
                 COLUMN_PUBLISH + " INTEGER, " +
                 COLUMN_PAGES + " INTEGER, " +
-                COLUMN_DESCRIPTION + " TEXT);";
+                COLUMN_DESCRIPTION + " TEXT, " +
+                "image" + " BLOB);";
         db.execSQL(query);
     }
     // If TableName exist the SQL drop TABLE

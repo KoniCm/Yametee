@@ -2,21 +2,32 @@ package com.praticing.yametee.Librarian;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.praticing.yametee.R;
 
 public class AddBookActivity extends AppCompatActivity {
 
-    private final static int PICK_PHOTO_FOR_AVATAR = 100;
+    private final static int PICK_PHOTO_FOR_AVATAR = 99;
     EditText titleInput, authorInput, genreInput, publishInput, pagesInput, descriptionInput;
-    Button addButton, bookCoverButton;
+    Button addButton;
+    ImageView bookCover;
     private LibrarianDatabase librarianDatabase;
+
+    private Uri imagePath;
+    private Bitmap imageStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +48,7 @@ public class AddBookActivity extends AppCompatActivity {
         publishInput = findViewById(R.id.publish_input);
         pagesInput = findViewById(R.id.pages_input);
         descriptionInput = findViewById(R.id.description_input);
-        bookCoverButton = findViewById(R.id.bookCover_button);
+        bookCover = findViewById(R.id.book_cover);
         addButton = findViewById(R.id.add_button);
     }
 
@@ -71,6 +82,16 @@ public class AddBookActivity extends AppCompatActivity {
         });
     }
 
+    private void addPhoto() {
+        bookCover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pickImage();
+            }
+        });
+
+    }
+
     private void datePickerDialogListener() {
         publishInput.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,16 +112,6 @@ public class AddBookActivity extends AppCompatActivity {
         });
     }
 
-    private void addPhoto() {
-        bookCoverButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Toast.makeText(AddBookActivity.this, "Imaged Picked", Toast.LENGTH_SHORT).show();
-                pickImage();
-            }
-        });
-    }
-
     private void clearTextField() {
         titleInput.getText().clear();
         authorInput.getText().clear();
@@ -117,8 +128,30 @@ public class AddBookActivity extends AppCompatActivity {
         return false;
     }
     public void pickImage() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
-        startActivityForResult(intent, PICK_PHOTO_FOR_AVATAR);
+        try {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent, PICK_PHOTO_FOR_AVATAR);
+
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        try {
+
+            super.onActivityResult(requestCode, resultCode, data);
+            if(requestCode == PICK_PHOTO_FOR_AVATAR && resultCode == RESULT_OK && data != null && data.getData() != null) {
+                imagePath = data.getData();
+                imageStore = MediaStore.Images.Media.getBitmap(getContentResolver(), imagePath);
+                bookCover.setImageBitmap(imageStore);
+            }
+
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 }
