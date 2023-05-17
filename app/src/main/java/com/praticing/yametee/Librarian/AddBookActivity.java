@@ -1,6 +1,5 @@
 package com.praticing.yametee.Librarian;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +8,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 import com.praticing.yametee.R;
 
 public class AddBookActivity extends AppCompatActivity {
+
+    private final static int PICK_PHOTO_FOR_AVATAR = 100;
     EditText titleInput, authorInput, genreInput, publishInput, pagesInput, descriptionInput;
     Button addButton, bookCoverButton;
-
     private LibrarianDatabase librarianDatabase;
 
     @Override
@@ -94,7 +95,8 @@ public class AddBookActivity extends AppCompatActivity {
         bookCoverButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AddBookActivity.this, "Image Picked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(AddBookActivity.this, "Imaged Picked", Toast.LENGTH_SHORT).show();
+                pickImage();
             }
         });
     }
@@ -113,5 +115,10 @@ public class AddBookActivity extends AppCompatActivity {
             if (input.isEmpty()) { return true; }
         }
         return false;
+    }
+    public void pickImage() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_PHOTO_FOR_AVATAR);
     }
 }
