@@ -16,11 +16,9 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.praticing.yametee.R;
 
 public class AddBookActivity extends AppCompatActivity {
@@ -124,6 +122,7 @@ public class AddBookActivity extends AppCompatActivity {
         publishInput.getText().clear();
         pagesInput.getText().clear();
         descriptionInput.getText().clear();
+        bookCover.setImageResource(R.mipmap.book_cover);
     }
 
     private boolean isInputEmpty(String... inputs) {
@@ -132,6 +131,7 @@ public class AddBookActivity extends AppCompatActivity {
         }
         return false;
     }
+
     public void pickImage() {
         try {
             Intent intent = new Intent();
@@ -159,6 +159,7 @@ public class AddBookActivity extends AppCompatActivity {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -167,7 +168,7 @@ public class AddBookActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-    //have a functionality to trigger
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
