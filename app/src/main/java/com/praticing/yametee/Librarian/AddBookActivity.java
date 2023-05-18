@@ -1,6 +1,7 @@
 package com.praticing.yametee.Librarian;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.praticing.yametee.R;
@@ -170,7 +172,17 @@ public class AddBookActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.clear:
-                clearTextField();
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddBookActivity.this);
+
+                builder.setMessage("Clear all text field");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        clearTextField();
+                    }
+                });
+                builder.setNegativeButton("No", null);
+                builder.create().show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
