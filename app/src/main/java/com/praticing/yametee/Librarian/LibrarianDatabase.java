@@ -41,8 +41,7 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
                 COLUMN_GENRE + " TEXT, " +
                 COLUMN_PUBLISH + " INTEGER, " +
                 COLUMN_PAGES + " INTEGER, " +
-                COLUMN_DESCRIPTION + " TEXT, " +
-                "image" + " BLOB);";
+                COLUMN_DESCRIPTION + " TEXT);";
         db.execSQL(query);
     }
     // If TableName exist the SQL drop TABLE
