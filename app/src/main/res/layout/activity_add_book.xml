@@ -29,6 +29,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.341">
 
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/book_cover"
+                android:layout_width="wrap_content"
+                android:layout_height="145dp"
+                android:src="@mipmap/book_cover" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Book Cover"
+                android:layout_gravity="center"/>
+
             <EditText
                 android:id="@+id/title_input"
                 android:layout_width="match_parent"
@@ -119,12 +133,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/publish_input" />
-
-            <ImageView
-                android:id="@+id/book_cover"
-                android:layout_width="125dp"
-                android:layout_height="145dp"
-                app:srcCompat="@drawable/no_photo_avail" />
 
             <Button
                 android:id="@+id/add_button"
