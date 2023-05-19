@@ -175,10 +175,11 @@ public class AddBookActivity extends AppCompatActivity {
             case R.id.clear:
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddBookActivity.this);
 
-                builder.setMessage("Clear all text field");
+                builder.setMessage("Do you want to clear all text field");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(AddBookActivity.this, "Clear text field success!",Toast.LENGTH_SHORT).show();
                         clearTextField();
                     }
                 });
