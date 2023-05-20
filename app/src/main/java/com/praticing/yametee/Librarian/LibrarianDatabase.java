@@ -5,9 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import java.io.ByteArrayOutputStream;
 
 public class LibrarianDatabase extends SQLiteOpenHelper {
     //A Context is a handle to the system
@@ -25,6 +28,11 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
     private static final String COLUMN_PUBLISH = "book_publish";
     private static final String COLUMN_PAGES = "book_pages";
     private static final String COLUMN_DESCRIPTION = "book_description";
+    private static final String COLUMN_COVER = "book_cover";
+
+    private byte[] imagesbytes;
+
+    private ByteArrayOutputStream byteArrayOutputStream;
 
     public LibrarianDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,7 +49,8 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
                 COLUMN_GENRE + " TEXT, " +
                 COLUMN_PUBLISH + " INTEGER, " +
                 COLUMN_PAGES + " INTEGER, " +
-                COLUMN_DESCRIPTION + " TEXT);";
+                COLUMN_DESCRIPTION + " TEXT, " +
+                COLUMN_COVER + " BLOB);";
         db.execSQL(query);
     }
     // If TableName exist the SQL drop TABLE
@@ -51,8 +60,17 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
     //Method of adding student with parameter
-    public void addBook(String title, String author, String genre , String publish, int pages, String description) {
+    public void addBook(String title, String author, String genre , String publish, int pages, String description,Bitmap cover) {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        Bitmap imageToStoreBitmap = cover;
+        
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+
+        imagesbytes = byteArrayOutputStream.toByteArray();
+
+
         ContentValues cv = new ContentValues();
         // Putting value in the database by col for example , ID|TITLE | AUTHOR | GENRE | PUBLISH | PAGES |DES
         //                                   the id incrementing|THE CODE| Koni | ACTION| 2023    | 100   |something
@@ -62,6 +80,7 @@ public class LibrarianDatabase extends SQLiteOpenHelper {
         cv.put(COLUMN_PUBLISH, publish);
         cv.put(COLUMN_PAGES, pages);
         cv.put(COLUMN_DESCRIPTION, description);
+        cv.put(COLUMN_COVER, imagesbytes);
 
         //Data is long res = database insert func tableName Col and the content Val
         long result = db.insert(TABLE_NAME,null, cv);

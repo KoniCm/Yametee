@@ -23,14 +23,14 @@ import com.praticing.yametee.R;
 
 public class AddBookActivity extends AppCompatActivity {
 
-    private final static int PICK_PHOTO_FOR_AVATAR = 99;
     EditText titleInput, authorInput, genreInput, publishInput, pagesInput, descriptionInput;
     Button addButton;
-    ImageView bookCover;
     private LibrarianDatabase librarianDatabase;
 
+    private final static int PICK_PHOTO_FOR_AVATAR = 99;
     private Uri imagePath;
     private Bitmap imageStore;
+    ImageView bookCover;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class AddBookActivity extends AppCompatActivity {
 
                 } else {
 
-                    librarianDatabase.addBook(title.trim(), author.trim(), genre.trim(), publish.trim(), Integer.valueOf(pages.trim()), description.trim());
+                    librarianDatabase.addBook(title.trim(), author.trim(), genre.trim(), publish.trim(), Integer.valueOf(pages.trim()), description.trim(),imageStore);
 
                     Intent intent = new Intent(AddBookActivity.this, BookActivity.class);
                     startActivity(intent);
