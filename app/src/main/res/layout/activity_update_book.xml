@@ -39,6 +39,20 @@
                 android:textSize="45dp"
                 android:textStyle="bold|italic" />
 
+            <ImageView
+                android:id="@+id/book_cover2"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="145dp"
+                android:src="@mipmap/book_cover" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Book Cover"
+                android:layout_gravity="center"/>
+
             <EditText
                 android:id="@+id/title_input2"
                 android:layout_width="match_parent"

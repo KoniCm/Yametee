@@ -88,7 +88,6 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
                                 intent.putExtra("publish", String.valueOf(book_publish.get(position)));
                                 intent.putExtra("pages", String.valueOf(book_pages.get(position)));
                                 intent.putExtra("des" , String.valueOf(book_description.get(position)));
-                                intent.putExtra("cover",book_cover.get(position));
                                 activity.startActivityForResult(intent, 1);
                                 break;
                             case R.id.view_menu:
@@ -101,7 +100,6 @@ public class LibrarianCustomAdapter extends RecyclerView.Adapter<LibrarianCustom
                                 viewIntent.putExtra("publish", String.valueOf(book_publish.get(position)));
                                 viewIntent.putExtra("pages", String.valueOf(book_pages.get(position)));
                                 viewIntent.putExtra("des", String.valueOf(book_description.get(position)));
-                                viewIntent.putExtra("cover",book_cover.get(position));
                                 activity.startActivityForResult(viewIntent, 1);
                                 break;
                                 //something nothing change

@@ -16,22 +16,22 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.047" />
 
     <ImageView
-        android:id="@+id/book_cover_display"
-        android:layout_width="150dp"
+        android:id="@+id/book_cover_details"
+        android:layout_width="220dp"
         android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/book_cover"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16"
-        tools:srcCompat="@mipmap/book_cover" />
+        app:layout_constraintVertical_bias="0.141" />
 
     <TextView
         android:id="@+id/author_details"

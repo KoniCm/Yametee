@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.praticing.yametee.R;
 
 public class LibrarianBookDetails extends AppCompatActivity {
@@ -35,7 +33,7 @@ public class LibrarianBookDetails extends AppCompatActivity {
 
     private void getAndSetIntentData() {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title") && getIntent().hasExtra("genre") && getIntent().hasExtra("publish") &&
-                getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des") && getIntent().hasExtra("cover"))
+                getIntent().hasExtra("author") && getIntent().hasExtra("pages") && getIntent().hasExtra("des"))
         {
             //Getting Data from Intent
             id = getIntent().getStringExtra("id");
