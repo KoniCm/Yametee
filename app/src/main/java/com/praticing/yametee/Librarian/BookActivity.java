@@ -10,14 +10,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.praticing.yametee.Dashboard.DashboardLibrarian;
 import com.praticing.yametee.R;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class BookActivity extends AppCompatActivity {
     private LibrarianDatabase myDB;
@@ -26,6 +30,7 @@ public class BookActivity extends AppCompatActivity {
 
     //Array list for book information
     ArrayList<String> book_id, book_title, book_author,book_genre,book_publish,book_pages,book_description;
+    private List<byte[]> book_cover;
 
     //Connecting Adapter
     LibrarianCustomAdapter customAdapter;
@@ -53,13 +58,14 @@ public class BookActivity extends AppCompatActivity {
         book_publish = new ArrayList<>();
         book_pages = new ArrayList<>();
         book_description = new ArrayList<>();
+        book_cover = new ArrayList<>();
 
         storeDataInArrays();
 
         //Getting book information to user
 
         customAdapter = new LibrarianCustomAdapter(BookActivity.this,this, book_id, book_title, book_author,book_genre,
-                book_publish,book_pages, book_description);
+                book_publish,book_pages, book_description,book_cover);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(BookActivity.this));
     }
@@ -77,6 +83,7 @@ public class BookActivity extends AppCompatActivity {
                 book_publish.add(cursor.getString(4));
                 book_pages.add(cursor.getString(5));
                 book_description.add(cursor.getString(6));
+                book_cover.add(cursor.getBlob(7));
             }
             no_data.setVisibility(View.GONE);
         }

@@ -21,7 +21,7 @@
             android:padding="5dp">
 
             <ImageView
-                android:id="@+id/place_holder_txt"
+                android:id="@+id/place_holder_display"
                 android:layout_width="50dp"
                 android:layout_height="90dp"
                 android:background="@mipmap/book_cover"
