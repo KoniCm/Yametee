@@ -94,7 +94,6 @@ public class AddBookActivity extends AppCompatActivity {
                 pickImage();
             }
         });
-
     }
 
     private void datePickerDialogListener() {
