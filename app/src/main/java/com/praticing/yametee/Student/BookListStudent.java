@@ -1,8 +1,5 @@
 package com.praticing.yametee.Student;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,10 +8,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.praticing.yametee.Dashboard.DashboardStudent;
 import com.praticing.yametee.Librarian.LibrarianDatabase;
 import com.praticing.yametee.R;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class BookListStudent extends AppCompatActivity {
     private LibrarianDatabase lbDatabase;
@@ -23,6 +27,7 @@ public class BookListStudent extends AppCompatActivity {
 
     //Array list
     ArrayList<String> book_id, book_title, book_author,book_genre,book_publish,book_pages,book_description;
+    private List<byte[]> book_cover;
 
     CustomAdapterBookListForStudent customAdapterBS;
 
@@ -43,11 +48,12 @@ public class BookListStudent extends AppCompatActivity {
         book_publish = new ArrayList<>();
         book_pages = new ArrayList<>();
         book_description = new ArrayList<>();
+        book_cover = new ArrayList<>();
 
         storeDataInArrays();
 
         customAdapterBS = new CustomAdapterBookListForStudent(BookListStudent.this,this, book_id, book_title, book_author,book_genre,
-                book_publish,book_pages, book_description);
+                book_publish,book_pages, book_description,book_cover);
         recyclerView.setAdapter(customAdapterBS);
         recyclerView.setLayoutManager(new LinearLayoutManager(BookListStudent.this));
     }
@@ -70,6 +76,7 @@ public class BookListStudent extends AppCompatActivity {
                 book_publish.add(cursor.getString(4));
                 book_pages.add(cursor.getString(5));
                 book_description.add(cursor.getString(6));
+                book_cover.add(cursor.getBlob(7));
             }
             no_data.setVisibility(View.GONE);
         }
