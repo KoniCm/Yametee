@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="#8ecae6"
-    tools:context=".MainLogin.StudentLoginActivity">
+    tools:context=".MainLogin.LoginActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_marginTop="85dp"
@@ -23,14 +23,13 @@
             android:padding="15dp">
 
             <TextView
-                android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Login as a Student"
-                android:textSize="35sp"
-                android:textColor="#B2000000"
-                android:textStyle="bold|normal"
-                android:layout_gravity="center"/>
+                android:text="Login"
+                android:layout_gravity="center"
+                android:textSize="40sp"
+                android:textStyle="bold"/>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

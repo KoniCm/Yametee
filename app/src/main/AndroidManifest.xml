@@ -17,10 +17,6 @@
             android:name=".Student.FavouriteBookList"
             android:exported="false" />
         <activity
-            android:name=".MainLogin.LibrarianLoginActivity"
-            android:exported="false"
-            android:theme="@style/loginStyle" />
-        <activity
             android:name=".Student.StudentBookDetails"
             android:exported="false" />
         <activity
@@ -30,12 +26,9 @@
             android:name=".Dashboard.DashboardStudent"
             android:exported="false" />
         <activity
-            android:name=".MainLogin.StudentLoginActivity"
+            android:name=".MainLogin.LoginActivity"
             android:exported="false"
             android:theme="@style/loginStyle" />
-        <activity
-            android:name=".MainLogin.LoginSystem"
-            android:exported="true" />
         <activity
             android:name=".BorrowingReturn.Portal"
             android:exported="false" />
@@ -48,7 +41,8 @@
             android:exported="false" />
         <activity
             android:name=".Student.AddStudentActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/loginStyle"/>
         <activity
             android:name=".Librarian.StudentActivity"
             android:label="Student List" />

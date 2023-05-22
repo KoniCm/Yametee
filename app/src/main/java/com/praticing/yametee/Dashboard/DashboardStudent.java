@@ -1,17 +1,19 @@
 package com.praticing.yametee.Dashboard;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-import com.praticing.yametee.Student.BookListStudent;
-import com.praticing.yametee.MainLogin.LoginSystem;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.praticing.yametee.BorrowingReturn.Portal;
+import com.praticing.yametee.MainLogin.LoginActivity;
 import com.praticing.yametee.R;
+import com.praticing.yametee.Student.BookListStudent;
 
 public class DashboardStudent extends AppCompatActivity {
     CardView booklistforstudent,borrowreturn;
@@ -57,7 +59,7 @@ public class DashboardStudent extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i)
             {
                 Toast.makeText(DashboardStudent.this, "Your account has been sign out", Toast.LENGTH_SHORT).show();
-                Intent signOut = new Intent(DashboardStudent.this, LoginSystem.class);
+                Intent signOut = new Intent(DashboardStudent.this, LoginActivity.class);
                 startActivity(signOut);
             }
         });

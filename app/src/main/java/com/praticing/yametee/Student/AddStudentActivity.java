@@ -4,19 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.praticing.yametee.MainLogin.StudentLoginActivity;
+import com.google.android.material.textfield.TextInputEditText;
+import com.praticing.yametee.MainLogin.LoginActivity;
 import com.praticing.yametee.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddStudentActivity extends AppCompatActivity {
-    EditText id_input, name_input, level_input,section_input,strand_input,pass_input;
+    TextInputEditText id_input, name_input, level_input,section_input,strand_input,pass_input;
     Button addStudent_btn;
     private StudentDatabase stDatabase;
 
@@ -28,6 +28,7 @@ public class AddStudentActivity extends AppCompatActivity {
 
         findID();
         addStudent();
+
     }
 
     private void addStudent() {
@@ -67,7 +68,7 @@ public class AddStudentActivity extends AppCompatActivity {
                     stDatabase.addStudent(id.trim(), name.trim(), Integer.valueOf(level.trim()), section.trim(), strand.trim(), pass.trim());
 
                     //Going to the next activity
-                    Intent intent = new Intent(AddStudentActivity.this, StudentLoginActivity.class);
+                    Intent intent = new Intent(AddStudentActivity.this, LoginActivity.class);
                     startActivity(intent);
                     Toast.makeText(AddStudentActivity.this,"Success! Account Register!",Toast.LENGTH_SHORT).show();
 
@@ -84,8 +85,8 @@ public class AddStudentActivity extends AppCompatActivity {
         level_input = findViewById(R.id.level_input);
         section_input = findViewById(R.id.section_input);
         strand_input = findViewById(R.id.strand_input);
-        addStudent_btn = findViewById(R.id.addStudent_btn);
-        pass_input = findViewById(R.id.pass_input);
+        addStudent_btn = findViewById(R.id.btn_loginStudent);
+        pass_input = findViewById(R.id.input_password);
     }
 
     private boolean isInputEmpty(String... inputs) {

@@ -1,19 +1,26 @@
 package com.praticing.yametee.MainLogin;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputEditText;
+import com.praticing.yametee.Dashboard.DashboardLibrarian;
 import com.praticing.yametee.Dashboard.DashboardStudent;
 import com.praticing.yametee.R;
 import com.praticing.yametee.Student.AddStudentActivity;
 import com.praticing.yametee.Student.StudentDatabase;
 
-public class StudentLoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
+
+    final String permanentUser = "admin";
+    final String permanentPass = "admin123";
+
     Button btn_loginStudent;
     TextInputEditText input_username,input_password;
     TextView register;
@@ -21,7 +28,7 @@ public class StudentLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_login);
+        setContentView(R.layout.activity_main_login);
         studentDatabase = new StudentDatabase(this);
 
         findID();
@@ -29,7 +36,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(StudentLoginActivity.this, AddStudentActivity.class);
+                Intent intent = new Intent(LoginActivity.this, AddStudentActivity.class);
                 startActivity(intent);
             }
         });
@@ -43,13 +50,17 @@ public class StudentLoginActivity extends AppCompatActivity {
                 boolean checkAccount = studentDatabase.checkIdPassword(id,pass);
 
                 if(id.isEmpty() || pass.isEmpty()) {
-                    Toast.makeText(StudentLoginActivity.this, "Please fill the empty field", Toast.LENGTH_SHORT).show();
-                } else if(checkAccount == true) {
-                    Toast.makeText(StudentLoginActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(StudentLoginActivity.this, DashboardStudent.class);
+                    Toast.makeText(LoginActivity.this, "Please fill the empty field", Toast.LENGTH_SHORT).show();
+                } else if(id.equals(permanentUser) || pass.equals(permanentPass)){
+                    Toast.makeText(LoginActivity.this, "Successfully login as a Librarian!", Toast.LENGTH_SHORT).show();
+                    Intent bypass = new Intent(LoginActivity.this, DashboardLibrarian.class);
+                    startActivity(bypass);
+                }else if(checkAccount == true) {
+                    Toast.makeText(LoginActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, DashboardStudent.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(StudentLoginActivity.this, "Wrong username and password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Wrong username and password!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -64,7 +75,7 @@ public class StudentLoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(StudentLoginActivity.this, LoginSystem.class);
+        Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 }
