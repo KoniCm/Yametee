@@ -40,6 +40,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 listStrand.add("stem");
                 listStrand.add("abm");
                 listStrand.add("it");
+                listStrand.add("toper");
                 listStrand.add("culinary");
                 listStrand.add("humss");
 
