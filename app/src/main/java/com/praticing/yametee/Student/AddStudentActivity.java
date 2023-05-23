@@ -17,16 +17,17 @@ import java.util.List;
 
 public class AddStudentActivity extends AppCompatActivity {
 
-    String[] strandList = {"IT", "ABM", "CULINARY", "TOPER", "HUMSS"};
-
+    String[] strandList = {"IT-MAWD", "ABM", "CULINARY", "TOPER", "HUMSS"};
+    String[] sectionList = {"ICTE101A","ICTE201B", "IT301A", "ACT101", "ABMT101A", "HUMSS101A", "TEM301"};
     ArrayAdapter<String> adapter;
+    ArrayAdapter<String> adapter2;
 
-    AutoCompleteTextView strand_input;
+    AutoCompleteTextView strand_input,section_input;
 
     /***
      * Adding Strand list
      */
-    TextInputEditText id_input, name_input, level_input,section_input,pass_input,input_Confirmpassword;
+    TextInputEditText id_input, name_input,level_input,pass_input,input_Confirmpassword;
     Button addStudent_btn;
     private StudentDatabase stDatabase;
 
@@ -41,13 +42,22 @@ public class AddStudentActivity extends AppCompatActivity {
 
 
         adapter = new ArrayAdapter<String>(this, R.layout.list_dropdown_strand, strandList);
-
         strand_input.setAdapter(adapter);
+        //
+        adapter2 = new ArrayAdapter<String>(this, R.layout.list_dropdown_section, sectionList);
+        section_input.setAdapter(adapter2);
 
         strand_input.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String item = adapterView.getItemAtPosition(position).toString();
+            }
+        });
+
+        section_input.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView2, View view, int position, long id) {
+                String item2 = adapterView2.getItemAtPosition(position).toString();
             }
         });
     }
@@ -60,10 +70,22 @@ public class AddStudentActivity extends AppCompatActivity {
                 List<String> listStrand = new ArrayList<>();
 
                 listStrand.add("abm");
-                listStrand.add("it");
+                listStrand.add("it-mawd");
                 listStrand.add("toper");
                 listStrand.add("culinary");
                 listStrand.add("humss");
+
+                //-- List of Section
+                List<String> listSection = new ArrayList<>();
+
+                listSection.add("icte101a");
+                listSection.add("icte201b");
+                listSection.add("it301a");
+                listSection.add("act101");
+                listSection.add("abmt101a");
+                listSection.add("humss101");
+                listSection.add("tem301");
+
 
                 String id = id_input.getText().toString();
                 String name = name_input.getText().toString();
@@ -82,7 +104,9 @@ public class AddStudentActivity extends AppCompatActivity {
                     Toast.makeText(AddStudentActivity.this, "Enter a valid grade level", Toast.LENGTH_SHORT).show();
                 } else if(!listStrand.contains(strand.toLowerCase())) {
                     Toast.makeText(AddStudentActivity.this, "Enter a valid strand", Toast.LENGTH_SHORT).show();
-                } else if(pass.length() < 8) {
+                } else if(!listSection.contains(section.toLowerCase())){
+                    Toast.makeText(AddStudentActivity.this, "Enter a valid section", Toast.LENGTH_SHORT).show();
+                }else if(pass.length() < 8) {
                     Toast.makeText(AddStudentActivity.this,"Password must be longer than 8 characters!",Toast.LENGTH_SHORT).show();
                 } else if(!pass.equals(confirmpass)){
                     Toast.makeText(AddStudentActivity.this,"Password does not matched!",Toast.LENGTH_SHORT).show();
