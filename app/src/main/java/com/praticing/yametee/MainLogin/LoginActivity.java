@@ -18,7 +18,7 @@ import com.praticing.yametee.Student.StudentDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
-    final String permanentUser = "admin";
+    final String permanentUser = "123";
     final String permanentPass = "admin123";
 
     Button btn_loginStudent;
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent bypass = new Intent(LoginActivity.this, DashboardLibrarian.class);
                     startActivity(bypass);
                 }else if(checkAccount == true) {
-                    Toast.makeText(LoginActivity.this, "Successfully login!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Successfully login as a Student!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, DashboardStudent.class);
                     startActivity(intent);
                 } else {
