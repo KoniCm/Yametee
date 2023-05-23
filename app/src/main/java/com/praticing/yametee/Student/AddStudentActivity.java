@@ -3,20 +3,30 @@ package com.praticing.yametee.Student;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.textfield.TextInputEditText;
 import com.praticing.yametee.MainLogin.LoginActivity;
 import com.praticing.yametee.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddStudentActivity extends AppCompatActivity {
-    TextInputEditText id_input, name_input, level_input,section_input,strand_input,pass_input;
+
+    String[] strandList = {"IT", "ABM", "CULINARY", "TOPER", "HUMSS"};
+
+    ArrayAdapter<String> adapter;
+
+    AutoCompleteTextView strand_input;
+
+    /***
+     * Adding Strand list
+     */
+    TextInputEditText id_input, name_input, level_input,section_input,pass_input,input_Confirmpassword;
     Button addStudent_btn;
     private StudentDatabase stDatabase;
 
@@ -29,6 +39,17 @@ public class AddStudentActivity extends AppCompatActivity {
         findID();
         addStudent();
 
+
+        adapter = new ArrayAdapter<String>(this, R.layout.list_dropdown_strand, strandList);
+
+        strand_input.setAdapter(adapter);
+
+        strand_input.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String item = adapterView.getItemAtPosition(position).toString();
+            }
+        });
     }
 
     private void addStudent() {
@@ -38,7 +59,6 @@ public class AddStudentActivity extends AppCompatActivity {
                 //-- List Of Strand
                 List<String> listStrand = new ArrayList<>();
 
-                listStrand.add("stem");
                 listStrand.add("abm");
                 listStrand.add("it");
                 listStrand.add("toper");
@@ -51,6 +71,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 String section = section_input.getText().toString();
                 String strand = strand_input.getText().toString();
                 String pass = pass_input.getText().toString();
+                String confirmpass = input_Confirmpassword.getText().toString();
 
                 //if the field empty keyword(isEmpty)
                 if(isInputEmpty(id,name,level,section,strand,pass)) {
@@ -63,7 +84,9 @@ public class AddStudentActivity extends AppCompatActivity {
                     Toast.makeText(AddStudentActivity.this, "Enter a valid strand", Toast.LENGTH_SHORT).show();
                 } else if(pass.length() < 8) {
                     Toast.makeText(AddStudentActivity.this,"Password must be longer than 8 characters!",Toast.LENGTH_SHORT).show();
-                } else {
+                } else if(!pass.equals(confirmpass)){
+                    Toast.makeText(AddStudentActivity.this,"Password does not matched!",Toast.LENGTH_SHORT).show();
+                }else {
 
                     stDatabase.addStudent(id.trim(), name.trim(), Integer.valueOf(level.trim()), section.trim(), strand.trim(), pass.trim());
 
@@ -87,6 +110,7 @@ public class AddStudentActivity extends AppCompatActivity {
         strand_input = findViewById(R.id.strand_input);
         addStudent_btn = findViewById(R.id.btn_loginStudent);
         pass_input = findViewById(R.id.input_password);
+        input_Confirmpassword = findViewById(R.id.input_Confirmpassword);
     }
 
     private boolean isInputEmpty(String... inputs) {

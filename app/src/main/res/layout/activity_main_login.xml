@@ -22,6 +22,12 @@
             android:orientation="vertical"
             android:padding="15dp">
 
+            <ImageView
+                android:id="@+id/help_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_help_24"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/baseline_person_24"
                     android:hint="ID"
+                    android:drawablePadding="5dp"
                     android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -63,9 +70,17 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:hint="Password"
+                    android:drawablePadding="5dp"
                     android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create an account"
+                android:textSize="14sp"/>
 
             <Button
                 android:layout_marginTop="15dp"
@@ -74,13 +89,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Login"/>
-
-            <TextView
-                android:id="@+id/register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Create an account"
-                android:textSize="14sp"/>
 
         </LinearLayout>
 
