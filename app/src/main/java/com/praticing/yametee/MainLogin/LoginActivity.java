@@ -21,7 +21,7 @@ import com.praticing.yametee.Student.StudentDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
-    final String permanentUser = "123";
+    final String permanentUser = "69";
     final String permanentPass = "admin123";
 
     Button btn_loginStudent;
@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 builder.setIcon(R.drawable.baseline_help_24);
                 builder.setTitle("Helper");
-                builder.setMessage("Student can only register!");
+                builder.setMessage("Only student can register!");
                 builder.setCancelable(false);
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
