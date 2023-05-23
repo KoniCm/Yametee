@@ -54,7 +54,7 @@ public class AddStudentActivity extends AppCompatActivity {
 
                 //if the field empty keyword(isEmpty)
                 if(isInputEmpty(id,name,level,section,strand,pass)) {
-                    Toast.makeText(AddStudentActivity.this, "Fill the blank, Thank you!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddStudentActivity.this, "Please fill the empty field!", Toast.LENGTH_SHORT).show();
                 } else if(id.length() != 11) {
                     Toast.makeText(AddStudentActivity.this, "Enter a valid Student ID", Toast.LENGTH_SHORT).show();
                 } else if (!level.equals("11") && !level.equals("12")) {
