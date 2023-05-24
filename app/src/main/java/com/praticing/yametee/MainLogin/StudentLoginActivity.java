@@ -1,6 +1,5 @@
 package com.praticing.yametee.MainLogin;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,21 +8,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.praticing.yametee.Dashboard.DashboardLibrarian;
 import com.praticing.yametee.Dashboard.DashboardStudent;
+import com.praticing.yametee.Dialog.DialogHelper;
 import com.praticing.yametee.R;
 import com.praticing.yametee.Student.AddStudentActivity;
 import com.praticing.yametee.Student.StudentDatabase;
 
-public class LoginActivity extends AppCompatActivity {
-
-    final String permanentUser = "69";
-    final String permanentPass = "admin123";
-
+public class StudentLoginActivity extends AppCompatActivity {
     Button btn_loginStudent;
     ImageView helper;
     TextInputEditText input_username,input_password;
@@ -32,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_login);
+        setContentView(R.layout.activity_student_login);
         studentDatabase = new StudentDatabase(this);
 
         findID();
@@ -41,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, AddStudentActivity.class);
+                Intent intent = new Intent(StudentLoginActivity.this, AddStudentActivity.class);
                 startActivity(intent);
             }
         });
@@ -55,17 +49,13 @@ public class LoginActivity extends AppCompatActivity {
                 boolean checkAccount = studentDatabase.checkIdPassword(id,pass);
 
                 if(id.isEmpty() || pass.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Please fill the empty field", Toast.LENGTH_SHORT).show();
-                } else if(id.equals(permanentUser) || pass.equals(permanentPass)){
-                    Toast.makeText(LoginActivity.this, "Successfully login as a Librarian!", Toast.LENGTH_SHORT).show();
-                    Intent bypass = new Intent(LoginActivity.this, DashboardLibrarian.class);
-                    startActivity(bypass);
-                }else if(checkAccount == true) {
-                    Toast.makeText(LoginActivity.this, "Successfully login as a Student!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, DashboardStudent.class);
+                    Toast.makeText(StudentLoginActivity.this, "Please fill the empty field", Toast.LENGTH_SHORT).show();
+                } else if(checkAccount == true) {
+                    Toast.makeText(StudentLoginActivity.this, "Successfully login as a Student!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(StudentLoginActivity.this, DashboardStudent.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Wrong username and password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StudentLoginActivity.this, "Wrong username and password!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -81,27 +71,15 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+        Intent intent = new Intent(StudentLoginActivity.this, MainLoginActivity.class);
         startActivity(intent);
     }
     private void helperDialog() {
         helper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-
-                builder.setIcon(R.drawable.baseline_help_24);
-                builder.setTitle("Helper");
-                builder.setMessage("Only student can register!");
-                builder.setCancelable(false);
-                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        builder.setCancelable(true);
-                    }
-                });
-
-                builder.create().show();
+                DialogHelper dialogHelper = new DialogHelper();
+                dialogHelper.show(getSupportFragmentManager(), "Help Center");
             }
         });
     }

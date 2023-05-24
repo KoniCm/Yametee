@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView;
 import com.praticing.yametee.BorrowingReturn.Portal;
 import com.praticing.yametee.Librarian.BookActivity;
 import com.praticing.yametee.Librarian.StudentActivity;
-import com.praticing.yametee.MainLogin.LoginActivity;
+import com.praticing.yametee.MainLogin.StudentLoginActivity;
 import com.praticing.yametee.R;
 
 public class DashboardLibrarian extends AppCompatActivity {
@@ -64,7 +64,7 @@ public class DashboardLibrarian extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i)
             {
                 Toast.makeText(DashboardLibrarian.this, "Your account has been sign out", Toast.LENGTH_SHORT).show();
-                Intent signOut = new Intent(DashboardLibrarian.this, LoginActivity.class);
+                Intent signOut = new Intent(DashboardLibrarian.this, StudentLoginActivity.class);
                 startActivity(signOut);
             }
         });

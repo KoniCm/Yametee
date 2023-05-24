@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
-import com.praticing.yametee.MainLogin.LoginActivity;
+import com.praticing.yametee.MainLogin.StudentLoginActivity;
 import com.praticing.yametee.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,10 +69,10 @@ public class AddStudentActivity extends AppCompatActivity {
                 //-- List Of Strand
                 List<String> listStrand = new ArrayList<>();
 
-                listStrand.add("abm");
                 listStrand.add("it-mawd");
-                listStrand.add("toper");
+                listStrand.add("abm");
                 listStrand.add("culinary");
+                listStrand.add("toper");
                 listStrand.add("humss");
 
                 //-- List of Section
@@ -83,7 +83,7 @@ public class AddStudentActivity extends AppCompatActivity {
                 listSection.add("it301a");
                 listSection.add("act101");
                 listSection.add("abmt101a");
-                listSection.add("humss101");
+                listSection.add("humss101a");
                 listSection.add("tem301");
 
 
@@ -115,7 +115,7 @@ public class AddStudentActivity extends AppCompatActivity {
                     stDatabase.addStudent(id.trim(), name.trim(), Integer.valueOf(level.trim()), section.trim(), strand.trim(), pass.trim());
 
                     //Going to the next activity
-                    Intent intent = new Intent(AddStudentActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(AddStudentActivity.this, StudentLoginActivity.class);
                     startActivity(intent);
                     Toast.makeText(AddStudentActivity.this,"Success! Account Register!",Toast.LENGTH_SHORT).show();
 
