@@ -26,12 +26,7 @@ public class DialogHelper extends AppCompatDialogFragment {
 
         builder.setView(view);
         builder.setTitle("Help Center");
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                
-            }
-        });
+        builder.setPositiveButton("Ok",null);
 
         account_help = view.findViewById(R.id.account_help);
         borrow_help = view.findViewById(R.id.borrow_help);
@@ -41,21 +36,39 @@ public class DialogHelper extends AppCompatDialogFragment {
         account_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "How to create account executed", Toast.LENGTH_SHORT).show();
+                /**
+                 * Call this method for Helping the user
+                 * to use the create student information
+                 * */
+                helpCreateAccount();
             }
         });
         borrow_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "How to borrow the book executed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Step by Step procedural!", Toast.LENGTH_SHORT).show();
             }
         });
         return_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "How to return the book executed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Step by Step procedural!", Toast.LENGTH_SHORT).show();
             }
         });
         return builder.create();
+    }
+    private void helpCreateAccount() {
+        AlertDialog.Builder db = new AlertDialog.Builder(getContext());
+
+        db.setCancelable(false);
+        db.setMessage("Only student can register!");
+        db.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                db.setCancelable(true);
+            }
+        });
+
+        db.create().show();
     }
 }
