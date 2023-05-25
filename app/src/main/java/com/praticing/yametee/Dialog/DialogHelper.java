@@ -1,7 +1,6 @@
 package com.praticing.yametee.Dialog;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +39,8 @@ public class DialogHelper extends AppCompatDialogFragment {
                  * Call this method for Helping the user
                  * to use the create student information
                  * */
-                helpCreateAccount();
+                AccountHelper accountHelper = new AccountHelper();
+                accountHelper.show(getChildFragmentManager(), "GG");
             }
         });
         borrow_help.setOnClickListener(new View.OnClickListener() {
@@ -56,19 +56,5 @@ public class DialogHelper extends AppCompatDialogFragment {
             }
         });
         return builder.create();
-    }
-    private void helpCreateAccount() {
-        AlertDialog.Builder db = new AlertDialog.Builder(getContext());
-
-        db.setCancelable(false);
-        db.setMessage("Only student can register!");
-        db.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                db.setCancelable(true);
-            }
-        });
-
-        db.create().show();
     }
 }

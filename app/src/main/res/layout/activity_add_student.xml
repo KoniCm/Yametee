@@ -102,19 +102,17 @@
                             android:drawableStart="@drawable/baseline_menu_book_24"
                             android:drawablePadding="5dp"
                             android:hint="Strand"
-                            android:inputType="none" />
+                            android:inputType="text" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        app:endIconMode="clear_text"
-                        app:errorEnabled="true">
+                        android:layout_marginTop="10dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <AutoCompleteTextView
                             android:id="@+id/level_input"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -124,6 +122,7 @@
                             android:inputType="text" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

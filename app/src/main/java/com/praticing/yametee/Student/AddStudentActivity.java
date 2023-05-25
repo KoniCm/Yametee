@@ -18,16 +18,20 @@ import java.util.List;
 public class AddStudentActivity extends AppCompatActivity {
 
     String[] strandList = {"IT-MAWD", "ABM", "CULINARY", "TOPER", "HUMSS"};
-    String[] sectionList = {"ICTE101A","ICTE201B", "IT301A", "ACT101", "ABMT101A", "HUMSS101A", "TEM301"};
+    String[] sectionList = {"ICTE101A", "IT301A", "ACT101", "ABMT101A", "HUMSS101A", "TEM301"};
+
+    String[] gradeLevel = {"11","12"};
     ArrayAdapter<String> adapter;
     ArrayAdapter<String> adapter2;
 
-    AutoCompleteTextView strand_input,section_input;
+    ArrayAdapter<String> adapter3;
+
+    AutoCompleteTextView strand_input,section_input,level_input;
 
     /***
      * Adding Strand list
      */
-    TextInputEditText id_input, name_input,level_input,pass_input,input_Confirmpassword;
+    TextInputEditText id_input, name_input,pass_input,input_Confirmpassword;
     Button addStudent_btn;
     private StudentDatabase stDatabase;
 
@@ -47,6 +51,10 @@ public class AddStudentActivity extends AppCompatActivity {
         adapter2 = new ArrayAdapter<String>(this, R.layout.list_dropdown_section, sectionList);
         section_input.setAdapter(adapter2);
 
+        adapter3 = new ArrayAdapter<String>(this, R.layout.list_dropdown_gradelevel, gradeLevel);
+        level_input.setAdapter(adapter3);
+
+
         strand_input.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -58,6 +66,12 @@ public class AddStudentActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView2, View view, int position, long id) {
                 String item2 = adapterView2.getItemAtPosition(position).toString();
+            }
+        });
+        level_input.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView3, View view, int position, long id) {
+                String items3 = adapterView3.getItemAtPosition(position).toString();
             }
         });
     }
@@ -79,12 +93,17 @@ public class AddStudentActivity extends AppCompatActivity {
                 List<String> listSection = new ArrayList<>();
 
                 listSection.add("icte101a");
-                listSection.add("icte201b");
                 listSection.add("it301a");
                 listSection.add("act101");
                 listSection.add("abmt101a");
                 listSection.add("humss101a");
                 listSection.add("tem301");
+
+                // -- List of GradeLevel
+                List<String> listGradelevel = new ArrayList<>();
+
+                listGradelevel.add("11");
+                listGradelevel.add("12");
 
 
                 String id = id_input.getText().toString();
@@ -106,6 +125,8 @@ public class AddStudentActivity extends AppCompatActivity {
                     Toast.makeText(AddStudentActivity.this, "Enter a valid strand", Toast.LENGTH_SHORT).show();
                 } else if(!listSection.contains(section.toLowerCase())){
                     Toast.makeText(AddStudentActivity.this, "Enter a valid section", Toast.LENGTH_SHORT).show();
+                } else if(!listGradelevel.contains(level.toLowerCase())){
+                    Toast.makeText(AddStudentActivity.this, "Enter a valid grade level", Toast.LENGTH_SHORT).show();
                 }else if(pass.length() < 8) {
                     Toast.makeText(AddStudentActivity.this,"Password must be longer than 8 characters!",Toast.LENGTH_SHORT).show();
                 } else if(!pass.equals(confirmpass)){
