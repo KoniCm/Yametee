@@ -3,16 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/return_btn"
     tools:context=".fragments.WhoReturn">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <TextView
+        android:id="@+id/no_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="We Display Who Return the book"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:layout_centerInParent="true"
-        />
+        android:layout_marginTop="296dp"
+        android:alpha="0.5"
+        android:text="No Book Found"
+        android:textSize="35sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </RelativeLayout>

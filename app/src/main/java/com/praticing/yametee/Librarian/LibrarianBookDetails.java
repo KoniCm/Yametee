@@ -14,7 +14,7 @@ public class LibrarianBookDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_librarian_book_details);
+        setContentView(R.layout.activity_book_details);
 
         findID();
 

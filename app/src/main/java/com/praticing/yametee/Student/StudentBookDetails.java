@@ -1,10 +1,12 @@
 package com.praticing.yametee.Student;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.praticing.yametee.R;
 
 public class StudentBookDetails extends AppCompatActivity {
@@ -14,7 +16,7 @@ public class StudentBookDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_book_details);
+        setContentView(R.layout.activity_book_details);
 
         findID();
 

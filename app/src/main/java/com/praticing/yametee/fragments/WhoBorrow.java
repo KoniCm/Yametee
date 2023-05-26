@@ -1,17 +1,33 @@
 package com.praticing.yametee.fragments;
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.praticing.yametee.R;
 
 public class WhoBorrow extends Fragment {
 
+    RecyclerView recyclerView;
+    TextView no_data;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_borrowing_activity, container, false);
+        return inflater.inflate(R.layout.fragment_borrowing_activity, container, true);
+
     }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        no_data = view.findViewById(R.id.no_data);
+    }
+
 }

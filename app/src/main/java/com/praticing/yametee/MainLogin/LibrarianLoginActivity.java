@@ -42,12 +42,12 @@ public class LibrarianLoginActivity extends AppCompatActivity {
 
                 if(userX.isEmpty() || passX.isEmpty()){
                     Toast.makeText(LibrarianLoginActivity.this, "Please fill the empty field", Toast.LENGTH_SHORT).show();
-                } else if(userX.equals(librarianSampleUser) || passX.equals(librarianSamplePass)) {
+                } else if(!userX.equals(librarianSampleUser) || !passX.equals(librarianSamplePass)) {
+                    Toast.makeText(LibrarianLoginActivity.this, "Wrong username and password!", Toast.LENGTH_SHORT).show();
+                } else{
                     Toast.makeText(LibrarianLoginActivity.this, "Successfully login as a librarian", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LibrarianLoginActivity.this, DashboardLibrarian.class);
                     startActivity(intent);
-                } else {
-                    Toast.makeText(LibrarianLoginActivity.this, "Wrong username and password!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
